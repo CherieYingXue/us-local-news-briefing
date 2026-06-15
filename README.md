@@ -39,10 +39,12 @@ python server.py
 
 ## 永久部署到 Render
 
-1. 双击 **`deploy-render.bat`**
-2. 按提示登录 GitHub（浏览器授权）
-3. 脚本自动推送代码到 GitHub
-4. 在 Render 页面选择仓库 `us-local-news-briefing`，点击 **Apply**
-5. 部署完成后访问：**https://us-local-news-briefing.onrender.com**
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/CherieYingXue/us-local-news-briefing)
+
+**一键部署：** 打开 [Render 部署链接](https://render.com/deploy?repo=https://github.com/CherieYingXue/us-local-news-briefing)，登录 Render，点击 **Apply** 即可。
+
+部署完成后永久地址：**https://us-local-news-briefing.onrender.com**
+
+GitHub 仓库：https://github.com/CherieYingXue/us-local-news-briefing
 
 免费版 Render 在无访问时会休眠，首次打开需等待约 30 秒唤醒。

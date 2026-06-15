@@ -4,9 +4,11 @@ services:
     runtime: python
     plan: free
     region: oregon
+    branch: master
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn server:app --bind 0.0.0.0:$PORT --workers 1 --timeout 300
     healthCheckPath: /
+    autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.9"
