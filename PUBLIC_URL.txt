@@ -1,0 +1,6 @@
+https://7be918efb85f96.lhr.life
+
+Public URL (active while deploy.bat / SSH tunnel is running).
+Open on your phone and add to home screen for daily access.
+
+To restart: double-click deploy.bat
