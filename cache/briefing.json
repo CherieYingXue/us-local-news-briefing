@@ -1,0 +1,2332 @@
+{
+  "updatedAt": "2026-06-15T22:21:14.154940+00:00",
+  "totalStates": 50,
+  "statesWithNews": 50,
+  "states": [
+    {
+      "code": "AK",
+      "name": "Alaska",
+      "source": "Alaska Beacon",
+      "feed": "https://alaskabeacon.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "QUstaHR0cHM6Ly9hbGFza2FiZWFjb24uY29tLzIwMjYvMDYvMTMvYWxhc2thLWRpdmlzaW9uLW9mLWVsZWN0aW9ucy1zYXlzLXBldGVyc2J1cmctc3VsbGl2YW4taXMtbGlrZWx5LWluZWxpZ2libGUtdG8tcnVuLWZvci11LXMtc2VuYXRlLw",
+          "title": "Alaska Division of Elections says Petersburg Sullivan is likely ineligible to run for U.S. Senate",
+          "titleZh": "阿拉斯加选举部门表示，彼得堡沙利文可能没有资格竞选美国参议员",
+          "description": "The Alaska Division of Elections announced that the state intends to disqualify a Petersburg candidate from Alaska’s U.S. Senate race. Dan J. Sullivan has the same first and last name as the incumbent senator. The decision comes after complaints from the incumbent and Republican Party groups and eligibility concerns. The decision is preliminary, and the […]",
+          "descriptionZh": "",
+          "link": "https://alaskabeacon.com/2026/06/13/alaska-division-of-elections-says-petersburg-sullivan-is-likely-ineligible-to-run-for-u-s-senate/",
+          "pubDate": "2026-06-13T16:00:41+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Alaska Beacon"
+        },
+        {
+          "id": "QUstaHR0cHM6Ly9hbGFza2FiZWFjb24uY29tLzIwMjYvMDYvMTIvYWxhc2thLWhvdXNlLWFkdmFuY2VzLWdhcy1waXBlbGluZS10YXgtYnJlYWstdG8tc3RhdGUtc2VuYXRlLWZvci1mdXJ0aGVyLXdvcmsv",
+          "title": "Alaska House advances gas pipeline tax break to state Senate for further work",
+          "titleZh": "阿拉斯加州众议院向州参议院提出天然气管道税收减免，以便进一步开展工作",
+          "description": "The Alaska House of Representatives has voted to advance a multibillion-dollar tax break for the proposed trans-Alaska natural gas pipeline project. The House’s 34-5 action sends the tax break to the state Senate, which is expected to take up the issue next week. Legislators are in a 30-day special session devoted to the issue, and […]",
+          "descriptionZh": "",
+          "link": "https://alaskabeacon.com/2026/06/12/alaska-house-advances-gas-pipeline-tax-break-to-state-senate-for-further-work/",
+          "pubDate": "2026-06-13T00:27:48+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Alaska Beacon"
+        },
+        {
+          "id": "QUstaHR0cHM6Ly9hbGFza2FiZWFjb24uY29tLzIwMjYvMDYvMTIvbmV3LWljZWJyZWFrZXJzLWFyZS1jb21pbmctdG8tYWxhc2thLWNpdGllcy1uZWVkLXRvLXByZXBhcmUtaG91c2luZy1wb3J0cy1hbmQtbW9yZS8",
+          "title": "New icebreakers are coming to Alaska. Cities need to prepare housing, ports and more.",
+          "titleZh": "新的破冰船即将来到阿拉斯加。城市需要准备住房、港口等。",
+          "description": "The U.S. Coast Guard will base two new icebreakers in Kodiak and one in Seward, it announced Thursday. The first two ships are expected in Kodiak in 2028, and the third ship is expected in Seward in the early 2030s, said Sen. Dan Sullivan, R-Alaska. The new ships are part of an 11-ship medium icebreaker […]",
+          "descriptionZh": "",
+          "link": "https://alaskabeacon.com/2026/06/12/new-icebreakers-are-coming-to-alaska-cities-need-to-prepare-housing-ports-and-more/",
+          "pubDate": "2026-06-12T22:33:16+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "Alaska Beacon"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "AL",
+      "name": "Alabama",
+      "source": "Alabama Reflector",
+      "feed": "https://alabamareflector.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "QUwtaHR0cHM6Ly9hbGFiYW1hcmVmbGVjdG9yLmNvbS8yMDI2LzA2LzE1L2Etdm90ZXItZ3VpZGUtdG8tYWxhYmFtYXMtcHJpbWFyeS1ydW5vZmZzLw",
+          "title": "A voter guide to Alabama’s primary runoffs",
+          "titleZh": "阿拉巴马州初选选民指南",
+          "description": "Voters across Alabama go to the polls Tuesday to select party nominees for the 2026 midterm elections in five statewide and six legislative primary runoff elections. Sample ballots for all 67 counties can be found on the Secretary of State’s website. Alabama has open primaries, so voters can ask for a Democratic or Republican ballot […]",
+          "descriptionZh": "",
+          "link": "https://alabamareflector.com/2026/06/15/a-voter-guide-to-alabamas-primary-runoffs/",
+          "pubDate": "2026-06-15T10:01:11+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Alabama Reflector"
+        },
+        {
+          "id": "QUwtaHR0cHM6Ly9hbGFiYW1hcmVmbGVjdG9yLmNvbS8yMDI2LzA2LzE1L2hvdy1kby1jb3VydHMtbGV0LWNydWVsLWFuZC11bnVzdWFsLXB1bmlzaG1lbnRzLXBlcnNpc3QtYnktaWdub3JpbmctdGhlLWNydWVsdHkv",
+          "title": "How do courts let cruel and unusual punishments persist? By ignoring the cruelty",
+          "titleZh": "法院如何让残忍和不寻常的惩罚持续存在？通过忽视残忍",
+          "description": "Nitrogen gas executions are cruel. That’s been clear since January 2024, when Corrections officials strapped a mask over Kenneth Eugene Smith and suffocated him to death. Smith convulsed and struggled for breath over the course of many minutes. Did this lead to any reflection about what happened in Holman prison? No. The Alabama attorney general […]",
+          "descriptionZh": "",
+          "link": "https://alabamareflector.com/2026/06/15/how-do-courts-let-cruel-and-unusual-punishments-persist-by-ignoring-the-cruelty/",
+          "pubDate": "2026-06-15T09:59:30+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Alabama Reflector"
+        },
+        {
+          "id": "QUwtaHR0cHM6Ly9hbGFiYW1hcmVmbGVjdG9yLmNvbS8yMDI2LzA2LzE0L2FsYWJhbWEtcmVwdWJsaWNhbi1wYXJ0eS1ydWxlcy1mb3ItdG9tbXktdHViZXJ2aWxsZS1pbi1yZXNpZGVuY3ktY2hhbGxlbmdlLw",
+          "title": "Alabama Republican Party rules for Tommy Tuberville in residency challenge",
+          "titleZh": "阿拉巴马州共和党对Tommy Tuberville的居住挑战规则",
+          "description": "The Alabama Republican Party Sunday rejected a challenge to U.S. Sen. Tommy Tuberville’s residency from his former primary opponent Ken McFeeters, keeping him the GOP gubernatorial nominee. Scott Stadthagen, chair of the Alabama Republican Party (ALGOP), announced the ruling of the the 21-member steering committee on Sunday afternoon. Stadthagen, a member of the committee, did […]",
+          "descriptionZh": "",
+          "link": "https://alabamareflector.com/2026/06/14/alabama-republican-party-rules-for-tommy-tuberville-in-residency-challenge/",
+          "pubDate": "2026-06-14T22:24:18+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Alabama Reflector"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "AR",
+      "name": "Arkansas",
+      "source": "Arkansas Advocate",
+      "feed": "https://arkansasadvocate.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "QVItaHR0cHM6Ly9hcmthbnNhc2Fkdm9jYXRlLmNvbS8yMDI2LzA2LzE1L2RvemVucy1vYmplY3QtdG8tcnVsZS1yZXF1aXJpbmctYXJrYW5zYXMtbGlicmFyaWVzLXRvLXJlc3RyaWN0LXNleHVhbGx5LWV4cGxpY2l0LW1hdGVyaWFscy8",
+          "title": "Dozens object to rule requiring Arkansas libraries to restrict ‘sexually explicit’ materials",
+          "titleZh": "数十人反对要求阿肯色州图书馆限制“色情”材料的规定",
+          "description": "Dozens of Arkansans told the Department of Education that they oppose requiring public libraries to restrict children’s access to “sexually explicit materials” in order to receive state funding. At least 62 people submitted concerns in writing by Friday about the draft rule requiring libraries to ensure patrons age 16 or younger cannot check out materials […]",
+          "descriptionZh": "",
+          "link": "https://arkansasadvocate.com/2026/06/15/dozens-object-to-rule-requiring-arkansas-libraries-to-restrict-sexually-explicit-materials/",
+          "pubDate": "2026-06-15T21:53:38+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Arkansas Advocate"
+        },
+        {
+          "id": "QVItaHR0cHM6Ly9hcmthbnNhc2Fkdm9jYXRlLmNvbS8yMDI2LzA2LzE1L2ZpbmFsLXJ1bGVzLWZvci1tZWRpY2FpZC13b3JrLXJlcXVpcmVtZW50cy1hcmUtb3V0LWhlcmVzLXdoYXQteW91LW5lZWQtdG8ta25vdy8",
+          "title": "Final Rules for Medicaid Work Requirements Are Out. Here’s What You Need To Know.",
+          "titleZh": "医疗补助工作要求的最终规则已经出台。以下是您需要了解的信息。",
+          "description": "The Trump administration has issued final rules on how states should ensure that millions of Medicaid enrollees prove they’re working or completing other activities, such as job training, volunteering, or being enrolled in an educational program. The Centers for Medicare & Medicaid Services released the rules on June 1. That deadline was set last year […]",
+          "descriptionZh": "",
+          "link": "https://arkansasadvocate.com/2026/06/15/final-rules-for-medicaid-work-requirements-are-out-heres-what-you-need-to-know/",
+          "pubDate": "2026-06-15T10:00:58+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "Arkansas Advocate"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "AZ",
+      "name": "Arizona",
+      "source": "Arizona Mirror",
+      "feed": "https://azmirror.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "QVotaHR0cHM6Ly9hem1pcnJvci5jb20vYnJpZWZzL2hvYmJzLXNpZ25zLTE4LTNiLWFyaXpvbmEtYnVkZ2V0LWNhbGxpbmctdHJ1bXAtY29uZm9ybWluZy10YXgtY3V0cy1hLWhpc3RvcmljLXdpbi8",
+          "title": "Hobbs signs $18.3B Arizona budget, calling Trump-conforming tax cuts a ‘historic’ win",
+          "titleZh": "霍布斯签署183亿美元的亚利桑那州预算，称特朗普减税是“历史性的”胜利",
+          "description": "Arizona Gov. Katie Hobbs signed an $18.3 billion state budget into law on Saturday, about two weeks ahead of the deadline to avoid a state government shutdown. The package of budget bills that garnered wide bipartisan support was the result of weeks of negotiations between the Republicans who control both chambers of the Arizona Legislature, […]",
+          "descriptionZh": "",
+          "link": "https://azmirror.com/briefs/hobbs-signs-18-3b-arizona-budget-calling-trump-conforming-tax-cuts-a-historic-win/",
+          "pubDate": "2026-06-14T01:40:26+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Arizona Mirror"
+        },
+        {
+          "id": "QVotaHR0cHM6Ly9hem1pcnJvci5jb20vMjAyNi8wNi8xMy9hei1sZWdpc2xhdHVyZS1lbmRzLTIwMjYtc2Vzc2lvbi1hZnRlci1sYXRlLW5pZ2h0LWdvcC1wdXNoLXRvLXNlbmQtY29uc2VydmF0aXZlLWFnZW5kYS10by12b3RlcnMv",
+          "title": "AZ Legislature ends 2026 session after late-night GOP push to send conservative agenda to voters",
+          "titleZh": "亚利桑那州立法机关在深夜共和党推动向选民发送保守议程后结束2026年会议",
+          "description": "The Arizona Legislature adjourned for the year early Saturday morning, after four days of rapid-fire votes on hundreds of pieces of legislation and a marathon last day that saw Republicans send a series of measures to the November ballot in the hopes that voters let them enact policies Gov. Katie Hobbs won’t. Legislators started the […]",
+          "descriptionZh": "",
+          "link": "https://azmirror.com/2026/06/13/az-legislature-ends-2026-session-after-late-night-gop-push-to-send-conservative-agenda-to-voters/",
+          "pubDate": "2026-06-13T14:36:25+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Arizona Mirror"
+        },
+        {
+          "id": "QVotaHR0cHM6Ly9hem1pcnJvci5jb20vMjAyNi8wNi8xMy9hZnRlci1jb21wcm9taXNlLWRpZXMtYXJpem9uYS1nb3AtcnVzaGVzLXRocm91Z2gtYmFsbG90LXJlZmVycmFsLXRvLWJsb2NrLXZvdWNoZXItcmVmb3Jtcy8",
+          "title": "After compromise dies, Arizona GOP rushes through ballot referral to block voucher reforms",
+          "titleZh": "妥协死后，亚利桑那州共和党急于通过选票推荐来阻止代金券改革",
+          "description": "In the final hours of the annual legislative session, Republican lawmakers pushed through a ballot referral that, if approved by voters, would nullify two citizen-led initiatives aimed at regulating the state’s billion-dollar school voucher program. The move came after a failed last-ditch effort to avoid a public vote on the voucher program led by the […]",
+          "descriptionZh": "",
+          "link": "https://azmirror.com/2026/06/13/after-compromise-dies-arizona-gop-rushes-through-ballot-referral-to-block-voucher-reforms/",
+          "pubDate": "2026-06-13T14:01:30+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Arizona Mirror"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "CA",
+      "name": "California",
+      "source": "CalMatters",
+      "feed": "https://calmatters.org/feed/",
+      "stories": [
+        {
+          "id": "Q0EtaHR0cHM6Ly9jYWxtYXR0ZXJzLm9yZy9wb2xpdGljcy8yMDI2LzA2L2dhdmluLW5ld3NvbS10cnVtcC1pbnZlc3RpZ2F0aW9uLw",
+          "title": "Newsom says he’s on Trump’s ‘hit list’ as Justice Department interviews governor’s friends",
+          "titleZh": "纽森说，他在特朗普的“暗杀名单”上，因为司法部采访了州长的朋友",
+          "description": "Gov. Gavin Newsom said the Trump administration appears to be investigating him and his wife, a step that the Democrat said is meant to intimidate him as he considers a run for president.",
+          "descriptionZh": "",
+          "link": "https://calmatters.org/politics/2026/06/gavin-newsom-trump-investigation/",
+          "pubDate": "2026-06-15T19:24:04+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "CalMatters"
+        },
+        {
+          "id": "Q0EtaHR0cHM6Ly9jYWxtYXR0ZXJzLm9yZy9uZXdzbGV0dGVyL2NhbGlmb3JuaWEtYnVkZ2V0LWVkdWNhdGlvbi8",
+          "title": "CA lawmakers want to spend more on education. Will Newsom agree?",
+          "titleZh": "加州立法者希望在教育方面投入更多资金。Newsom会同意吗？",
+          "description": "The Legislature is expected to pass a state budget today to fulfill its state constitutional duty and to keep getting paid. But the final spending plan that will be approved by the start of the fiscal year on July 1 will almost certainly look different, as negotiations with Gov. Gavin Newsom continue. As CalMatters’ Yue […]",
+          "descriptionZh": "",
+          "link": "https://calmatters.org/newsletter/california-budget-education/",
+          "pubDate": "2026-06-15T13:00:00+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "CalMatters"
+        },
+        {
+          "id": "Q0EtaHR0cHM6Ly9jYWxtYXR0ZXJzLm9yZy9wb2xpdGljcy8yMDI2LzA2L2NhbGlmb3JuaWEtYWRtaXRzLWdvdmVybm1lbnQtYWktcmlzay1hZnRlci1kZW55aW5nLw",
+          "title": "California admits using high-risk AI — including systems it failed to report last year",
+          "titleZh": "加利福尼亚州承认使用高风险人工智能—包括去年未能报告的系统",
+          "description": "State officials have found they are using six high-risk AI-like systems. One year ago, they reported using zero.",
+          "descriptionZh": "",
+          "link": "https://calmatters.org/politics/2026/06/california-admits-government-ai-risk-after-denying/",
+          "pubDate": "2026-06-15T12:30:00+00:00",
+          "category": "tech",
+          "categoryLabel": {
+            "en": "Tech",
+            "zh": "科技"
+          },
+          "source": "CalMatters"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "CO",
+      "name": "Colorado",
+      "source": "Colorado Newsline",
+      "feed": "https://coloradonewsline.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "Q08taHR0cHM6Ly9jb2xvcmFkb25ld3NsaW5lLmNvbS8yMDI2LzA2LzE1L3BvcGUtY29sb3JhZG8tYmlnZ2VzdC1nYXRoZXJpbmcv",
+          "title": "Fifty for 150: Pope John Paul II in 1993 at center of Colorado’s biggest gathering",
+          "titleZh": "五十比一百五十： 1993年，教皇约翰·保罗二世在科罗拉多州最大的聚会中心",
+          "description": "“In the name of the Father, the Son, and the Holy Spirit, I say to you, good morning!” Those were the first words spoken by the headliner at the reputed largest gathering in Colorado history, which took place on the morning of Aug. 15, 1993, at Cherry Creek State Park southeast of Denver. The speaker […]",
+          "descriptionZh": "",
+          "link": "https://coloradonewsline.com/2026/06/15/pope-colorado-biggest-gathering/",
+          "pubDate": "2026-06-15T10:00:51+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Colorado Newsline"
+        },
+        {
+          "id": "Q08taHR0cHM6Ly9jb2xvcmFkb25ld3NsaW5lLmNvbS9icmllZnMvbWVsYXQta2lyb3MtcmFsbHktY2FwaXRvbC12ZW51ZS1jaGFuZ2VzLw",
+          "title": "Melat Kiros rallies supporters at Colorado Capitol after venue changes and Hasan Piker absence",
+          "titleZh": "Melat Kiros在场地变更和Hasan Piker缺席后在科罗拉多州议会大厦召集支持者",
+          "description": "Democratic congressional candidate Melat Kiros spoke to a crowd of hundreds of people without leftist commentator Hasan Piker at the Colorado Capitol on Sunday afternoon, a last-minute location and lineup change after three Denver-area venues declined to host the rally. Kiros, a 29-year-old lawyer and first-time candidate, is challenging Rep. Diana DeGette in the Democratic […]",
+          "descriptionZh": "",
+          "link": "https://coloradonewsline.com/briefs/melat-kiros-rally-capitol-venue-changes/",
+          "pubDate": "2026-06-15T01:17:29+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Colorado Newsline"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "CT",
+      "name": "Connecticut",
+      "source": "CT Mirror",
+      "feed": "https://ctmirror.org/feed/",
+      "stories": [
+        {
+          "id": "Q1QtaHR0cHM6Ly9jdG1pcnJvci5vcmcvMjAyNi8wNi8xNS9uZXctaGF2ZW4tbW90aGVyLXN1ZXMtZmVkZXJhbC1nb3Zlcm5tZW50LW92ZXItaWNlLWRldGFpbm1lbnQv",
+          "title": "New Haven mother sues federal government over ICE detainment",
+          "titleZh": "纽黑文母亲起诉联邦政府ICE拘留",
+          "description": "Nancy Martinez claims ICE agents handcuffed her and took her away without showing a warrant, leaving her children behind.",
+          "descriptionZh": "",
+          "link": "https://ctmirror.org/2026/06/15/new-haven-mother-sues-federal-government-over-ice-detainment/",
+          "pubDate": "2026-06-15T20:54:36+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "CT Mirror"
+        },
+        {
+          "id": "Q1QtaHR0cHM6Ly9jdG1pcnJvci5vcmcvMjAyNi8wNi8xNS9tZWxhbmllLWNyYWRsZS1ub21pbmF0ZWQtYXMtZmlyc3QtYmxhY2std29tYW4tdG8tY3Qtc3VwcmVtZS1jb3VydC8",
+          "title": "Melanie Cradle nominated as first Black woman to CT Supreme Court",
+          "titleZh": "Melanie Cradle被提名为CT最高法院的第一位黑人女性",
+          "description": "Chief Judge Melanie L. Cradle of the Appellate Court would succeed Joan Alexander, who has submitted her resignation as an associate justice.",
+          "descriptionZh": "",
+          "link": "https://ctmirror.org/2026/06/15/melanie-cradle-nominated-as-first-black-woman-to-ct-supreme-court/",
+          "pubDate": "2026-06-15T15:10:03+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "CT Mirror"
+        },
+        {
+          "id": "Q1QtaHR0cHM6Ly9jdG1pcnJvci5vcmcvMjAyNi8wNi8xNS9jY3N1LXBvbHl0ZWNobmljLWxpYmVyYWwtYXJ0cy1lZHVjYXRpb24tZGViYXRlLw",
+          "title": "Proposed R2 polytechnic at CCSU sparks debate over future of liberal arts education",
+          "titleZh": "CCSU拟议的R2理工学院引发了关于文科教育未来的辩论",
+          "description": "Some faculty say the plan risks moving the CCSU too far toward workforce training at the expense of its traditional liberal arts mission.",
+          "descriptionZh": "",
+          "link": "https://ctmirror.org/2026/06/15/ccsu-polytechnic-liberal-arts-education-debate/",
+          "pubDate": "2026-06-15T14:00:00+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "CT Mirror"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "DE",
+      "name": "Delaware",
+      "source": "Spotlight Delaware",
+      "feed": "https://spotlightdelaware.org/feed/",
+      "stories": [
+        {
+          "id": "REUtaHR0cHM6Ly9zcG90bGlnaHRkZWxhd2FyZS5vcmcvMjAyNi8wNi8xNS9kb3Zlci1yZXNpZGVudHMtdGFsay1ob21lbGVzc25lc3MtY3JlYXRpbmctY29tbXVuaXR5LWF0LXNwb3RsaWdodC1kZWxhd2FyZS1ldmVudC8",
+          "title": "Dover residents talk homelessness, creating community at Spotlight Delaware event",
+          "titleZh": "多佛居民谈论无家可归，在Spotlight Delaware活动中创建社区",
+          "description": "Nearly two dozen residents gathered in a Dover community center last Tuesday, dining on pasta and garlic knots while discussing what they felt were the city’s most pressing issues. The post Dover residents talk homelessness, creating community at Spotlight Delaware event appeared first on Spotlight Delaware .",
+          "descriptionZh": "",
+          "link": "https://spotlightdelaware.org/2026/06/15/dover-residents-talk-homelessness-creating-community-at-spotlight-delaware-event/",
+          "pubDate": "2026-06-15T10:30:00+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Spotlight Delaware"
+        },
+        {
+          "id": "REUtaHR0cHM6Ly9zcG90bGlnaHRkZWxhd2FyZS5vcmcvMjAyNi8wNi8xNS9kZWxhd2FyZS1vZmZpY2lhbHMtcGljay1kc3UtZG9ybXMtZm9yLW5ldy1rZW50LWNvdW50eS1ob21lbGVzcy1zaGVsdGVyLw",
+          "title": "Delaware officials pick DSU dorms for new Kent County homeless shelter",
+          "titleZh": "特拉华州官员选择DSU宿舍作为新的肯特县无家可归者收容所",
+          "description": "Delaware officials have reached an agreement to convert hundreds of Delaware State University dorms into a new homeless shelter modeled after the New Castle County Hope Center. The post Delaware officials pick DSU dorms for new Kent County homeless shelter appeared first on Spotlight Delaware .",
+          "descriptionZh": "",
+          "link": "https://spotlightdelaware.org/2026/06/15/delaware-officials-pick-dsu-dorms-for-new-kent-county-homeless-shelter/",
+          "pubDate": "2026-06-15T10:00:00+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Spotlight Delaware"
+        },
+        {
+          "id": "REUtaHR0cHM6Ly9zcG90bGlnaHRkZWxhd2FyZS5vcmcvMjAyNi8wNi8xNS9nZXQtaW52b2x2ZWQtYXNzZW1ibHktcmFtcHMtdXAtY2hyaXN0aW5hLXBhcmstZXZpY3Rpb24v",
+          "title": "Get Involved: Assembly ramps up, Christina Park eviction",
+          "titleZh": "参与：集会增加，克里斯蒂娜公园驱逐",
+          "description": "Beginning on Tuesday, lawmakers will have just seven working days – about two full weeks – left in the 2026 legislative session to consider a bevy of bills with potentially wide-ranging impacts, including electricity costs for Delawareans. The post Get Involved: Assembly ramps up, Christina Park eviction appeared first on Spotlight Delaware .",
+          "descriptionZh": "",
+          "link": "https://spotlightdelaware.org/2026/06/15/get-involved-assembly-ramps-up-christina-park-eviction/",
+          "pubDate": "2026-06-15T09:39:00+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Spotlight Delaware"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "FL",
+      "name": "Florida",
+      "source": "Florida Phoenix",
+      "feed": "https://floridaphoenix.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "RkwtaHR0cHM6Ly9mbG9yaWRhcGhvZW5peC5jb20vMjAyNi8wNi8xNS9zY290dC1tb29keS1jYWxsLW9uLXRhbXBhLW9mZmljaWFscy10by1jYW5jZWwta2FueWUtd2VzdHMtcGxhbm5lZC1zaG93cy8",
+          "title": "Scott, Moody call on Tampa officials to cancel Kanye West’s planned shows",
+          "titleZh": "Scott ， Moody呼吁坦帕官员取消Kanye West的计划节目",
+          "description": "ST. PETERSBURG — Citing his history of antisemitic comments, Florida’s two U.S. senators joined local Jewish leaders Monday in calling for a local government agency known as the Tampa Sports Authority (TSA) to cancel two concerts by the artist formerly known as Kanye West, saying they would be misuse of taxpayer dollars and not a […]",
+          "descriptionZh": "",
+          "link": "https://floridaphoenix.com/2026/06/15/scott-moody-call-on-tampa-officials-to-cancel-kanye-wests-planned-shows/",
+          "pubDate": "2026-06-15T20:29:22+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "Florida Phoenix"
+        },
+        {
+          "id": "RkwtaHR0cHM6Ly9mbG9yaWRhcGhvZW5peC5jb20vMjAyNi8wNi8xNS90aWt0b2staXMtbm90LWNvbXBseWluZy13aXRoLXNvY2lhbC1tZWRpYS1sYXctcmVzdHJpY3RpbmctbWlub3JzLXN0YXRlLXNheXMv",
+          "title": "TikTok is not complying with social media law restricting minors, state says",
+          "titleZh": "州政府表示， TikTok没有遵守限制未成年人的社交媒体法律",
+          "description": "Attorney General James Uthmeier is seeking damages from TikTok, claiming the tech giant is not complying with Florida’s 2024 social media ban for minors. Uthmeier filed a civil lawsuit against TikTok Monday, asking a state trial court to declare the company a public nuisance for not complying with state law requiring 14- and 15-year-olds to […]",
+          "descriptionZh": "",
+          "link": "https://floridaphoenix.com/2026/06/15/tiktok-is-not-complying-with-social-media-law-restricting-minors-state-says/",
+          "pubDate": "2026-06-15T18:44:40+00:00",
+          "category": "tech",
+          "categoryLabel": {
+            "en": "Tech",
+            "zh": "科技"
+          },
+          "source": "Florida Phoenix"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "GA",
+      "name": "Georgia",
+      "source": "Georgia Recorder",
+      "feed": "https://georgiarecorder.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "R0EtaHR0cHM6Ly9nZW9yZ2lhcmVjb3JkZXIuY29tL2JyaWVmcy9nZW9yZ2lhLXZvdGVycy1oZWFkLWJhY2stdG8tdGhlLXBvbGxzLXR1ZXNkYXktdG8tZmluaXNoLXBpY2tpbmctcHJpbWFyeS1lbGVjdGlvbi13aW5uZXJzLw",
+          "title": "Georgia voters head back to the polls Tuesday to finish picking primary election winners",
+          "titleZh": "佐治亚州选民周二返回民意调查，完成初选获胜者的挑选",
+          "description": "Georgians will be returning to their polling places Tuesday to finish the job they started last month of selecting candidates to face off in the Nov. 3 general election. The first round of voting saw a few decisive victories, but some pretty big races didn’t achieve an outright win, which has meant four more weeks […]",
+          "descriptionZh": "",
+          "link": "https://georgiarecorder.com/briefs/georgia-voters-head-back-to-the-polls-tuesday-to-finish-picking-primary-election-winners/",
+          "pubDate": "2026-06-15T20:20:55+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Georgia Recorder"
+        },
+        {
+          "id": "R0EtaHR0cHM6Ly9nZW9yZ2lhcmVjb3JkZXIuY29tL2JyaWVmcy9rZW1wLWJhY2tzLWJ1cnQtam9uZXMtaW4tcmFjZS10by1iZS1nZW9yZ2lhcy1uZXh0LWdvdmVybm9yLw",
+          "title": "Kemp backs Burt Jones in race to be Georgia’s next governor",
+          "titleZh": "肯普支持伯特·琼斯竞选佐治亚州下一任州长",
+          "description": "Gov. Brian Kemp made a last-minute endorsement of Lt. Gov. Burt Jones’ bid to replace him in the governor’s mansion ahead of Tuesday’s runoff election in the GOP primary. In a social media post Sunday afternoon, Kemp pointed to their past work over the years, saying that he and Jones “has been a strong, trusted […]",
+          "descriptionZh": "",
+          "link": "https://georgiarecorder.com/briefs/kemp-backs-burt-jones-in-race-to-be-georgias-next-governor/",
+          "pubDate": "2026-06-15T00:09:24+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Georgia Recorder"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "HI",
+      "name": "Hawaii",
+      "source": "Honolulu Civil Beat",
+      "feed": "https://www.civilbeat.org/feed/",
+      "stories": [
+        {
+          "id": "SEktaHR0cHM6Ly9jaXZpbGJlYXQub3JnLzIwMjYvMDYvYmlraS1kZXNlcnZlcy1tb3JlLWZ1bmRpbmctYW5kLWJldHRlci1vdmVyc2lnaHQv",
+          "title": "Biki Deserves More Funding And Better Oversight",
+          "titleZh": "Biki应该得到更多的资金和更好的监督",
+          "description": "What is overlooked amid discussions is that no one has ever died riding Biki.",
+          "descriptionZh": "",
+          "link": "https://civilbeat.org/2026/06/biki-deserves-more-funding-and-better-oversight/",
+          "pubDate": "2026-06-15T10:01:00+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Honolulu Civil Beat"
+        },
+        {
+          "id": "SEktaHR0cHM6Ly9jaXZpbGJlYXQub3JnLzIwMjYvMDYvdGhlcmVzLW9uZS1iaWctZmxhdy13aXRoLXRoZS1hZ3MtdHJhY2stcmVjb3JkLW9uLW1lZGljYWlkLWZyYXVkLw",
+          "title": "There’s One Big Flaw With The AG’s Track Record On Medicaid Fraud",
+          "titleZh": "AG在医疗补助欺诈方面的记录存在一个重大缺陷",
+          "description": "A single settlement with a dialysis company accounted for the lion's share of funds recovered by Hawaiʻi's fraud unit, now facing federal scrutiny.",
+          "descriptionZh": "",
+          "link": "https://civilbeat.org/2026/06/theres-one-big-flaw-with-the-ags-track-record-on-medicaid-fraud/",
+          "pubDate": "2026-06-15T10:01:00+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Honolulu Civil Beat"
+        },
+        {
+          "id": "SEktaHR0cHM6Ly9jaXZpbGJlYXQub3JnLzIwMjYvMDYvMy1kZW1vY3JhdHMtY29tcGV0ZS1mb3Itd2VzdC1tYXVpLWhvdXNlLXNlYXQtaW4tcHJpbWFyeS8",
+          "title": "3 Democrats Compete For West Maui House Seat In Primary",
+          "titleZh": "3名民主党人争夺西毛伊岛众议院初选席位",
+          "description": "Lahaina's multibillion-dollar fire recovery has motivated candidates to run this election.",
+          "descriptionZh": "",
+          "link": "https://civilbeat.org/2026/06/3-democrats-compete-for-west-maui-house-seat-in-primary/",
+          "pubDate": "2026-06-15T10:01:00+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Honolulu Civil Beat"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "IA",
+      "name": "Iowa",
+      "source": "Iowa Capital Dispatch",
+      "feed": "https://iowacapitaldispatch.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "SUEtaHR0cHM6Ly9pb3dhY2FwaXRhbGRpc3BhdGNoLmNvbS9icmllZnMvcHNldWRvcmFiaWVzLWVyYWRpY2F0ZWQtZnJvbS1pb3dhLXN0YXRlLWFnLWRlcGFydG1lbnQtcmVwb3J0cy8",
+          "title": "Pseudorabies eradicated from Iowa, state ag department reports",
+          "titleZh": "爱荷华州根除的伪狂犬病，州农业部报告",
+          "description": "Pseudorabies, a disease that primarily impacts swine, is again considered eradicated in Iowa, after the Iowa Department of Agriculture and Land Stewardship confirmed a spring outbreak did not spread to other farms. The virus was detected April 30 in a small Iowa herd that was later depopulated, per U.S. Department of Agriculture protocol. According to […]",
+          "descriptionZh": "",
+          "link": "https://iowacapitaldispatch.com/briefs/pseudorabies-eradicated-from-iowa-state-ag-department-reports/",
+          "pubDate": "2026-06-15T20:57:22+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "Iowa Capital Dispatch"
+        },
+        {
+          "id": "SUEtaHR0cHM6Ly9pb3dhY2FwaXRhbGRpc3BhdGNoLmNvbS9icmllZnMvYmlvdGVjaC1jb21wYW55LXRvLXBheS05MGstZm9yLWZpc2gta2lsbC1zcGlsbC1pbi1saXphcmQtY3JlZWsv",
+          "title": "Biotech company to pay $90K for fish kill, spill in Lizard Creek",
+          "titleZh": "生物技术公司将为蜥蜴溪的杀鱼、泄漏支付9万美元$",
+          "description": "CJ Bio America Inc., a biotechnology plant in Fort Dodge, has agreed to pay more than $90,000 to the state for a spill that resulted in a fish kill in Lizard Creek, according to a consent order with the Iowa Department of Natural Resources. The spill occurred in April 2025, when the facility, which manufactures […]",
+          "descriptionZh": "",
+          "link": "https://iowacapitaldispatch.com/briefs/biotech-company-to-pay-90k-for-fish-kill-spill-in-lizard-creek/",
+          "pubDate": "2026-06-15T19:14:52+00:00",
+          "category": "tech",
+          "categoryLabel": {
+            "en": "Tech",
+            "zh": "科技"
+          },
+          "source": "Iowa Capital Dispatch"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "ID",
+      "name": "Idaho",
+      "source": "Idaho Capital Sun",
+      "feed": "https://idahocapitalsun.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "SUQtaHR0cHM6Ly9pZGFob2NhcGl0YWxzdW4uY29tLzIwMjYvMDYvMTUvaG93LWFuLWlkYWhvLXN0YXRlLWFnZW5jeS1zdG9yZXMtZGVjYWRlcy1vZi1vbGQtZ292ZXJubWVudC1yZWNvcmRzLWFuZC1hcnRpZmFjdHMv",
+          "title": "How an Idaho state agency stores decades of old government records and artifacts",
+          "titleZh": "爱达荷州政府机构如何存储数十年的旧政府记录和文物",
+          "description": "The first few pages of Idaho’s original state Constitution are tattered. Red ink has bled through — a consequence of state archivists deciding to laminate the first few pages in the ‘70s. But even though the state’s foundational legal document is showing wear, it’s available for the public to see — like thousands of other […]",
+          "descriptionZh": "",
+          "link": "https://idahocapitalsun.com/2026/06/15/how-an-idaho-state-agency-stores-decades-of-old-government-records-and-artifacts/",
+          "pubDate": "2026-06-15T10:30:14+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Idaho Capital Sun"
+        },
+        {
+          "id": "SUQtaHR0cHM6Ly9pZGFob2NhcGl0YWxzdW4uY29tLzIwMjYvMDYvMTUvdGhlLWhpZGRlbi1jb3N0cy1vZi1nb2luZy1tb250aC10by1tb250aC1vbi15b3VyLWxlYXNlLWluLWlkYWhvLWFyZS1ncm93aW5nLw",
+          "title": "The hidden costs of going month-to-month on your lease in Idaho are growing",
+          "titleZh": "您在爱达荷州租赁时每月的隐性成本正在增加",
+          "description": "What would you do if your rental costs doubled next month? In Idaho, some landlords and management companies impose steep month-to-month lease fees that can do just that. A month-to-month fee is an additional charge added to monthly rent in exchange for the flexibility of a short-term lease agreement. Often, these fees take effect once […]",
+          "descriptionZh": "",
+          "link": "https://idahocapitalsun.com/2026/06/15/the-hidden-costs-of-going-month-to-month-on-your-lease-in-idaho-are-growing/",
+          "pubDate": "2026-06-15T10:00:11+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Idaho Capital Sun"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "IL",
+      "name": "Illinois",
+      "source": "Capitol News Illinois",
+      "feed": "https://capitolnewsillinois.com/feed/",
+      "stories": [
+        {
+          "id": "SUwtaHR0cHM6Ly9jYXBpdG9sbmV3c2lsbGlub2lzLmNvbS9uZXdzL2lsbGlub2lzLWxhd21ha2Vycy1zZWVrLXRvLXN0cmVhbWxpbmUtY29udHJhY3RpbmctZm9yLXNlcnZpY2UtcHJvdmlkZXJzLw",
+          "title": "Illinois lawmakers seek to streamline contracting for service providers",
+          "titleZh": "伊利诺伊州立法者寻求简化服务提供商的合同",
+          "description": "The measures would address delays at all stages of the state’s contracting process.",
+          "descriptionZh": "",
+          "link": "https://capitolnewsillinois.com/news/illinois-lawmakers-seek-to-streamline-contracting-for-service-providers/",
+          "pubDate": "2026-06-15T16:45:49+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Capitol News Illinois"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "IN",
+      "name": "Indiana",
+      "source": "Indiana Capital Chronicle",
+      "feed": "https://indianacapitalchronicle.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "SU4taHR0cHM6Ly9pbmRpYW5hY2FwaXRhbGNocm9uaWNsZS5jb20vMjAyNi8wNi8xNS9kdWJvaXMtY291bnR5LXNoZXJpZmYtbG9zZXMtaW5kaWFuYS1sYXctZW5mb3JjZW1lbnQtY2VydGlmaWNhdGlvbi1idXQta2VlcHMtZWxlY3RlZC1vZmZpY2Uv",
+          "title": "Dubois County sheriff loses Indiana law enforcement certification but keeps elected office",
+          "titleZh": "杜波依斯县治安官失去印第安纳州执法认证，但保留当选职位",
+          "description": "The Indiana Law Enforcement Training Board accepted Dubois County Sheriff Thomas Kleinhelter’s voluntary relinquishment of his certification Monday — but the action does not remove the embattled sheriff from his office. Kleinhelter will serve as county sheriff without the law enforcement credentials required of most Hoosier police officers. Indiana’s sheriffs are elected constitutional officers whose […]",
+          "descriptionZh": "",
+          "link": "https://indianacapitalchronicle.com/2026/06/15/dubois-county-sheriff-loses-indiana-law-enforcement-certification-but-keeps-elected-office/",
+          "pubDate": "2026-06-15T19:08:43+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Indiana Capital Chronicle"
+        },
+        {
+          "id": "SU4taHR0cHM6Ly9pbmRpYW5hY2FwaXRhbGNocm9uaWNsZS5jb20vMjAyNi8wNi8xNS90by1rZWVwLWdyZWF0LWVkdWNhdG9ycy1pbmRpYW5hLW11c3QtZ28tYmV5b25kLXN0YXJ0aW5nLXBheS8",
+          "title": "To keep great educators, Indiana must go beyond starting pay",
+          "titleZh": "为了留住优秀的教育工作者，印第安纳州必须超越起薪",
+          "description": "Indiana has made progress in raising teacher pay in recent years. Educators and local school districts have worked together to prioritize salaries, and today, the average teacher pay in our state exceeds $60,000. That progress matters, but it is not enough. New data from the National Education Association show that Indiana is not keeping pace […]",
+          "descriptionZh": "",
+          "link": "https://indianacapitalchronicle.com/2026/06/15/to-keep-great-educators-indiana-must-go-beyond-starting-pay/",
+          "pubDate": "2026-06-15T09:00:33+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Indiana Capital Chronicle"
+        },
+        {
+          "id": "SU4taHR0cHM6Ly9pbmRpYW5hY2FwaXRhbGNocm9uaWNsZS5jb20vMjAyNi8wNi8xNS9yZXB1YmxpY2FuLWRlY2lzaW9uLW9uLXNlY3JldGFyeS1vZi1zdGF0ZS1yYWNlLWNvdWxkLWFsc28tc2hvdy1yZWFjaC1vZi1iYW5rcy1pbmZsdWVuY2Uv",
+          "title": "Republican decision on secretary of state race could also show reach of Banks’ influence",
+          "titleZh": "共和党关于国务卿竞选的决定也可能显示出银行的影响力",
+          "description": "Indiana Republicans will be doing more this coming weekend than deciding a turbulent race for their secretary of state nomination. Those state Republican convention delegates will also be signaling their willingness to follow top GOP leaders as the party strives to continue its decade-long control of all Statehouse offices. About 1,800 delegates can vote during […]",
+          "descriptionZh": "",
+          "link": "https://indianacapitalchronicle.com/2026/06/15/republican-decision-on-secretary-of-state-race-could-also-show-reach-of-banks-influence/",
+          "pubDate": "2026-06-15T09:00:26+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Indiana Capital Chronicle"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "KS",
+      "name": "Kansas",
+      "source": "Kansas Reflector",
+      "feed": "https://kansasreflector.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "S1MtaHR0cHM6Ly9rYW5zYXNyZWZsZWN0b3IuY29tLzIwMjYvMDYvMTUva2Fuc2FzLWRyb3BzLW91dC1vZi1sYXdzdWl0LXRhcmdldGluZy1zZW5pb3ItYW5kLWRpc2FiaWxpdHktcmlnaHRzLw",
+          "title": "Kansas drops out of lawsuit targeting senior and disability rights",
+          "titleZh": "堪萨斯州退出针对老年人和残疾人权利的诉讼",
+          "description": "TOPEKA — Kansas withdrew from a federal lawsuit that could overturn decades of progress in disability rights, including increasing institutionalization for elderly and disabled individuals, an advocate said. Rocky Nichols, executive director of the Disability Rights Center of Kansas, said he was pleased Attorney General Kris Kobach chose to pull Kansas out of the Texas […]",
+          "descriptionZh": "",
+          "link": "https://kansasreflector.com/2026/06/15/kansas-drops-out-of-lawsuit-targeting-senior-and-disability-rights/",
+          "pubDate": "2026-06-15T22:13:02+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Kansas Reflector"
+        },
+        {
+          "id": "S1MtaHR0cHM6Ly9rYW5zYXNyZWZsZWN0b3IuY29tLzIwMjYvMDYvMTUvc3RpbmtzLXNvLWJhZC1rYW5zYXMtcmVzaWRlbnRzLXdvcnJ5LXNtb2xkZXJpbmctbGFuZGZpbGwtb24tYS1zdXBlcmZ1bmQtc2l0ZS1pcy1tYWtpbmctdGhlbS1zaWNrLw",
+          "title": "‘Stinks so bad’: Kansas residents worry smoldering landfill on a Superfund site is making them sick",
+          "titleZh": "“臭气熏天” ：堪萨斯州居民担心超级基金场地上阴燃的垃圾填埋场让他们生病",
+          "description": "GALENA — Tammy Allen’s front porch overlooks the trash-scattered hills of the Galena Landfill, built on an area once called Hell’s Half Acre. In the past three years, Allen’s house randomly began to fill with a mix of odors that she believes cause her headaches, nausea and vomiting. “The smells come and go, and you […]",
+          "descriptionZh": "",
+          "link": "https://kansasreflector.com/2026/06/15/stinks-so-bad-kansas-residents-worry-smoldering-landfill-on-a-superfund-site-is-making-them-sick/",
+          "pubDate": "2026-06-15T13:10:08+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Kansas Reflector"
+        },
+        {
+          "id": "S1MtaHR0cHM6Ly9rYW5zYXNyZWZsZWN0b3IuY29tLzIwMjYvMDYvMTUva2Fuc2FzLWRlbW9jcmF0cy1zdWZmZXItZnJvbS1hLXJldmVyc2UtbWFpbmUtcHJvYmxlbS10b28tbWFueS1hcmUtcnVubmluZy1mb3ItdS1zLXNlbmF0ZS8",
+          "title": "Kansas Democrats suffer from a reverse Maine problem. Too many are running for U.S. Senate!",
+          "titleZh": "堪萨斯州的民主党人面临着缅因州的反向问题。太多人竞选美国参议员！",
+          "description": "Kansas Democrats face a big challenge heading into the August primaries. They have too many people running for U.S. Senate and too few running for other critical offices, notably governor. At present, a staggering 11 Democrats have signed up to unseat Republican Sen. Roger Marshall. Only three Democrats are running in the governor’s race. Only […]",
+          "descriptionZh": "",
+          "link": "https://kansasreflector.com/2026/06/15/kansas-democrats-suffer-from-a-reverse-maine-problem-too-many-are-running-for-u-s-senate/",
+          "pubDate": "2026-06-15T08:33:58+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Kansas Reflector"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "KY",
+      "name": "Kentucky",
+      "source": "Kentucky Lantern",
+      "feed": "https://kentuckylantern.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "S1ktaHR0cHM6Ly9rZW50dWNreWxhbnRlcm4uY29tLzIwMjYvMDYvMTUvdGhlcmVzLXNvLW11Y2gta2VudHVja3ktbGVhZGVycy1jb3VsZC1kby10by1oZWxwLWtlbnR1Y2t5LWtpZHMv",
+          "title": "There’s so much Kentucky leaders could do to help Kentucky kids",
+          "titleZh": "肯塔基州的领导人可以做很多事情来帮助肯塔基州的孩子",
+          "description": "Judy and I just reviewed our youngest grandchildren’s report cards (Their older siblings mysteriously can’t find theirs!) and those Brooks kids seemingly are doing well. The documents were filled with “Os” and “Ss,” which I guess are now the new “A” and “B.” In-depth narratives – generated by either AI or hard-working teachers – densely […]",
+          "descriptionZh": "",
+          "link": "https://kentuckylantern.com/2026/06/15/theres-so-much-kentucky-leaders-could-do-to-help-kentucky-kids/",
+          "pubDate": "2026-06-15T19:25:28+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Kentucky Lantern"
+        },
+        {
+          "id": "S1ktaHR0cHM6Ly9rZW50dWNreWxhbnRlcm4uY29tLzIwMjYvMDYvMTUvZGVtb2NyYXRpYy1zdGF0ZS1sYXdtYWtlci1wcmVwYXJlcy1kYXRhLWNlbnRlci1yZWd1bGF0aW9uLWJpbGwtZm9yLW5leHQteWVhci8",
+          "title": "Democratic state lawmaker prepares data center regulation bill for next year",
+          "titleZh": "民主党州议员准备明年数据中心监管法案",
+          "description": "A Democratic state lawmaker is working on a bill to file next year in Frankfort that would try to regulate the impacts of hyperscale data centers and the transparency concerns swirling around those pending developments in the state. Rep. Adam Moore, D-Lexington, proposed a bill during this year’s legislative session that sought to ensure electricity […]",
+          "descriptionZh": "",
+          "link": "https://kentuckylantern.com/2026/06/15/democratic-state-lawmaker-prepares-data-center-regulation-bill-for-next-year/",
+          "pubDate": "2026-06-15T19:24:58+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Kentucky Lantern"
+        },
+        {
+          "id": "S1ktaHR0cHM6Ly9rZW50dWNreWxhbnRlcm4uY29tLzIwMjYvMDYvMTUvZW1haWwtZnJvbS1iZXZpbnMtYWNjb3VudC1hY2N1c2VzLWVzdHJhbmdlZC1zb24tb2YtdHJ5aW5nLXRvLXNoYWtlLXBhcmVudHMtZG93bi1mb3ItbW9uZXkv",
+          "title": "Email from Bevin’s account accuses estranged son of trying to ‘shake parents down for money’",
+          "titleZh": "来自贝文账户的电子邮件指责疏远的儿子试图“为了钱而动摇父母”",
+          "description": "An email Friday from former Kentucky Gov. Matt Bevin’s personal account to various media outlets, blasts lawyers for his estranged son, Jonah Bevin, for making “FALSE STATEMENTS” to the media and accuses Jonah of trying “TO SHAKE HIS PARENTS DOWN FOR MONEY.” The two-page email, mostly in capital letters, repeats attacks on Jefferson Family Court […]",
+          "descriptionZh": "",
+          "link": "https://kentuckylantern.com/2026/06/15/email-from-bevins-account-accuses-estranged-son-of-trying-to-shake-parents-down-for-money/",
+          "pubDate": "2026-06-15T18:29:18+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Kentucky Lantern"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "LA",
+      "name": "Louisiana",
+      "source": "Louisiana Illuminator",
+      "feed": "https://lailluminator.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TEEtaHR0cHM6Ly9sYWlsbHVtaW5hdG9yLmNvbS8yMDI2LzA2LzE1L3NvdXRoLWNyaW1pbmFsLWp1c3RpY2Uv",
+          "title": "Why the way we understand the South matters, especially in criminal justice",
+          "titleZh": "为什么我们理解南方的方式很重要，特别是在刑事司法方面",
+          "description": "As we reflect on 250 years of this unfinished great experiment, I think it is a profound error to frame the South merely, or principally, as the repository of America's greatest sins.",
+          "descriptionZh": "",
+          "link": "https://lailluminator.com/2026/06/15/south-criminal-justice/",
+          "pubDate": "2026-06-15T19:40:27+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Louisiana Illuminator"
+        },
+        {
+          "id": "TEEtaHR0cHM6Ly9sYWlsbHVtaW5hdG9yLmNvbS8yMDI2LzA2LzE1L2V4cGVydHMtc2F5LXRpbWUta2V5LWVsZW1lbnQtbG91aXNpYW5hLXZhbmlzaGluZy1jb2FzdC8",
+          "title": "Experts say time is the key element for Louisiana vanishing coast, culture",
+          "titleZh": "专家说，时间是路易斯安那州海岸消失的关键因素，文化",
+          "description": "Scientists who live and work on Louisiana’s coast say not to lose hope in coastal restoration buying more time in the fight against land loss.",
+          "descriptionZh": "",
+          "link": "https://lailluminator.com/2026/06/15/experts-say-time-key-element-louisiana-vanishing-coast/",
+          "pubDate": "2026-06-15T18:47:26+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Louisiana Illuminator"
+        },
+        {
+          "id": "TEEtaHR0cHM6Ly9sYWlsbHVtaW5hdG9yLmNvbS8yMDI2LzA2LzE1L2xvdWlzaWFuYS1wcmltYXJ5LWVsZWN0aW9ucy8",
+          "title": "No-party voters still have access to Louisiana’s closed primaries, for now",
+          "titleZh": "目前，无党派选民仍然可以参加路易斯安那州的封闭式初选",
+          "description": "A bill that could have further closed Louisiana’s primary elections by excluding voters who aren’t registered Republicans or Democrats failed to pass through the state legislature.",
+          "descriptionZh": "",
+          "link": "https://lailluminator.com/2026/06/15/louisiana-primary-elections/",
+          "pubDate": "2026-06-15T08:00:25+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Louisiana Illuminator"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "MA",
+      "name": "Massachusetts",
+      "source": "CommonWealth Beacon",
+      "feed": "https://commonwealthbeacon.org/feed/",
+      "stories": [
+        {
+          "id": "TUEtaHR0cHM6Ly9jb21tb253ZWFsdGhiZWFjb24ub3JnL2dvdmVybm1lbnQvc3RhdGUtZ292ZXJubWVudC9uZXctY2NjLWNoYWlyLWZsYWdzLWludGVybmFsLW9wZXJhdGlvbnMtYXMtY3JpdGljYWxseS1pbXBvcnRhbnQv",
+          "title": "New CCC chair flags internal operations as ‘critically important’",
+          "titleZh": "新的CCC主席将内部运营标记为“至关重要”",
+          "description": "Chris Harding, who Gov. Maura Healey tapped to lead the CCC in May, said during a meeting Thursday that his priorities for the role include engaging with staff and understanding their focuses as well as the agency's organizational challenges and opportunities.",
+          "descriptionZh": "",
+          "link": "https://commonwealthbeacon.org/government/state-government/new-ccc-chair-flags-internal-operations-as-critically-important/",
+          "pubDate": "2026-06-15T22:11:25+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "CommonWealth Beacon"
+        },
+        {
+          "id": "TUEtaHR0cHM6Ly9jb21tb253ZWFsdGhiZWFjb24ub3JnL3RoZS1jb2RjYXN0L3Jhai1jaGV0dHlzLXByZXNjcmlwdGlvbi1mb3ItcmV2aXZpbmctdGhlLWFtZXJpY2FuLWRyZWFtLTIv",
+          "title": "Raj Chetty’s prescription for reviving the American dream",
+          "titleZh": "Raj Chetty复兴美国梦的处方",
+          "description": "For generations, it was virtually guaranteed that American children would out-earn their parents. But as Raj Chetty explains in this special live episode of The Codcast, recorded at the recent WBUR Festival, that dream is fading. What factors are contributing to economic stagnation? How can we increase upward mobility? How do these trends vary across neighborhoods, race, gender, and immigration status?",
+          "descriptionZh": "",
+          "link": "https://commonwealthbeacon.org/the-codcast/raj-chettys-prescription-for-reviving-the-american-dream-2/",
+          "pubDate": "2026-06-15T14:49:02+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "CommonWealth Beacon"
+        },
+        {
+          "id": "TUEtaHR0cHM6Ly9jb21tb253ZWFsdGhiZWFjb24ub3JnL2Vjb25vbXkvcmFqLWNoZXR0eXMtcHJlc2NyaXB0aW9uLWZvci1yZXZpdmluZy10aGUtYW1lcmljYW4tZHJlYW0v",
+          "title": "Raj Chetty’s prescription for reviving the American dream",
+          "titleZh": "Raj Chetty复兴美国梦的处方",
+          "description": "As the American dream has slipped out of reach for many, few have done more than Chetty to try to understand the fading of the American dream and what could be done to change that dispiriting trendline.",
+          "descriptionZh": "",
+          "link": "https://commonwealthbeacon.org/economy/raj-chettys-prescription-for-reviving-the-american-dream/",
+          "pubDate": "2026-06-15T14:08:41+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "CommonWealth Beacon"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "MD",
+      "name": "Maryland",
+      "source": "Maryland Matters",
+      "feed": "https://marylandmatters.org/feed/localFeed",
+      "stories": [
+        {
+          "id": "TUQtaHR0cHM6Ly9tYXJ5bGFuZG1hdHRlcnMub3JnLzIwMjYvMDYvMTUvc3VyZ2luZy1pbmZsYXRpb24tbWFraW5nLWl0LWhhcmRlci1mb3ItbWFyeWxhbmRlcnMtdG8tbWFrZS1lbmRzLW1lZXQv",
+          "title": "Surging inflation making it harder for Marylanders to make ends meet",
+          "titleZh": "通货膨胀飙升，使马里兰人更难维持生计",
+          "description": "Inflation surged last month to the highest rate in more than three years, driving up the costs of everything from food to gas for Maryland families, experts said, and putting aid groups on edge.",
+          "descriptionZh": "",
+          "link": "https://marylandmatters.org/2026/06/15/surging-inflation-making-it-harder-for-marylanders-to-make-ends-meet/",
+          "pubDate": "2026-06-15T09:36:48+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "Maryland Matters"
+        },
+        {
+          "id": "TUQtaHR0cHM6Ly9tYXJ5bGFuZG1hdHRlcnMub3JnLzIwMjYvMDYvMTUvYXR0YXItcnVmZi1zZW5hdGUtcmFjZS8",
+          "title": "After her indictment, could this Baltimore senator be unseated?",
+          "titleZh": "在她被起诉后，这位巴尔的摩参议员会被撤职吗？",
+          "description": "After her federal indictment on blackmailing charges in late 2025, Maryland Sen. Dalya Attar (D-Baltimore City) faces a formidable opponent in Del. Malcolm Ruff (D-Baltimore City) who now has the governor’s backing and a fundraising edge.",
+          "descriptionZh": "",
+          "link": "https://marylandmatters.org/2026/06/15/attar-ruff-senate-race/",
+          "pubDate": "2026-06-15T09:00:51+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Maryland Matters"
+        },
+        {
+          "id": "TUQtaHR0cHM6Ly9tYXJ5bGFuZG1hdHRlcnMub3JnLzIwMjYvMDYvMTUvdGVtcG9yYXJ5LXByb3RlY3RlZC1zdGF0dXMtbmVlZHMtdG8tYmUtcHJvdGVjdGVkLWZyb20tcG9saXRpY2FsLXdoaW1zLw",
+          "title": "Temporary Protected Status needs to be protected from political whims",
+          "titleZh": "需要保护临时保护身份免受政治异想天开的影响",
+          "description": "Temporary may be part of the the title, but temporary protected status for immigrants shouldn't be arbitrary, write Jennica Larrison and Ben Coleman, who say a White House push to cancel TPS for a dozen countries is \"nothing short of betrayal.\"",
+          "descriptionZh": "",
+          "link": "https://marylandmatters.org/2026/06/15/temporary-protected-status-needs-to-be-protected-from-political-whims/",
+          "pubDate": "2026-06-15T08:53:56+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Maryland Matters"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "ME",
+      "name": "Maine",
+      "source": "Maine Morning Star",
+      "feed": "https://mainemorningstar.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TUUtaHR0cHM6Ly9tYWluZW1vcm5pbmdzdGFyLmNvbS8yMDI2LzA2LzE1L3dpdGgtcmFua2VkLWNob2ljZS10YWJ1bGF0aW9ucy11bmRlcndheS1oZXJlcy13aGF0LXlvdS1uZWVkLXRvLWtub3cv",
+          "title": "With ranked-choice tabulations underway, here’s what you need to know",
+          "titleZh": "排名选择列表正在进行中，以下是您需要了解的信息",
+          "description": "Ranked-choice voting tabulations are underway for the Democratic and Republican primaries for governor and the Democratic primary for Maine’s 2nd congressional district after contenders in those races failed to secure a majority of votes in last week’s election. While there are frontrunners in each race based on first-choice votes, the tabulation process — which factors […]",
+          "descriptionZh": "",
+          "link": "https://mainemorningstar.com/2026/06/15/with-ranked-choice-tabulations-underway-heres-what-you-need-to-know/",
+          "pubDate": "2026-06-15T08:29:36+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Maine Morning Star"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "MI",
+      "name": "Michigan",
+      "source": "Michigan Advance",
+      "feed": "https://michiganadvance.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TUktaHR0cHM6Ly9taWNoaWdhbmFkdmFuY2UuY29tLzIwMjYvMDYvMTUvc2hlZmZpZWxkLWVuZG9yc2VzLWJlbnNvbi1mb3ItZ292ZXJub3ItZW1waGFzaXppbmctcG93ZXItb2YtZnJpZW5kc2hpcC1hbmQtY29hbGl0aW9uLWJ1aWxkaW5nLw",
+          "title": "Sheffield endorses Benson for governor, emphasizing ‘power of friendship’ and coalition-building",
+          "titleZh": "谢菲尔德支持本森担任州长，强调“友谊的力量”和建立联盟",
+          "description": "In one of her first endorsements as Detroit’s mayor, Mary Sheffield announced her endorsement of Secretary of State Jocelyn Benson in her bid for governor. “In my first six months as mayor, I always knew that it was important to have a strong leader in Lansing to get things done, but serving my first six […]",
+          "descriptionZh": "",
+          "link": "https://michiganadvance.com/2026/06/15/sheffield-endorses-benson-for-governor-emphasizing-power-of-friendship-and-coalition-building/",
+          "pubDate": "2026-06-15T20:40:10+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Michigan Advance"
+        },
+        {
+          "id": "TUktaHR0cHM6Ly9taWNoaWdhbmFkdmFuY2UuY29tL2JyaWVmcy9zdHJpa2luZy1hdXRvd29ya2Vycy1pbi10aHJlZS1yaXZlcnMtc2VjdXJlLW5ldy1jb250cmFjdC13aXRoLXByb21pc2Utb2YtMzAtaG91cmx5LXBheS1ieS0yMDMwLw",
+          "title": "Striking autoworkers in Three Rivers secure new contract with promise of $30 hourly pay by 2030",
+          "titleZh": "三河的罢工汽车工人获得了新合同，承诺到2030年每小时支付30 $",
+          "description": "Union autoworkers at the American Axle plant in Three Rivers returned to work on Monday morning after voting to approve a new contract with the supplier the day prior. Members of United Autoworkers Local 2093 on Sunday voted in favor of ratifying a new contract, with 80% of members in support. When the union’s contract […]",
+          "descriptionZh": "",
+          "link": "https://michiganadvance.com/briefs/striking-autoworkers-in-three-rivers-secure-new-contract-with-promise-of-30-hourly-pay-by-2030/",
+          "pubDate": "2026-06-15T20:21:31+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Michigan Advance"
+        },
+        {
+          "id": "TUktaHR0cHM6Ly9taWNoaWdhbmFkdmFuY2UuY29tLzIwMjYvMDYvMTUvb2FrbGFuZC1jb3VudHktcm9hZC1jb21taXNzaW9uLXRlbXBvcmFyaWx5LXJlbW92ZXMtdm9pY2VzLWZvci1wYWxlc3RpbmlhbnMtYWRvcHQtYS1yb2FkLXNpZ24v",
+          "title": "Oakland County road commission temporarily removes ‘Voices for Palestinians’ Adopt-A-Road sign",
+          "titleZh": "奥克兰县道路委员会暂时取消“声援巴勒斯坦人”收养道路标志",
+          "description": "A pair of Adopt-A-Road signs sharing support for Palestinians have been removed following concerns from Oakland County officials and community members. On Sunday Morning, Oakland County Executive Dave Coulter called on the county road commission to review Adopt-A-Road signage near Temple Israel, a synagogue in West Bloomfield Township. In March, 41-year-old Ayman Ghazali of Dearborn […]",
+          "descriptionZh": "",
+          "link": "https://michiganadvance.com/2026/06/15/oakland-county-road-commission-temporarily-removes-voices-for-palestinians-adopt-a-road-sign/",
+          "pubDate": "2026-06-15T18:26:46+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Michigan Advance"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "MN",
+      "name": "Minnesota",
+      "source": "Minnesota Reformer",
+      "feed": "https://minnesotareformer.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TU4taHR0cHM6Ly9taW5uZXNvdGFyZWZvcm1lci5jb20vMjAyNi8wNi8xNS9ob3ctb25lLW1pbm5lc290YS1mYW1pbHktaXMtbWFuYWdpbmctbGlmZS1hZnRlci1kZXBvcnRhdGlvbi8",
+          "title": "How one Minnesota family is managing life after deportation",
+          "titleZh": "明尼苏达州的一个家庭在被驱逐出境后如何管理生活",
+          "description": "These days, Blanca Lara feels like crying most of the time. She struggles to sleep without her husband beside her. Her sons, 4 and 2, spend most of the day in front of the TV in their Burnsville apartment, glued to YouTube videos of men constructing houses in the jungle. In the kitchen, 42-year-old Lara […]",
+          "descriptionZh": "",
+          "link": "https://minnesotareformer.com/2026/06/15/how-one-minnesota-family-is-managing-life-after-deportation/",
+          "pubDate": "2026-06-15T11:00:36+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Minnesota Reformer"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "MO",
+      "name": "Missouri",
+      "source": "Missouri Independent",
+      "feed": "https://missouriindependent.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TU8taHR0cHM6Ly9taXNzb3VyaWluZGVwZW5kZW50LmNvbS8yMDI2LzA2LzE1L21pc3NvdXJpLW1lZGljYWlkLXdpbGwtbm8tbG9uZ2VyLWNvdmVyLWNoaXJvcHJhY3RpYy1jYXJlLWFmdGVyLWJ1ZGdldC1jdXRzLw",
+          "title": "Missouri Medicaid will no longer cover chiropractic care after budget cuts",
+          "titleZh": "预算削减后，密苏里州医疗补助将不再涵盖脊椎按摩护理",
+          "description": "Dr. Quinn James testified in the Missouri Capitol for nine years before lawmakers passed legislation in 2018 that allows chiropractors like him to provide services through the state’s Medicaid program. What convinced lawmakers to get behind the legislation, James told The Independent, were predictions that it could help the state spend less on Medicaid. The […]",
+          "descriptionZh": "",
+          "link": "https://missouriindependent.com/2026/06/15/missouri-medicaid-will-no-longer-cover-chiropractic-care-after-budget-cuts/",
+          "pubDate": "2026-06-15T15:00:34+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Missouri Independent"
+        },
+        {
+          "id": "TU8taHR0cHM6Ly9taXNzb3VyaWluZGVwZW5kZW50LmNvbS8yMDI2LzA2LzE1L2dhbWJsaW5nLWNvbXBhbmllcy1wb3VyLWNhbXBhaWduLW1vbmV5LWludG8tZmlnaHQtb3Zlci1taXNzb3VyaS12aWRlby1sb3R0ZXJ5LWJpbGwv",
+          "title": "Gambling companies pour campaign money into fight over Missouri video lottery bill",
+          "titleZh": "赌博公司将竞选资金投入到密苏里州视频彩票法案的斗争中",
+          "description": "Four days after Missouri lawmakers adjourned in May, a company hoping to crack open the state gambling market with video slot machines donated $200,000 to three of the proposal’s biggest boosters in the General Assembly. Conservative Leadership for Southeast Missouri, the political action committee aligned with state Sen. Jason Bean, a Holcomb Republican, received $100,000. […]",
+          "descriptionZh": "",
+          "link": "https://missouriindependent.com/2026/06/15/gambling-companies-pour-campaign-money-into-fight-over-missouri-video-lottery-bill/",
+          "pubDate": "2026-06-15T10:55:09+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Missouri Independent"
+        },
+        {
+          "id": "TU8taHR0cHM6Ly9taXNzb3VyaWluZGVwZW5kZW50LmNvbS8yMDI2LzA2LzE1L2ZhdGUtb2YtbWlzc291cmktYmlsbC1vbi1nYXMtc3RhdGlvbi1zbG90LW1hY2hpbmVzLWNvdWxkLXR1cm4tb24tZ29wLXByaW1hcnktcmVzdWx0cy8",
+          "title": "Fate of Missouri bill on gas station slot machines could turn on GOP primary results",
+          "titleZh": "密苏里州在加油站老虎机上的命运法案可能会开启共和党的主要结果",
+          "description": "The fight over legalizing slot machines in Missouri gas stations and convenience stores is moving from the Capitol into Republican state Senate primaries. After years of Senate resistance, video lottery backers believe next year could bring a friendlier chamber. But three August primaries could determine how clear that path really is. The contests involve three […]",
+          "descriptionZh": "",
+          "link": "https://missouriindependent.com/2026/06/15/fate-of-missouri-bill-on-gas-station-slot-machines-could-turn-on-gop-primary-results/",
+          "pubDate": "2026-06-15T10:50:31+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Missouri Independent"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "MS",
+      "name": "Mississippi",
+      "source": "Mississippi Today",
+      "feed": "https://mississippitoday.org/feed/",
+      "stories": [
+        {
+          "id": "TVMtaHR0cHM6Ly9taXNzaXNzaXBwaXRvZGF5Lm9yZy8yMDI2LzA2LzE1LzEteWVhci1vbGQtZGVhZC1vZmZpY2VyLXNob290aW5nLw",
+          "title": "Law enforcement response to shoplifting leaves 1-year-old dead and adult critically wounded",
+          "titleZh": "执法部门对入店行窃的反应导致1岁儿童死亡，成人重伤",
+          "description": "The Senatobia Police Department in Senatobia, Miss.",
+          "descriptionZh": "",
+          "link": "https://mississippitoday.org/2026/06/15/1-year-old-dead-officer-shooting/",
+          "pubDate": "2026-06-15T19:31:18+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Mississippi Today"
+        },
+        {
+          "id": "TVMtaHR0cHM6Ly9taXNzaXNzaXBwaXRvZGF5Lm9yZy8yMDI2LzA2LzE1L2Jhcm5leS1zY2hvYnktYWRhbXMtY291bnR5LWNpdmlsLXJpZ2h0cy1sYXdtYWtlci8",
+          "title": "Barney Schoby, Adams County civil rights leader and former state lawmaker, dies at 87",
+          "titleZh": "亚当斯县民权领袖和前州议员Barney Schoby去世，享年87岁",
+          "description": "A view of the Capitol in Jackson, Miss., Thursday, March 14, 2024.",
+          "descriptionZh": "",
+          "link": "https://mississippitoday.org/2026/06/15/barney-schoby-adams-county-civil-rights-lawmaker/",
+          "pubDate": "2026-06-15T18:12:52+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Mississippi Today"
+        },
+        {
+          "id": "TVMtaHR0cHM6Ly9taXNzaXNzaXBwaXRvZGF5Lm9yZy8yMDI2LzA2LzE1L3BvbGwtd2F0Y2hlci12b3Rlci12b2ljZXMtcG9saXRpY3Mv",
+          "title": "Voter Voices: Longtime poll watcher has seen problems, politics",
+          "titleZh": "选民之声：长期的民意调查观察员看到了问题，政治",
+          "description": "Voters headed to the polls Tuesday, March 10, 2026, in Jackson, to cast their ballots in the primary election.",
+          "descriptionZh": "",
+          "link": "https://mississippitoday.org/2026/06/15/poll-watcher-voter-voices-politics/",
+          "pubDate": "2026-06-15T15:44:29+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Mississippi Today"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "MT",
+      "name": "Montana",
+      "source": "Daily Montanan",
+      "feed": "https://dailymontanan.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TVQtaHR0cHM6Ly9kYWlseW1vbnRhbmFuLmNvbS8yMDI2LzA2LzE1L2xhbmQtYm9hcmQtYWNjZXB0cy1kb25hdGlvbi1vZi01bS1tYW5zaW9uLWZyb20tZ2lhbmZvcnRlcy8",
+          "title": "Land Board accepts donation of $5M mansion from Gianfortes",
+          "titleZh": "土地委员会接受Gianfortes捐赠$ 500万豪宅",
+          "description": "The Montana Land Board on Monday accepted the historic Hauser Residence in Helena as a donation to the state from Gov. Greg Gianforte and First Lady Susan Gianforte. At 720 Madison Avenue, the property is intended to be used as a residence for Montana governors. An appraisal counts more than 12,000 square feet and 29 […]",
+          "descriptionZh": "",
+          "link": "https://dailymontanan.com/2026/06/15/land-board-accepts-donation-of-5m-mansion-from-gianfortes/",
+          "pubDate": "2026-06-15T20:07:40+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Daily Montanan"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "NC",
+      "name": "North Carolina",
+      "source": "NC Newsline",
+      "feed": "https://ncnewsline.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TkMtaHR0cHM6Ly9uY25ld3NsaW5lLmNvbS9icmllZnMvamV0emVyby1icmVha3MtZ3JvdW5kLW9uLWdyZWVuc2Jvcm8tYWlyY3JhZnQtbWFudWZhY3R1cmluZy1wbGFudC8",
+          "title": "JetZero breaks ground on Greensboro aircraft manufacturing plant",
+          "titleZh": "JetZero在格林斯伯勒飞机制造厂破土动工",
+          "description": "JetZero’s $4.7 billion investment into its Greensboro facilities are projected to boost the state’s economy by more than $250 billion.",
+          "descriptionZh": "",
+          "link": "https://ncnewsline.com/briefs/jetzero-breaks-ground-on-greensboro-aircraft-manufacturing-plant/",
+          "pubDate": "2026-06-15T21:30:50+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "NC Newsline"
+        },
+        {
+          "id": "TkMtaHR0cHM6Ly9uY25ld3NsaW5lLmNvbS8yMDI2LzA2LzE1L25jLWhvdXNlLWVsZWN0aW9ucy1iaWxsLWFkZHMtcmVxdWlyZW1lbnRzLWZvci1vdmVyc2Vhcy12b3RlcnMtYWxsb3dzLWZvci1tb3JlLXBhcnRpc2FuLXN0YWZmLw",
+          "title": "NC House elections bill adds requirements for overseas voters, allows for more partisan staff",
+          "titleZh": "北卡罗来纳州众议院选举法案增加了对海外选民的要求，允许更多的党派工作人员",
+          "description": "A sweeping proposal on who can vote, how they can vote, and how votes are counted will be debated at 10 am Tuesday in the N.C. House Elections Committee. An electronic portal for public comments on House Bill 958 has been established on the General Assembly homepage. Among other changes, the bill would: Prohibit state […]",
+          "descriptionZh": "",
+          "link": "https://ncnewsline.com/2026/06/15/nc-house-elections-bill-adds-requirements-for-overseas-voters-allows-for-more-partisan-staff/",
+          "pubDate": "2026-06-15T20:19:17+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "NC Newsline"
+        },
+        {
+          "id": "TkMtaHR0cHM6Ly9uY25ld3NsaW5lLmNvbS8yMDI2LzA2LzE1L3FhLXdoYXQtZGVib3JhaC1yb3NzLXNhdy1pbnNpZGUtdGhlLWljZS1wcm9jZXNzaW5nLWZhY2lsaXR5LWluLWNhcnkv",
+          "title": "Q&A: What Deborah Ross saw inside the ICE processing facility in Cary",
+          "titleZh": "问答： Deborah Ross在Cary的冰加工厂看到了什么",
+          "description": "U.S. Rep. Deborah Ross says the complaints her office receives about immigration detention rarely involve the ICE processing facility in Cary. Instead, Ross said, concerns typically arise after people are transferred to the Stewart Detention Center in Georgia, where North Carolinians can spend months in federal custody. Ross recently toured the Cary facility with Rep. […]",
+          "descriptionZh": "",
+          "link": "https://ncnewsline.com/2026/06/15/qa-what-deborah-ross-saw-inside-the-ice-processing-facility-in-cary/",
+          "pubDate": "2026-06-15T19:26:46+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "NC Newsline"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "ND",
+      "name": "North Dakota",
+      "source": "North Dakota Monitor",
+      "feed": "https://northdakotamonitor.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TkQtaHR0cHM6Ly9ub3J0aGRha290YW1vbml0b3IuY29tLzIwMjYvMDYvMTUvbm9ydGgtZGFrb3RhLWV0aGljcy1zdXJ2ZXktc2hvd3MtcmVzcG9uZGVudHMtbGFjay1jb25maWRlbmNlLWluLXN0YXRlLW9mZmljaWFscy8",
+          "title": "North Dakota ethics survey shows respondents lack confidence in state officials",
+          "titleZh": "北达科他州道德调查显示，受访者对州官员缺乏信心",
+          "description": "Around two-thirds of the 1,000 North Dakotans responding to a survey from the Ethics Commission said they do not have confidence state government officials act ethically. The wide-ranging survey was completed by North Dakotans who identified themselves as residents, business owners, lobbyists, employees of advocacy groups, and elected officials. It asked for input on a […]",
+          "descriptionZh": "",
+          "link": "https://northdakotamonitor.com/2026/06/15/north-dakota-ethics-survey-shows-respondents-lack-confidence-in-state-officials/",
+          "pubDate": "2026-06-15T15:07:38+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "North Dakota Monitor"
+        },
+        {
+          "id": "TkQtaHR0cHM6Ly9ub3J0aGRha290YW1vbml0b3IuY29tLzIwMjYvMDYvMTUvbmV3LXJ1bGVzLWZvci00LWRheS1zY2hvb2wtd2Vla3MtZHJhdy1wdXNoYmFjay1mcm9tLXNvbWUtcnVyYWwtbm9ydGgtZGFrb3RhLXNjaG9vbHMv",
+          "title": "New rules for 4-day school weeks draw pushback from some rural North Dakota schools",
+          "titleZh": "北达科他州一些农村学校推迟了为期4天的上学周的新规定",
+          "description": "The North Dakota Department of Public Instruction is weighing new rules for four-day-a-week K-12 schools, but some educators say the proposed changes would unfairly burden rural schools. Under the four-day-a-week model, districts still must still meet the same requirements for minimum instruction time, so school days are longer. Districts that want to adopt the schedule […]",
+          "descriptionZh": "",
+          "link": "https://northdakotamonitor.com/2026/06/15/new-rules-for-4-day-school-weeks-draw-pushback-from-some-rural-north-dakota-schools/",
+          "pubDate": "2026-06-15T10:00:29+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "North Dakota Monitor"
+        },
+        {
+          "id": "TkQtaHR0cHM6Ly9ub3J0aGRha290YW1vbml0b3IuY29tLzIwMjYvMDYvMTUvbm9ydGgtZGFrb3RhLXJlcHVibGljYW4tcG9wdWxpc3RzLWVhcm4tdGhlLWJvb3Qv",
+          "title": "North Dakota Republican ‘populists’ earn the boot",
+          "titleZh": "北达科他州共和党“民粹主义者”获胜",
+          "description": "Many candidates of the misnamed “populist” faction of the North Dakota Republican Party were shown the door in the June 9 primary, as voters who voted on the GOP side of the ballot gave most of them the boot. Ironically (or is it stupidly?), a focused clique has cleverly seized control of the party by […]",
+          "descriptionZh": "",
+          "link": "https://northdakotamonitor.com/2026/06/15/north-dakota-republican-populists-earn-the-boot/",
+          "pubDate": "2026-06-15T10:00:21+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "North Dakota Monitor"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "NE",
+      "name": "Nebraska",
+      "source": "Nebraska Examiner",
+      "feed": "https://nebraskaexaminer.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TkUtaHR0cHM6Ly9uZWJyYXNrYWV4YW1pbmVyLmNvbS8yMDI2LzA2LzE1L25lLTAyLWdvcC1jYW5kaWRhdGUtYnJpbmtlci1oYXJkaW5nLXN1Ym1pdHMtcGVyc29uYWwtZmluYW5jaWFsLWRpc2Nsb3N1cmVzLw",
+          "title": "NE-02 GOP candidate Brinker Harding submits personal financial disclosures",
+          "titleZh": "NE-02共和党候选人Brinker Harding提交个人财务披露",
+          "description": "OMAHA — After missing the original deadlines, Nebraska’s 2nd Congressional District Republican nominee Brinker Harding submitted his financial disclosures to the Clerk of the U.S. House late last week. Republican CD2 nominee Brinker Harding misses filing deadlines for personal financial disclosures Harding, the Omaha City Councilman, has faced criticism from national and Nebraska Democrats over […]",
+          "descriptionZh": "",
+          "link": "https://nebraskaexaminer.com/2026/06/15/ne-02-gop-candidate-brinker-harding-submits-personal-financial-disclosures/",
+          "pubDate": "2026-06-15T19:36:24+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Nebraska Examiner"
+        },
+        {
+          "id": "TkUtaHR0cHM6Ly9uZWJyYXNrYWV4YW1pbmVyLmNvbS8yMDI2LzA2LzE1L25lYnJhc2thcy1vbmNlLWNvbnRyb3ZlcnNpYWwtNTAwLW1pbGUtc2N1bHB0dXJlLWdhcmRlbi1jZWxlYnJhdGVzLTUwLXllYXJzLw",
+          "title": "Nebraska’s once-controversial ‘500-mile Sculpture Garden’ celebrates 50 years",
+          "titleZh": "内布拉斯加州曾经备受争议的“500英里雕塑花园”庆祝50周年",
+          "description": "To mark America's 250th birthday, the Nebraska Arts Council is planning a series of events to celebrate the sculptures installed for the bicentennial in 1976.",
+          "descriptionZh": "",
+          "link": "https://nebraskaexaminer.com/2026/06/15/nebraskas-once-controversial-500-mile-sculpture-garden-celebrates-50-years/",
+          "pubDate": "2026-06-15T10:00:45+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Nebraska Examiner"
+        },
+        {
+          "id": "TkUtaHR0cHM6Ly9uZWJyYXNrYWV4YW1pbmVyLmNvbS8yMDI2LzA2LzE1L29waW5pb24tcmlzaW5nLWNoaWxkY2FyZS1jb3N0cy1zdHJhaW4tbmVicmFza2EtZmFtaWx5LWJ1ZGdldHMtcmVkdWNlLWJ1c2luZXNzLW91dHB1dC8",
+          "title": "OPINION: Rising childcare costs strain Nebraska family budgets, reduce business output",
+          "titleZh": "意见：托儿成本上升使内布拉斯加州家庭预算紧张，降低了业务产出",
+          "description": "For many Nebraska families, childcare is not affordable. A new calculator created by First Five Nebraska illustrates those costs.",
+          "descriptionZh": "",
+          "link": "https://nebraskaexaminer.com/2026/06/15/opinion-rising-childcare-costs-strain-nebraska-family-budgets-reduce-business-output/",
+          "pubDate": "2026-06-15T10:00:34+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "Nebraska Examiner"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "NH",
+      "name": "New Hampshire",
+      "source": "New Hampshire Bulletin",
+      "feed": "https://newhampshirebulletin.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TkgtaHR0cHM6Ly9uZXdoYW1wc2hpcmVidWxsZXRpbi5jb20vYnJpZWZzL292ZXItOS0zbS1pbi1mZWRlcmFsLWdyYW50cy1hd2FyZGVkLXRvLW5vcnRoZXJuLW5oLWJ1c2luZXNzZXMtZm9yLWNoaWxkY2FyZS1pbmZyYXN0cnVjdHVyZS8",
+          "title": "Over $9M in federal grants awarded to northern NH businesses for childcare, infrastructure",
+          "titleZh": "向新罕布什尔州北部企业提供超过900万$的联邦补助金，用于儿童保育和基础设施建设",
+          "description": "U.S. Sen. Jeanne Shaheen and the New Hampshire congressional delegation announced that 21 grantees received $9.3 million in federal funding from the Northern Border Regional Commission. Businesses, nonprofits, and state agencies received grants to improve outdoor recreation and tourism, childcare, educational programs, sanitation, workforce development, and more. “For nearly two decades, the Northern Border Regional […]",
+          "descriptionZh": "",
+          "link": "https://newhampshirebulletin.com/briefs/over-9-3m-in-federal-grants-awarded-to-northern-nh-businesses-for-childcare-infrastructure/",
+          "pubDate": "2026-06-15T20:31:12+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "New Hampshire Bulletin"
+        },
+        {
+          "id": "TkgtaHR0cHM6Ly9uZXdoYW1wc2hpcmVidWxsZXRpbi5jb20vMjAyNi8wNi8xNS91cC1ub3J0aC1uZXctaGFtcHNoaXJlcy1jaGlsZGNhcmUtaXNzdWVzLXRha2Utb24tdGhlaXItb3duLXNwaW4v",
+          "title": "In Northern New Hampshire, the childcare issues are both familiar and unique",
+          "titleZh": "在新罕布什尔州北部，儿童保育问题既熟悉又独特",
+          "description": "A mile-long dirt road, nestled in the woods on the outskirts of Franconia Notch State Park, separates Gale River Cooperative Preschool from its neighbors. The school is hidden, not just because of the deep woods surrounding it but because it’s located on the grounds of a sleepaway camp. For 10 months out of the year, […]",
+          "descriptionZh": "",
+          "link": "https://newhampshirebulletin.com/2026/06/15/up-north-new-hampshires-childcare-issues-take-on-their-own-spin/",
+          "pubDate": "2026-06-15T09:00:51+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "New Hampshire Bulletin"
+        },
+        {
+          "id": "TkgtaHR0cHM6Ly9uZXdoYW1wc2hpcmVidWxsZXRpbi5jb20vMjAyNi8wNi8xNS90aGVyZS1hcmUtdHdvLW5ldy1oYW1wc2hpcmVzLWFuZC1vbmx5LW9uZS1vZi10aGVtLWlzLXJlYWwv",
+          "title": "There are two New Hampshires, and only one of them is real",
+          "titleZh": "有两个新罕布什尔州，其中只有一个是真实的",
+          "description": "On Tuesday afternoon, I was walking toward Vanderbilt Avenue in Manhattan when a $5 bill dropped from someone’s pocket and onto a crosswalk along East 42nd Street. “Girl, girl,” a woman a few paces in front of me said, loud enough to rise above the din of the city. “You dropped your money.” The pedestrian […]",
+          "descriptionZh": "",
+          "link": "https://newhampshirebulletin.com/2026/06/15/there-are-two-new-hampshires-and-only-one-of-them-is-real/",
+          "pubDate": "2026-06-15T08:55:42+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "New Hampshire Bulletin"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "NJ",
+      "name": "New Jersey",
+      "source": "New Jersey Monitor",
+      "feed": "https://newjerseymonitor.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TkotaHR0cHM6Ly9uZXdqZXJzZXltb25pdG9yLmNvbS8yMDI2LzA2LzE1L25qLWp1ZGdlLXRocmVhdGVuZWQtZGVwb3J0LXRydWFudC1zdHVkZW50cy8",
+          "title": "NJ judge who threatened to deport truant students should be removed, panel says",
+          "titleZh": "专家组说，新泽西州的法官威胁要驱逐逃学的学生，应该被除名",
+          "description": "A municipal judge threatened three truant students from Bound Brook with deportation. That showed bias and broke court rules, a panel ruled.",
+          "descriptionZh": "",
+          "link": "https://newjerseymonitor.com/2026/06/15/nj-judge-threatened-deport-truant-students/",
+          "pubDate": "2026-06-15T22:07:16+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "New Jersey Monitor"
+        },
+        {
+          "id": "TkotaHR0cHM6Ly9uZXdqZXJzZXltb25pdG9yLmNvbS8yMDI2LzA2LzE1L25qLXNjaG9vbC1idWRnZXRzLWJpbGwv",
+          "title": "NJ lawmakers aim to bring ‘clarity’ to school budgeting with new bill",
+          "titleZh": "新泽西州立法者旨在通过新法案为学校预算编制带来“清晰度”",
+          "description": "School leaders have griped they don’t know soon enough how much state aid they will receive annually. A new bill aims to change that.",
+          "descriptionZh": "",
+          "link": "https://newjerseymonitor.com/2026/06/15/nj-school-budgets-bill/",
+          "pubDate": "2026-06-15T20:22:52+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "New Jersey Monitor"
+        },
+        {
+          "id": "TkotaHR0cHM6Ly9uZXdqZXJzZXltb25pdG9yLmNvbS8yMDI2LzA2LzE1L3BsYW4tc2F2ZS1uai1wYnMv",
+          "title": "Governor’s plan to save NJ PBS moves toward finish line",
+          "titleZh": "州长拯救新泽西州公共广播公司的计划迈向终点线",
+          "description": "Montclair State University got the Sherrill administration's OK to run New Jersey's public television network. Critics fear political meddling and other problems.",
+          "descriptionZh": "",
+          "link": "https://newjerseymonitor.com/2026/06/15/plan-save-nj-pbs/",
+          "pubDate": "2026-06-15T14:25:15+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "New Jersey Monitor"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "NM",
+      "name": "New Mexico",
+      "source": "Source New Mexico",
+      "feed": "https://sourcenm.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "Tk0taHR0cHM6Ly9zb3VyY2VubS5jb20vMjAyNi8wNi8xNS9maXJtLWJlaGluZC1uZXctbWV4aWNvLW1lZGljYWlkLWNhbXBhaWduLXJlY3J1aXRzLWluZmx1ZW5jZXJzLXRvLXByb21vdGUtcHJvamVjdC1qdXBpdGVyLWRhdGEtY2VudGVyLw",
+          "title": "Firm behind New Mexico Medicaid campaign recruits influencers to promote Project Jupiter data center",
+          "titleZh": "新墨西哥州医疗补助计划背后的公司招募有影响力的人来推广Jupiter项目数据中心",
+          "description": "The marketing agency behind New Mexico’s award-winning Medicaid re-enrollment social media campaign is recruiting influencers to promote Project Jupiter, the controversial artificial intelligence data center under construction in Doña Ana County.",
+          "descriptionZh": "",
+          "link": "https://sourcenm.com/2026/06/15/firm-behind-new-mexico-medicaid-campaign-recruits-influencers-to-promote-project-jupiter-data-center/",
+          "pubDate": "2026-06-15T22:20:07+00:00",
+          "category": "tech",
+          "categoryLabel": {
+            "en": "Tech",
+            "zh": "科技"
+          },
+          "source": "Source New Mexico"
+        },
+        {
+          "id": "Tk0taHR0cHM6Ly9zb3VyY2VubS5jb20vMjAyNi8wNi8xNS9ubS10cmVlLWRlYXRocy10cmlwbGVkLWluLTIwMjUtZHVlLXRvLWludGVuc2UtZHJvdWdodC1hbmQtYmFyay1iZWV0bGUtcHJvbGlmZXJhdGlvbi8",
+          "title": "NM tree deaths tripled in 2025, due to intense drought and bark beetle proliferation",
+          "titleZh": "由于严重干旱和树皮甲虫增殖， 2025年NM树木死亡人数增加了两倍",
+          "description": "Intensifying drought and above-average temperatures allowed native bark beetles to run rampant in New Mexico’s forests in 2025, resulting in a tripling of tree mortality over 2024, according to a new report from the New Mexico State Forestry division. The report, based on aerial assessments of more than 14 million acres of forest on tribal, […]",
+          "descriptionZh": "",
+          "link": "https://sourcenm.com/2026/06/15/nm-tree-deaths-tripled-in-2025-due-to-intense-drought-and-bark-beetle-proliferation/",
+          "pubDate": "2026-06-15T21:49:26+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Source New Mexico"
+        },
+        {
+          "id": "Tk0taHR0cHM6Ly9zb3VyY2VubS5jb20vYnJpZWZzL25ldy1tZXhpY28tbGF3LWVuZm9yY2VtZW50LWFjYWRlbXktdGFwcy1jYWxpZm9ybmlhLXBvbGljZS1jaGllZi1hcy1uZXctZGlyZWN0b3Iv",
+          "title": "New Mexico Law Enforcement Academy taps California police chief as new director",
+          "titleZh": "新墨西哥州执法学院任命加州警察局长为新局长",
+          "description": "The New Mexico Department of Public Safety on Friday announced it had appointed a new Law Enforcement Academy director after a national search that lasted more than a year.",
+          "descriptionZh": "",
+          "link": "https://sourcenm.com/briefs/new-mexico-law-enforcement-academy-taps-california-police-chief-as-new-director/",
+          "pubDate": "2026-06-15T17:04:24+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Source New Mexico"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "NV",
+      "name": "Nevada",
+      "source": "Nevada Current",
+      "feed": "https://nevadacurrent.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "TlYtaHR0cHM6Ly9uZXZhZGFjdXJyZW50LmNvbS8yMDI2LzA2LzE1L2ZlZGVyYWwtanVkZ2UtcnVsZXMtZXBhLWlsbGVnYWxseS1jdXQtY2xpbWF0ZS1qdXN0aWNlLWdyYW50cy1pbmNsdWRpbmctMjAtbWlsbGlvbi1mb3ItdHJpYmUtaW4tbnYv",
+          "title": "Federal judge rules EPA illegally cut climate justice grants, including $20 million for tribe in NV",
+          "titleZh": "联邦法官裁定美国环保署非法削减气候正义补助金，包括内华达州部落的2000万美元（ $ 2000万）",
+          "description": "A South Carolina federal judge ruled last week that the Trump administration’s termination of hundreds of environmental justice grants was illegal, a decision that could impact $20 million in federal funding rescinded from the Walker River Paiute Tribe in Nevada. The Environmental Protection Agency’s decision to terminate the $2.8 billion Environmental and Climate Justice Block […]",
+          "descriptionZh": "",
+          "link": "https://nevadacurrent.com/2026/06/15/federal-judge-rules-epa-illegally-cut-climate-justice-grants-including-20-million-for-tribe-in-nv/",
+          "pubDate": "2026-06-15T12:00:58+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Nevada Current"
+        },
+        {
+          "id": "TlYtaHR0cHM6Ly9uZXZhZGFjdXJyZW50LmNvbS9icmllZnMvc3RhdGUtbmFtZXMtZmlyc3Qtcm91bmQtb2YtcHJvamVjdHMtZnVuZGVkLWJ5LWZlZGVyYWwtcnVyYWwtaGVhbHRoLXByb2dyYW0v",
+          "title": "State names first round of projects funded by federal rural health program",
+          "titleZh": "由联邦农村卫生计划资助的第一轮项目",
+          "description": "The state this week announced its first round of federal rural health grant funding, which allocated $36 million to projects to help communities with one-time infrastructure improvements and improve technological gaps. The Nevada Health Authority on Monday named the 25 projects that were awarded funding as part of the $180 million part of the Rural […]",
+          "descriptionZh": "",
+          "link": "https://nevadacurrent.com/briefs/state-names-first-round-of-projects-funded-by-federal-rural-health-program/",
+          "pubDate": "2026-06-15T11:45:49+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Nevada Current"
+        },
+        {
+          "id": "TlYtaHR0cHM6Ly9uZXZhZGFjdXJyZW50LmNvbS8yMDI2LzA2LzE1L2ZpbmFsLXJ1bGVzLWZvci1tZWRpY2FpZC13b3JrLXJlcXVpcmVtZW50cy1hcmUtb3V0LWhlcmVzLXdoYXQteW91LW5lZWQtdG8ta25vdy8",
+          "title": "Final rules for Medicaid work requirements are out. Here’s what you need to know.",
+          "titleZh": "医疗补助工作要求的最终规则已经出台。以下是您需要了解的信息。",
+          "description": "The Trump administration has issued final rules on how states should ensure that millions of Medicaid enrollees prove they’re working or completing other activities, such as job training, volunteering, or being enrolled in an educational program. The Centers for Medicare & Medicaid Services released the rules on June 1. That deadline was set last year […]",
+          "descriptionZh": "",
+          "link": "https://nevadacurrent.com/2026/06/15/final-rules-for-medicaid-work-requirements-are-out-heres-what-you-need-to-know/",
+          "pubDate": "2026-06-15T11:00:11+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "Nevada Current"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "NY",
+      "name": "New York",
+      "source": "New York Focus",
+      "feed": "https://nysfocus.com/feed/",
+      "stories": [
+        {
+          "id": "TlktaHR0cHM6Ly9ueXNmb2N1cy5jb20vMjAyNi8wNi8xNS9uZXcteW9yay1lc3NlbnRpYWwtcGxhbi1jb3ZlcmFnZS1lbmRpbmctZ3VpZGU",
+          "title": "What To Do If You’re Impacted By Changes to the Essential Plan",
+          "titleZh": "如果您受到基本计划变更的影响，该怎么办",
+          "description": "We’ve compiled information for the 450,000 New Yorkers who will lose health care coverage on July 1.",
+          "descriptionZh": "",
+          "link": "https://nysfocus.com/2026/06/15/new-york-essential-plan-coverage-ending-guide",
+          "pubDate": "2026-06-15T15:01:00+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "New York Focus"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "OH",
+      "name": "Ohio",
+      "source": "Ohio Capital Journal",
+      "feed": "https://ohiocapitaljournal.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "T0gtaHR0cHM6Ly9vaGlvY2FwaXRhbGpvdXJuYWwuY29tLzIwMjYvMDYvMTUvb2hpby1jYXBpdGFsLWpvdXJuYWwtd2lucy1laWdodC1zb2NpZXR5LW9mLXByb2Zlc3Npb25hbC1qb3VybmFsaXN0cy1hd2FyZHMtaW5jbHVkaW5nLWJlc3QtbmV3cy1zaXRlLw",
+          "title": "Ohio Capital Journal wins eight Society of Professional Journalists awards, including Best News Site",
+          "titleZh": "《俄亥俄州首都日报》荣获八项职业记者协会奖，包括最佳新闻网站",
+          "description": "The Ohio Capital Journal has won eight awards in “Ohio’s Best Journalism Contest” from the Society of Professional Journalists, including First Place for Best General News Site, three other first place finishes, and four in second place. The contest covered stories and editorial from 2025.",
+          "descriptionZh": "",
+          "link": "https://ohiocapitaljournal.com/2026/06/15/ohio-capital-journal-wins-eight-society-of-professional-journalists-awards-including-best-news-site/",
+          "pubDate": "2026-06-15T16:46:42+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Ohio Capital Journal"
+        },
+        {
+          "id": "T0gtaHR0cHM6Ly9vaGlvY2FwaXRhbGpvdXJuYWwuY29tL2JyaWVmcy9jYXRjaGluZy1vdXItZXllLW5ld3Mtcm91bmR1cC1qdW5lLTE1LTIwMjYv",
+          "title": "Catching Our Eye News Roundup, June 15, 2026",
+          "titleZh": "抢眼新闻综述， 2026年6月15日",
+          "description": "Every morning in the Ohio Capital Journal’s free newsletter, The Eye-Opener, we round up the news and commentary from across Ohio and around the country and world that is catching our attention. We call this feature Catching Our Eye, republished here. Please subscribe to our free daily newsletter to get all the Ohio news you need to know […]",
+          "descriptionZh": "",
+          "link": "https://ohiocapitaljournal.com/briefs/catching-our-eye-news-roundup-june-15-2026/",
+          "pubDate": "2026-06-15T12:50:07+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Ohio Capital Journal"
+        },
+        {
+          "id": "T0gtaHR0cHM6Ly9vaGlvY2FwaXRhbGpvdXJuYWwuY29tLzIwMjYvMDYvMTUvYS1iaWxsLWJhbm5pbmctY2hpbGQtbWFycmlhZ2UtcGFzc2VkLW91dC1vZi1jb21taXR0ZWUtYnV0LXRoZS1vaGlvLXNlbmF0ZS1kaWQtbm90LXZvdGUtb24taXQv",
+          "title": "A bill banning child marriage passed out of committee, but the Ohio Senate did not vote on it",
+          "titleZh": "禁止童婚的法案在委员会中获得通过，但俄亥俄州参议院没有投票",
+          "description": "Ohio lawmakers went home for summer break without passing a bill that would ban child marriage. The Ohio Senate Judiciary Committee unanimously passed Ohio Senate Bill 341 last Wednesday, but the bill was not brought up for a full Senate vote later that day. Ohio Republican leaders differ on whether child marriage should be a […]",
+          "descriptionZh": "",
+          "link": "https://ohiocapitaljournal.com/2026/06/15/a-bill-banning-child-marriage-passed-out-of-committee-but-the-ohio-senate-did-not-vote-on-it/",
+          "pubDate": "2026-06-15T07:55:54+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Ohio Capital Journal"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "OK",
+      "name": "Oklahoma",
+      "source": "Oklahoma Voice",
+      "feed": "https://oklahomavoice.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "T0staHR0cHM6Ly9va2xhaG9tYXZvaWNlLmNvbS8yMDI2LzA2LzE1L2luLXBlcnNvbi1lYXJseS12b3RpbmctdHVybm91dC11cC1va2xhaG9tYS1lbGVjdGlvbi1kYXRhLXNob3dzLw",
+          "title": "In-person early voting turnout up, Oklahoma election data shows",
+          "titleZh": "俄克拉荷马州选举数据显示，亲自提前投票的投票率",
+          "description": "In-person early voting turnout is up from June’s primary election four years ago, according to state data. Just over 48,400 Oklahomans voted in person last week ahead of Tuesday’s election. This eclipses early voting numbers in 2022, the last time the governor position was on the ballot. That primary saw over 29,000 voters cast ballots […]",
+          "descriptionZh": "",
+          "link": "https://oklahomavoice.com/2026/06/15/in-person-early-voting-turnout-up-oklahoma-election-data-shows/",
+          "pubDate": "2026-06-15T20:25:29+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Oklahoma Voice"
+        },
+        {
+          "id": "T0staHR0cHM6Ly9va2xhaG9tYXZvaWNlLmNvbS8yMDI2LzA2LzE1L3NlZS13aGF0cy1vbi10aGUtYmFsbG90LWFoZWFkLW9mLXR1ZXNkYXlzLXByaW1hcnktZWxlY3Rpb25zLw",
+          "title": "See what’s on the ballot ahead of Tuesday’s primary elections",
+          "titleZh": "在周二的初选之前查看选票上的内容",
+          "description": "OKLAHOMA CITY — Oklahoma voters go to the polls Tuesday to pick favorites for elected offices and determine the fate of a proposal to hike the minimum wage. Voters of all political parties will have State Question 832 on their ballots. The polarizing statewide measure proposes raising the minimum wage to $15 per hour by […]",
+          "descriptionZh": "",
+          "link": "https://oklahomavoice.com/2026/06/15/see-whats-on-the-ballot-ahead-of-tuesdays-primary-elections/",
+          "pubDate": "2026-06-15T10:30:43+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Oklahoma Voice"
+        },
+        {
+          "id": "T0staHR0cHM6Ly9va2xhaG9tYXZvaWNlLmNvbS8yMDI2LzA2LzE1L29rbGFob21hcy13aW5kLWlzLXJlYWR5LWl0cy1wb3dlci1ncmlkLWlzLW5vdC8",
+          "title": "Oklahoma’s wind is ready. Its power grid is not.",
+          "titleZh": "俄克拉荷马州的风已经准备好了。它的电网不是。",
+          "description": "Oklahoma ranks third in the United States for wind electricity generation, according to the U.S. Energy Information Administration. In fact, wind now accounts for roughly 42% of Oklahoma’s in-state electricity generation. Across large stretches of western Oklahoma, the wind blows with a consistency that energy developers describe as among the best in the country. The […]",
+          "descriptionZh": "",
+          "link": "https://oklahomavoice.com/2026/06/15/oklahomas-wind-is-ready-its-power-grid-is-not/",
+          "pubDate": "2026-06-15T10:29:19+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Oklahoma Voice"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "OR",
+      "name": "Oregon",
+      "source": "Oregon Capital Chronicle",
+      "feed": "https://oregoncapitalchronicle.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "T1ItaHR0cHM6Ly9vcmVnb25jYXBpdGFsY2hyb25pY2xlLmNvbS8yMDI2LzA2LzE1L3RoaXMtbm9uYWZmaWxpYXRlZC1vcmVnb25pYW4taXMtcnVubmluZy1mb3ItY29uZ3Jlc3MtaGlzLWNhbXBhaWduLWxvb2tzLWRpZmZlcmVudC10aGFuLW1vc3Qv",
+          "title": "This nonaffiliated Oregonian is running for Congress. His campaign looks different than most",
+          "titleZh": "这位无党派的俄勒冈人正在竞选国会议员。他的竞选活动看起来与大多数人不同",
+          "description": "Jason Faler spends most of his weekends collecting signatures at the Salem Saturday Market. That’s usually when the 49-year old combat veteran and former healthcare executive pitches himself to registered voters living in Oregon’s 6th Congressional District, asking them to sign a petition supporting his spot on the November ballot. Unlike the major party candidates […]",
+          "descriptionZh": "",
+          "link": "https://oregoncapitalchronicle.com/2026/06/15/this-nonaffiliated-oregonian-is-running-for-congress-his-campaign-looks-different-than-most/",
+          "pubDate": "2026-06-15T13:00:50+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Oregon Capital Chronicle"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "PA",
+      "name": "Pennsylvania",
+      "source": "Pennsylvania Capital-Star",
+      "feed": "https://penncapital-star.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "UEEtaHR0cHM6Ly9wZW5uY2FwaXRhbC1zdGFyLmNvbS9jaGlsZHJlbi1mYW1pbGllcy9wYWlkLWZhbWlseS1tZWRpY2FsLWxlYXZlLXNlbmF0ZS8",
+          "title": "Proposal to establish paid family, medical leave for Pa. workers passes state Senate panel",
+          "titleZh": "建立带薪家庭的建议，宾夕法尼亚州工人的病假通过州参议院小组",
+          "description": "Emily Scolnick is a 2026 Dow Jones News Fund intern at the Pennsylvania Capital-Star. Legislation to establish a statewide paid family and medical leave program advanced in the state Senate after passing the chamber’s Labor & Industry Committee with bipartisan support. Should the measure pass, Pennsylvania would join 14 states and Washington, D.C. in creating […]",
+          "descriptionZh": "",
+          "link": "https://penncapital-star.com/children-families/paid-family-medical-leave-senate/",
+          "pubDate": "2026-06-15T21:03:44+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Pennsylvania Capital-Star"
+        },
+        {
+          "id": "UEEtaHR0cHM6Ly9wZW5uY2FwaXRhbC1zdGFyLmNvbS9icmllZnMvcGEtaG91c2UtcGFzc2VzLWdhcy1zdGF0aW9uLWhlcm9pbi1iYW4v",
+          "title": "Pa. House passes “gas station heroin” ban",
+          "titleZh": "Pa. House通过了“加油站海洛因”禁令",
+          "description": "Tianeptine produces opioid-like effects in high doses, and can also cause addiction, seizures, psychosis and loss of consciousness, according to the Partnership to End Addiction.",
+          "descriptionZh": "",
+          "link": "https://penncapital-star.com/briefs/pa-house-passes-gas-station-heroin-ban/",
+          "pubDate": "2026-06-15T20:55:08+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Pennsylvania Capital-Star"
+        },
+        {
+          "id": "UEEtaHR0cHM6Ly9wZW5uY2FwaXRhbC1zdGFyLmNvbS90cmFuc3BvcnRhdGlvbi1pbmZyYXN0cnVjdHVyZS9lLXNjb290ZXJzLWFyZS1ldmVyeXdoZXJlLWluLXBhLXRoaXMtbGVnaXNsYXRpb24td291bGQtbWFrZS10aGVtLWxlZ2FsLw",
+          "title": "E-scooters are everywhere in Pa.; this legislation would make them legal",
+          "titleZh": "宾夕法尼亚州到处都是电动滑板车；这项立法将使它们合法化",
+          "description": "The bill would permit any of the commonwealth’s 53 second- or third-class cities to establish an e-scooter mobility program with a commercial provider under the rules developed by Pittsburgh for the Spin pilot.",
+          "descriptionZh": "",
+          "link": "https://penncapital-star.com/transportation-infrastructure/e-scooters-are-everywhere-in-pa-this-legislation-would-make-them-legal/",
+          "pubDate": "2026-06-15T20:52:20+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Pennsylvania Capital-Star"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "RI",
+      "name": "Rhode Island",
+      "source": "Rhode Island Current",
+      "feed": "https://rhodeislandcurrent.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "UkktaHR0cHM6Ly9yaG9kZWlzbGFuZGN1cnJlbnQuY29tLzIwMjYvMDYvMTUvdC1mLWdyZWVuLWNvbmNlc3Npb24td29ya2Vycy1hdXRob3JpemUtc3RyaWtlLw",
+          "title": "T.F. Green concession workers authorize strike",
+          "titleZh": "T.F.绿色特许经营工人批准罢工",
+          "description": "Seventy-two food and beverage workers at Rhode Island T.F. Green International Airport are preparing to walk off the job ahead of the England-Ghana World Cup match in nearby Massachusetts unless they’re given a new contract. Concession workers organized under Unite Here! Local 26 announced Monday they voted to authorize a strike as they continue to […]",
+          "descriptionZh": "",
+          "link": "https://rhodeislandcurrent.com/2026/06/15/t-f-green-concession-workers-authorize-strike/",
+          "pubDate": "2026-06-15T21:45:53+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Rhode Island Current"
+        },
+        {
+          "id": "UkktaHR0cHM6Ly9yaG9kZWlzbGFuZGN1cnJlbnQuY29tLzIwMjYvMDYvMTUvc21pbGV5LXNheXMtZmlyZS10cnVjay1tYW51ZmFjdHVyZXJzLWFyZS1kcml2aW5nLXVwLWNvc3RzLWZvci1wcm92aWRlbmNlLXRheHBheWVycy8",
+          "title": "Smiley says fire truck manufacturers are driving up costs for Providence taxpayers",
+          "titleZh": "Smiley表示，消防车制造商正在推高普罗维登斯纳税人的成本",
+          "description": "The city of Providence is joining a list of communities across the nation accusing three fire truck manufacturers of conspiring to suppress the supply of emergency vehicles, raise their prices, and leave municipalities waiting longer for them. City officials filed a 72-page federal antitrust lawsuit Friday in the U.S. District Court for the District of […]",
+          "descriptionZh": "",
+          "link": "https://rhodeislandcurrent.com/2026/06/15/smiley-says-fire-truck-manufacturers-are-driving-up-costs-for-providence-taxpayers/",
+          "pubDate": "2026-06-15T20:50:32+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Rhode Island Current"
+        },
+        {
+          "id": "UkktaHR0cHM6Ly9yaG9kZWlzbGFuZGN1cnJlbnQuY29tLzIwMjYvMDYvMTUvbm9ydGgta2luZ3N0b3duLW1vdW50cy1sZWdhbC1jaGFsbGVuZ2Utb24tZXBhLXBlcm1pdC1mb3ItcXVvbnNldC1zbHVkZ2UtcGxhbnQv",
+          "title": "North Kingstown mounts legal challenge on EPA permit for Quonset sludge plant",
+          "titleZh": "北金斯敦对Quonset污泥厂的EPA许可证提出法律质疑",
+          "description": "The town of North Kingstown has put federal environmental regulators on notice: A lawsuit is coming. The written warning sent by certified mail to the U.S. Environmental Protection Agency Thursday by Marisa Desautel, an environmental lawyer hired to represent the town, marks what is the second legal challenge to a sludge treatment plant proposed for […]",
+          "descriptionZh": "",
+          "link": "https://rhodeislandcurrent.com/2026/06/15/north-kingstown-mounts-legal-challenge-on-epa-permit-for-quonset-sludge-plant/",
+          "pubDate": "2026-06-15T18:53:58+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Rhode Island Current"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "SC",
+      "name": "South Carolina",
+      "source": "SC Daily Gazette",
+      "feed": "https://scdailygazette.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "U0MtaHR0cHM6Ly9zY2RhaWx5Z2F6ZXR0ZS5jb20vMjAyNi8wNi8xNS9zYy1sZWdpc2xhdG9yLWRlY2xhcmVkLXByaW1hcnktd2lubmVyLWJ5LWp1c3QtMzQtdm90ZXMv",
+          "title": "SC legislator declared primary winner by just 34 votes",
+          "titleZh": "南卡罗来纳州议员仅以34票宣布主要获胜者",
+          "description": "Rep. Rob Harris defeated challenger Adam Crisp by 34 votes in the only primary race that was close enough to trigger an automatic recount.",
+          "descriptionZh": "",
+          "link": "https://scdailygazette.com/2026/06/15/sc-legislator-declared-primary-winner-by-just-34-votes/",
+          "pubDate": "2026-06-15T20:45:24+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "SC Daily Gazette"
+        },
+        {
+          "id": "U0MtaHR0cHM6Ly9zY2RhaWx5Z2F6ZXR0ZS5jb20vMjAyNi8wNi8xNS9zYy1zaG91bGQtd2VsY29tZS1uZXctcGVvcGxlLXdoby1tYWtlLW91ci1zdGF0ZS1tb3JlLWJlYXV0aWZ1bC8",
+          "title": "SC should welcome new people who make our state more beautiful",
+          "titleZh": "南卡罗来纳州应该欢迎那些让我们的州变得更美丽的新人",
+          "description": "I run a small mail-order nursery in South Carolina. I also run a garden design firm, and I’ve spent decades helping create two of the largest botanical gardens in the state — institutions that collectively employ hundreds of people, host hundreds of thousands of visitors each year. My trade is the beauty of South Carolina’s […]",
+          "descriptionZh": "",
+          "link": "https://scdailygazette.com/2026/06/15/sc-should-welcome-new-people-who-make-our-state-more-beautiful/",
+          "pubDate": "2026-06-15T09:00:41+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "SC Daily Gazette"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "SD",
+      "name": "South Dakota",
+      "source": "South Dakota Searchlight",
+      "feed": "https://southdakotasearchlight.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "U0QtaHR0cHM6Ly9zb3V0aGRha290YXNlYXJjaGxpZ2h0LmNvbS8yMDI2LzA2LzE1L3JlcHVibGljYW4tdm90ZXJzLWRlY2xhcmUtdGhlaXItZnJlZWRvbS1mcm9tLXRoZS1mcmVlZG9tLWNhdWN1cy8",
+          "title": "Republican voters declare their freedom from the Freedom Caucus",
+          "titleZh": "共和党选民宣布摆脱自由核心小组",
+          "description": "As someone who is lucky enough to offer commentary about South Dakota politics, I must note that the recent Republican primary has made my job tougher. The state’s Republican voters, without any regard for my feelings, kicked out most of the members of the South Dakota Freedom Caucus. Don’t get me wrong, I was usually […]",
+          "descriptionZh": "",
+          "link": "https://southdakotasearchlight.com/2026/06/15/republican-voters-declare-their-freedom-from-the-freedom-caucus/",
+          "pubDate": "2026-06-15T10:00:57+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "South Dakota Searchlight"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "TN",
+      "name": "Tennessee",
+      "source": "Tennessee Lookout",
+      "feed": "https://tennesseelookout.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "VE4taHR0cHM6Ly90ZW5uZXNzZWVsb29rb3V0LmNvbS8yMDI2LzA2LzE1L3Byb3ZpZGVycy1zY3JhbWJsZS1hcy10ZW5uZXNzZWUtdGVsbHMtc2ljay1kaXNhYmxlZC1pbW1pZ3JhbnQta2lkcy10aGV5LXdpbGwtbG9zZS1oZWFsdGhjYXJlLw",
+          "title": "Providers scramble as Tennessee tells sick, disabled immigrant kids they will lose healthcare",
+          "titleZh": "随着田纳西州告知生病、残疾的移民儿童他们将失去医疗保健，医疗服务提供者争先恐后",
+          "description": "Last week Gov. Bill Lee’s administration issued an ultimatum to hundreds of immigrant families in Tennessee: If parents wished to keep their disabled and critically ill children on a last-resort medical program, their personal information would be turned over to a state agency that shares data with Immigration and Customs Enforcement. The notice, targeting immigrant […]",
+          "descriptionZh": "",
+          "link": "https://tennesseelookout.com/2026/06/15/providers-scramble-as-tennessee-tells-sick-disabled-immigrant-kids-they-will-lose-healthcare/",
+          "pubDate": "2026-06-15T20:17:17+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Tennessee Lookout"
+        },
+        {
+          "id": "VE4taHR0cHM6Ly90ZW5uZXNzZWVsb29rb3V0LmNvbS8yMDI2LzA2LzE1L2xvY2FsLXRlbm5lc3NlZS1vZmZpY2lhbHMtYXJlLXB1dHRpbmctZGF0YS1jZW50ZXItcGxhbnMtb24taWNlLXRvLWNvbnNpZGVyLXJlZ3VsYXRpb25zLw",
+          "title": "Local Tennessee officials are putting data center plans on ice to consider regulations",
+          "titleZh": "田纳西州当地官员正在放弃数据中心计划，以考虑法规",
+          "description": "Local governments in Tennessee are pausing data center development after outcry from residents while officials determine how to regulate the resource-intensive facilities. McMinnville and Coffee County, both rural areas southeast of Nashville, each unanimously passed moratoria on data centers on June 9, with other moratoria votes expected in Warren and Knox counties on June 22. […]",
+          "descriptionZh": "",
+          "link": "https://tennesseelookout.com/2026/06/15/local-tennessee-officials-are-putting-data-center-plans-on-ice-to-consider-regulations/",
+          "pubDate": "2026-06-15T10:01:28+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Tennessee Lookout"
+        },
+        {
+          "id": "VE4taHR0cHM6Ly90ZW5uZXNzZWVsb29rb3V0LmNvbS8yMDI2LzA2LzE1L2ZpdmUtbGF3cy1wYXNzZWQtYnktdGVubmVzc2VlLWxhd21ha2Vycy1pbi0yMDI2LWZhY2UtbGVnYWwtY2hhbGxlbmdlcy1zby1mYXIv",
+          "title": "Five laws passed by Tennessee lawmakers in 2026 face legal challenges, so far",
+          "titleZh": "到目前为止，田纳西州立法者在2026年通过的五项法律面临法律挑战",
+          "description": "Tennessee officials were sued again this week, marking five laws passed by the state legislature in 2026 facing legal challenges. The latest lawsuit filed by the Financial Technology Association challenges the legality of a new law that would impose a $10 fee and 2% tax on international money transfers. The law was passed as part […]",
+          "descriptionZh": "",
+          "link": "https://tennesseelookout.com/2026/06/15/five-laws-passed-by-tennessee-lawmakers-in-2026-face-legal-challenges-so-far/",
+          "pubDate": "2026-06-15T10:00:23+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Tennessee Lookout"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "TX",
+      "name": "Texas",
+      "source": "Texas Tribune",
+      "feed": "https://feeds.texastribune.org/feeds/main/",
+      "stories": [
+        {
+          "id": "VFgtaHR0cHM6Ly9mZWVkcy50ZXhhc3RyaWJ1bmUub3JnL2xpbmsvMTY3OTkvMTczNjE2NjgvdGV4YXMtcmVwdWJsaWNhbi1wYXJ0eS1jb252ZW50aW9uLW11c2xpbXMtc2hhcmlhLWxhdw",
+          "title": "A Muslim Texan sought to find his place in the party at the state GOP convention. He left in tears.",
+          "titleZh": "一名德克萨斯穆斯林试图在州共和党大会上找到他在党内的位置。他泪流满面地离开了。",
+          "description": "Muslim delegates and attendees hoping to participate in the state Republican convention were shunned and rejected by members as they espoused themes of party unity ahead of the November election.",
+          "descriptionZh": "",
+          "link": "https://feeds.texastribune.org/link/16799/17361668/texas-republican-party-convention-muslims-sharia-law",
+          "pubDate": "2026-06-15T19:54:58+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Texas Tribune"
+        },
+        {
+          "id": "VFgtaHR0cHM6Ly9mZWVkcy50ZXhhc3RyaWJ1bmUub3JnL2xpbmsvMTY3OTkvMTczNjE0NjIvdGV4YXMtaHlwbm9zaXMtYXBwZWFsLXN1cHJlbWUtY291cnQtY2hhcmxlcy1mbG9yZXM",
+          "title": "U.S. Supreme Court rejects Texas death row inmate’s appeal challenging hypnosis testimony",
+          "titleZh": "美国最高法院驳回德克萨斯州死刑犯质疑催眠证词的上诉",
+          "description": "Charles Flores argued that his conviction was improperly based on testimony from a witness who changed her recollection after hypnosis by an investigator.",
+          "descriptionZh": "",
+          "link": "https://feeds.texastribune.org/link/16799/17361462/texas-hypnosis-appeal-supreme-court-charles-flores",
+          "pubDate": "2026-06-15T13:53:34+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Texas Tribune"
+        },
+        {
+          "id": "VFgtaHR0cHM6Ly9mZWVkcy50ZXhhc3RyaWJ1bmUub3JnL2xpbmsvMTY3OTkvMTczNjEyODMvdGV4YXMtcHJvYmxlbS1nYW1ibGluZy1hZGRpY3Rpb24tZnVuZGluZy1zYW5kcy1sb3R0ZXJ5",
+          "title": "Texas stopped funding gambling addiction programs years ago. A surprising donor is helping fill the void.",
+          "titleZh": "德克萨斯州多年前就停止资助赌博成瘾项目。一位令人惊讶的捐赠者正在帮助填补这一空白。",
+          "description": "A $100,000 donation from Las Vegas Sands will help a nonprofit address treatment needs in Texas, where a state law set up a “compulsive gambling program” that is no longer funded.",
+          "descriptionZh": "",
+          "link": "https://feeds.texastribune.org/link/16799/17361283/texas-problem-gambling-addiction-funding-sands-lottery",
+          "pubDate": "2026-06-15T10:00:00+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Texas Tribune"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "UT",
+      "name": "Utah",
+      "source": "Utah News Dispatch",
+      "feed": "https://utahnewsdispatch.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "VVQtaHR0cHM6Ly91dGFobmV3c2Rpc3BhdGNoLmNvbS8yMDI2LzA2LzE1L3JlcHVibGljYW4tcHJpbWFyeS1mb3ItdnVsbmVyYWJsZS11dGFoLXNlbmF0ZS1wcmVzaWRlbnRzLXNlYXQv",
+          "title": "AI attack ads fly in contentious Republican primary for ‘vulnerable’ Utah Senate president’s seat",
+          "titleZh": "人工智能攻击广告飞入有争议的共和党初选，争夺“弱势”犹他州参议院议长席位",
+          "description": "For the first time in the 16 years he’s held his seat, Senate President Stuart Adams — one the most powerful leaders of the Republican-controlled Utah Legislature — is facing a primary with not one, but two GOP challengers: Braden Hess and Stephanie Hollist. The Adams-Hess-Hollist matchup is shaping up to be the most high-profile […]",
+          "descriptionZh": "",
+          "link": "https://utahnewsdispatch.com/2026/06/15/republican-primary-for-vulnerable-utah-senate-presidents-seat/",
+          "pubDate": "2026-06-15T11:02:27+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Utah News Dispatch"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "VA",
+      "name": "Virginia",
+      "source": "Virginia Mercury",
+      "feed": "https://virginiamercury.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "VkEtaHR0cHM6Ly92aXJnaW5pYW1lcmN1cnkuY29tLzIwMjYvMDYvMTUvdGhlLWhvdXNlLWFuZC1zZW5hdGUtYm90aC1yZWxlYXNlZC1uZXctYnVkZ2V0cy1oZXJlcy1ob3ctdGhleS1hbGlnbi1hbmQtZGl2ZXJnZS8",
+          "title": "The House and Senate both released new budgets. Here’s how they align and diverge.",
+          "titleZh": "众议院和参议院都公布了新的预算。以下是他们如何保持一致和分歧。",
+          "description": "With a June 30 deadline looming before a state government shutdown, Virginia legislators have released new budget proposals, the latest actions in a long-simmering debate over the state spending plan that has deadlocked over whether data centers should keep being exempt from the state’s sales and use tax. Virginia House of Delegates leaders presented their […]",
+          "descriptionZh": "",
+          "link": "https://virginiamercury.com/2026/06/15/the-house-and-senate-both-released-new-budgets-heres-how-they-align-and-diverge/",
+          "pubDate": "2026-06-15T19:44:32+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Virginia Mercury"
+        },
+        {
+          "id": "VkEtaHR0cHM6Ly92aXJnaW5pYW1lcmN1cnkuY29tLzIwMjYvMDYvMTUvaXRzLW91dHJhZ2VvdXMtc3BhbmJlcmdlci1uYXZpZ2F0ZXMtYnVkZ2V0LWZpZ2h0LWRlbW9jcmF0aWMtdW5yZXN0LXNpeC1tb250aHMtaW50by1nb3Zlcm5vcnNoaXAv",
+          "title": "‘It’s outrageous’: Spanberger navigates budget fight, Democratic unrest six months into governorship",
+          "titleZh": "“这是无耻的” ：斯潘伯格驾驭预算斗争，民主党骚乱进入州长六个月",
+          "description": "Back in January, Gov. Abigail Spanberger arrived in office promising pragmatism, affordability and a less combative style of politics. Fast forward a few months, and Virginia’s first woman governor finds herself navigating one of the rockiest starts to a Democratic administration in years, with budget negotiations intensifying weeks before a shutdown deadline, frustration simmering inside […]",
+          "descriptionZh": "",
+          "link": "https://virginiamercury.com/2026/06/15/its-outrageous-spanberger-navigates-budget-fight-democratic-unrest-six-months-into-governorship/",
+          "pubDate": "2026-06-15T09:28:09+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Virginia Mercury"
+        },
+        {
+          "id": "VkEtaHR0cHM6Ly92aXJnaW5pYW1lcmN1cnkuY29tLzIwMjYvMDYvMTUvaG93LXB1YmxpYy1lZHVjYXRpb24taGFzLXRyYW5zZm9ybWVkLWluLXZpcmdpbmlhLXNpbmNlLXRoZS1uYXRpb25zLWZvdW5kaW5nLw",
+          "title": "How public education has transformed in Virginia since the nation’s founding",
+          "titleZh": "弗吉尼亚州自建国以来的公共教育发生了怎样的变化",
+          "description": "Like the United States, Virginia’s K-12 education system has evolved over the last two and a half centuries to better meet family needs and prepare students for the future. In the 250 years since America declared its independence, changes in policy, instruction, and technology have continually reshaped Virginia’s public elementary, middle and high schools. On […]",
+          "descriptionZh": "",
+          "link": "https://virginiamercury.com/2026/06/15/how-public-education-has-transformed-in-virginia-since-the-nations-founding/",
+          "pubDate": "2026-06-15T09:26:06+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Virginia Mercury"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "VT",
+      "name": "Vermont",
+      "source": "VTDigger",
+      "feed": "https://vtdigger.org/feed/",
+      "stories": [
+        {
+          "id": "VlQtaHR0cHM6Ly92dGRpZ2dlci5vcmcvMjAyNi8wNi8xNS92ZXJtb250LWltbWlncmF0aW9uLWxlZ2FsLWRlZmVuc2UtZnVuZC1zdXJwYXNzZXMtaXRzLTEtbWlsbGlvbi1nb2FsLXllYXItYWZ0ZXItZm91bmRpbmcv",
+          "title": "Vermont Immigration Legal Defense Fund surpasses its $1 million goal year after founding",
+          "titleZh": "佛蒙特州移民法律辩护基金成立一年后超过100万美元的目标",
+          "description": "The funding was achieved through donations from Vermonters and contributors from more than 30 other states. Read the story on VTDigger here: Vermont Immigration Legal Defense Fund surpasses its $1 million goal year after founding .",
+          "descriptionZh": "",
+          "link": "https://vtdigger.org/2026/06/15/vermont-immigration-legal-defense-fund-surpasses-its-1-million-goal-year-after-founding/",
+          "pubDate": "2026-06-15T22:20:13+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "VTDigger"
+        },
+        {
+          "id": "VlQtaHR0cHM6Ly92dGRpZ2dlci5vcmcvMjAyNi8wNi8xNS9hcmUtdmVybW9udGVycy1odW5ncnktZm9yLW5laWdoYm9yaG9vZC1jb25uZWN0aW9uLw",
+          "title": "Are Vermonters hungry for neighborhood connection?",
+          "titleZh": "佛蒙特州人是否渴望与邻里建立联系？",
+          "description": "Four Vermont nonprofits partnered for a new grant that communities can use to host their own block parties — and hundreds applied. Read the story on VTDigger here: Are Vermonters hungry for neighborhood connection? .",
+          "descriptionZh": "",
+          "link": "https://vtdigger.org/2026/06/15/are-vermonters-hungry-for-neighborhood-connection/",
+          "pubDate": "2026-06-15T21:23:25+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "VTDigger"
+        },
+        {
+          "id": "VlQtaHR0cHM6Ly92dGRpZ2dlci5vcmcvMjAyNi8wNi8xNS9jaGl0dGVuZGVuLXNjaG9vbHMtY2FuLWF2b2lkLWZvcmNlZC1tZXJnZXJzLWlmLXRoZXktYWN0LWZhc3Qv",
+          "title": "Chittenden schools can avoid forced mergers if they act fast",
+          "titleZh": "Chittenden学校如果行动迅速，就可以避免被迫合并",
+          "description": "The new Chittenden Central CESA board should prioritize back-office consolidation before merger study activities set the agenda. Read the story on VTDigger here: Chittenden schools can avoid forced mergers if they act fast .",
+          "descriptionZh": "",
+          "link": "https://vtdigger.org/2026/06/15/chittenden-schools-can-avoid-forced-mergers-if-they-act-fast/",
+          "pubDate": "2026-06-15T20:52:39+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "VTDigger"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "WA",
+      "name": "Washington",
+      "source": "Washington State Standard",
+      "feed": "https://washingtonstatestandard.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "V0EtaHR0cHM6Ly93YXNoaW5ndG9uc3RhdGVzdGFuZGFyZC5jb20vYnJpZWZzL2F0LWxhc3Qtd2FzLWljb25pYy1ub3J0aC1jYXNjYWRlcy1oaWdod2F5LXJlb3BlbnMv",
+          "title": "At last, WA’s iconic North Cascades Highway reopens",
+          "titleZh": "最后，西澳标志性的北喀斯喀特高速公路重新开放",
+          "description": "The North Cascades Highway reopened on Sunday, restoring an economic lifeline for small communities east of the Cascades. The highway, State Route 20, is the northernmost route in Washington across the North Cascades. Known for its mountain scenery, it connects Skagit and Whatcom counties to Okanogan and Chelan counties. The road closes on both sides […]",
+          "descriptionZh": "",
+          "link": "https://washingtonstatestandard.com/briefs/at-last-was-iconic-north-cascades-highway-reopens/",
+          "pubDate": "2026-06-15T22:11:48+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "Washington State Standard"
+        },
+        {
+          "id": "V0EtaHR0cHM6Ly93YXNoaW5ndG9uc3RhdGVzdGFuZGFyZC5jb20vMjAyNi8wNi8xNS93YS1mYWxscy1hZ2Fpbi1pbi1uYXRpb25hbC1lZHVjYXRpb24tcmFua2luZy8",
+          "title": "WA falls again in national education ranking",
+          "titleZh": "西澳大利亚州在全国教育排名中再次下滑",
+          "description": "Washington state has slipped once again in a national education ranking. The new report from the Annie E. Casey Foundation shows Washington dropped from 27th in the nation to 31st overall. The findings are based on data from 2024. Last year, the state fell one spot. A little over a decade ago, it ranked 20th. […]",
+          "descriptionZh": "",
+          "link": "https://washingtonstatestandard.com/2026/06/15/wa-falls-again-in-national-education-ranking/",
+          "pubDate": "2026-06-15T11:00:47+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "Washington State Standard"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "WI",
+      "name": "Wisconsin",
+      "source": "Wisconsin Examiner",
+      "feed": "https://wisconsinexaminer.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "V0ktaHR0cHM6Ly93aXNjb25zaW5leGFtaW5lci5jb20vMjAyNi8wNi8xNS9kZW1vY3JhdGljLXByaW1hcnktY2FuZGlkYXRlcy1tYWtlLXRoZWlyLXBpdGNoLWF0LXBhcnR5LWNvbnZlbnRpb24v",
+          "title": "Democratic primary candidates make their pitch at party convention",
+          "titleZh": "民主党初选候选人在党代会上发言",
+          "description": "Delegates at the Democratic Party of Wisconsin convention over the weekend expressed optimism about winning trifecta control of state government in November even as many activists remained undecided in the party’s seven-way gubernatorial primary. William Garcia, the chair for the 3rd Congressional District, has not made up his mind who he will support, though he […]",
+          "descriptionZh": "",
+          "link": "https://wisconsinexaminer.com/2026/06/15/democratic-primary-candidates-make-their-pitch-at-party-convention/",
+          "pubDate": "2026-06-15T08:45:20+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "Wisconsin Examiner"
+        },
+        {
+          "id": "V0ktaHR0cHM6Ly93aXNjb25zaW5leGFtaW5lci5jb20vMjAyNi8wNi8xNS9odW5kcmVkcy1vZi13ZXN0ZXJuLXdpc2NvbnNpbi1yZXNpZGVudHMtZ2F0aGVyLXRvLWNlbGVicmF0ZS1sb2NhbC1jdWx0dXJlLXJlamVjdC1kYXRhLWNlbnRlcnMv",
+          "title": "Hundreds of western Wisconsin residents gather to celebrate local culture, reject data centers",
+          "titleZh": "威斯康星州西部数百名居民聚集在一起庆祝当地文化，拒绝数据中心",
+          "description": "More than 500 people filled an Eau Claire event center Saturday evening to drink old fashioneds while connecting over a collective desire to prevent “oligarchs” and big tech companies from constructing AI data centers in the region. On a beautiful early summer evening in the highly contested and swingy 3rd Congressional District — with the […]",
+          "descriptionZh": "",
+          "link": "https://wisconsinexaminer.com/2026/06/15/hundreds-of-western-wisconsin-residents-gather-to-celebrate-local-culture-reject-data-centers/",
+          "pubDate": "2026-06-15T08:30:47+00:00",
+          "category": "tech",
+          "categoryLabel": {
+            "en": "Tech",
+            "zh": "科技"
+          },
+          "source": "Wisconsin Examiner"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "WV",
+      "name": "West Virginia",
+      "source": "West Virginia Watch",
+      "feed": "https://westvirginiawatch.com/feed/localFeed",
+      "stories": [
+        {
+          "id": "V1YtaHR0cHM6Ly93ZXN0dmlyZ2luaWF3YXRjaC5jb20vMjAyNi8wNi8xNS9kb2hzLXRvLWZ1bmQtd3YtZmFtaWx5LXN1cHBvcnQtY2VudGVycy10aGlzLXN1bW1lci1idXQtbG9uZy10ZXJtLWZ1bmRpbmctdW5jZXJ0YWluLXVuZGVyLW1vcnJpc2V5Lw",
+          "title": "DoHS to fund WV Family Support Centers this summer, but long-term funding uncertain under Morrisey",
+          "titleZh": "DoHS将于今年夏天为WV家庭支持中心提供资金，但Morrisey的长期资金不确定",
+          "description": "DAVIS, W.Va. — Federal funding for West Virginia’s Family Support Centers, which provide food and child abuse prevention services to children and families, will be available next month to keep the centers open this summer. However, it’s not clear if long-term funding will continue under Gov. Patrick Morrisey as he reviews the use of federal […]",
+          "descriptionZh": "",
+          "link": "https://westvirginiawatch.com/2026/06/15/dohs-to-fund-wv-family-support-centers-this-summer-but-long-term-funding-uncertain-under-morrisey/",
+          "pubDate": "2026-06-15T21:21:12+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "West Virginia Watch"
+        },
+        {
+          "id": "V1YtaHR0cHM6Ly93ZXN0dmlyZ2luaWF3YXRjaC5jb20vMjAyNi8wNi8xNS9zY2hvb2xzLW5vbnByb2ZpdHMtdHJ5LXRvLWtlZXAtd3Yta2lkcy1mZWQtdGhpcy1zdW1tZXItYW1pZC1ncm9jZXJ5LXByaWNlLWhpa2VzLXdlbGZhcmUtY2hhbmdlcy8",
+          "title": "Schools, nonprofits try to keep WV kids fed this summer amid grocery price hikes, welfare changes",
+          "titleZh": "今年夏天，在杂货价格上涨、福利变化的情况下，学校、非营利组织试图让西弗吉尼亚州的孩子们吃饱",
+          "description": "The West Virginia Department of Education is working with local partners this summer to provide statewide feeding sites for those 18 years old and younger, working to put together nutritious meals while navigating surging food costs.",
+          "descriptionZh": "",
+          "link": "https://westvirginiawatch.com/2026/06/15/schools-nonprofits-try-to-keep-wv-kids-fed-this-summer-amid-grocery-price-hikes-welfare-changes/",
+          "pubDate": "2026-06-15T10:00:20+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "West Virginia Watch"
+        },
+        {
+          "id": "V1YtaHR0cHM6Ly93ZXN0dmlyZ2luaWF3YXRjaC5jb20vMjAyNi8wNi8xNS93di12b3RlcnMtc3VwcG9ydC1rZWVwaW5nLXNjaG9vbC12YWNjaW5lLW1hbmRhdGVzLXBvbGwtZmluZHMv",
+          "title": "WV voters support keeping school vaccine mandates, poll finds",
+          "titleZh": "民意调查发现，西弗吉尼亚州选民支持保留学校疫苗接种要求",
+          "description": "Most voters in West Virginia support keeping school vaccination requirements, according to a poll released last week. The poll found that 69% of the state’s electorate and 57% of the state’s likely Republican primary voters are opposed to eliminating school vaccine mandates. The poll was conducted in February 2026 by Virginia-based political polling agency Cygnal […]",
+          "descriptionZh": "",
+          "link": "https://westvirginiawatch.com/2026/06/15/wv-voters-support-keeping-school-vaccine-mandates-poll-finds/",
+          "pubDate": "2026-06-15T10:00:04+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "West Virginia Watch"
+        }
+      ],
+      "error": null
+    },
+    {
+      "code": "WY",
+      "name": "Wyoming",
+      "source": "WyoFile",
+      "feed": "https://wyofile.com/feed/",
+      "stories": [
+        {
+          "id": "V1ktaHR0cHM6Ly93eW9maWxlLmNvbS9sb2NhbC1nb3Zlcm5tZW50cy1hYmlsaXR5LXRvLWNvbGxlY3QtcHJvcGVydHktdGF4ZXMtaW4tbGltYm8tZHVlLXRvLXVuY2VydGFpbnR5LW92ZXItNC1jYXAv",
+          "title": "Local governments’ ability to collect property taxes in limbo due to uncertainty over 4% cap",
+          "titleZh": "由于上限超过4%的不确定性，地方政府征收房产税的能力处于不确定状态",
+          "description": "“This is so unprecedented, we don't really have a blueprint,” one official told WyoFile. The post Local governments’ ability to collect property taxes in limbo due to uncertainty over 4% cap appeared first on WyoFile .",
+          "descriptionZh": "",
+          "link": "https://wyofile.com/local-governments-ability-to-collect-property-taxes-in-limbo-due-to-uncertainty-over-4-cap/",
+          "pubDate": "2026-06-15T10:30:00+00:00",
+          "category": "economic",
+          "categoryLabel": {
+            "en": "Economic",
+            "zh": "经济"
+          },
+          "source": "WyoFile"
+        },
+        {
+          "id": "V1ktaHR0cHM6Ly93eW9maWxlLmNvbS93eW9taW5nLWxhd21ha2Vycy1tdWxsLWVsZWN0cmljLWdlbmVyYXRpb24tdGF4LXRvLWFkZHJlc3MtYXZlcmFnZS1jdXN0b21lcnMtcmlzaW5nLWJpbGxzLw",
+          "title": "Wyoming lawmakers mull electric generation tax to address average customers’ rising bills",
+          "titleZh": "怀俄明州立法者考虑征收发电税，以解决普通客户不断上涨的账单",
+          "description": "Sen. Cale Case urged the Revenue Committee to tap into what could be a huge new source of revenue to benefit the entire state. The post Wyoming lawmakers mull electric generation tax to address average customers’ rising bills appeared first on WyoFile .",
+          "descriptionZh": "",
+          "link": "https://wyofile.com/wyoming-lawmakers-mull-electric-generation-tax-to-address-average-customers-rising-bills/",
+          "pubDate": "2026-06-15T10:25:00+00:00",
+          "category": "political",
+          "categoryLabel": {
+            "en": "Political",
+            "zh": "政治"
+          },
+          "source": "WyoFile"
+        },
+        {
+          "id": "V1ktaHR0cHM6Ly93eW9maWxlLmNvbS9wdWJsaWMtbGFuZHMtdHJhdmVsb2d1ZS0yMDI2LWhpZGRlbi1nZW1zLw",
+          "title": "Public lands travelogue 2026: Hidden gems",
+          "titleZh": "公共土地游记2026 ：隐藏的瑰宝",
+          "description": "Public lands close to home offer the chance to build lasting memories, writes columnist Walt Gasson. The post Public lands travelogue 2026: Hidden gems appeared first on WyoFile .",
+          "descriptionZh": "",
+          "link": "https://wyofile.com/public-lands-travelogue-2026-hidden-gems/",
+          "pubDate": "2026-06-15T10:20:00+00:00",
+          "category": "social",
+          "categoryLabel": {
+            "en": "Social",
+            "zh": "社会"
+          },
+          "source": "WyoFile"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "美国50州本地新闻",
+  "short_name": "美国新闻",
+  "description": "Daily local news briefing from all 50 US states",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a365d",
+  "theme_color": "#1a365d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

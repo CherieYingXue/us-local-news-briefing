@@ -1,0 +1,14 @@
+{
+  "name": "us-local-news-briefing",
+  "version": "1.0.0",
+  "description": "Daily local news briefing for all 50 US states with Chinese translations",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "rss-parser": "^3.13.0"
+  }
+}

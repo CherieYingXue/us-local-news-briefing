@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1a365d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="美国本地新闻">
+  <title>美国50州本地新闻简报 | US Local News Briefing</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icon.svg">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">📰</span>
+        <div>
+          <h1>美国50州本地新闻</h1>
+          <p class="subtitle">US Local News Daily Briefing</p>
+        </div>
+      </div>
+      <button id="updateBtn" class="btn-update" type="button">
+        <span class="btn-icon">🔄</span>
+        <span>更新每日简报</span>
+        <span class="btn-sub">Update Briefing</span>
+      </button>
+    </div>
+    <div class="meta-bar">
+      <span id="lastUpdated">尚未更新 · Not updated yet</span>
+      <span id="stateCount"></span>
+    </div>
+    <div id="progressBar" class="progress-bar hidden">
+      <div class="progress-fill"></div>
+      <span class="progress-text">正在从50个州采集新闻并翻译… Fetching & translating…</span>
+    </div>
+  </header>
+
+  <nav class="filter-nav">
+    <button class="filter-btn active" data-filter="all">全部 All</button>
+    <button class="filter-btn" data-filter="political">政治 Political</button>
+    <button class="filter-btn" data-filter="economic">经济 Economic</button>
+    <button class="filter-btn" data-filter="social">社会 Social</button>
+    <button class="filter-btn" data-filter="tech">科技 Tech</button>
+  </nav>
+
+  <main id="mainContent" class="main">
+    <div id="emptyState" class="empty-state">
+      <div class="empty-icon">🗺️</div>
+      <h2>欢迎使用美国本地新闻简报</h2>
+      <p>点击上方「更新每日简报」按钮，获取过去24小时内全美50州最重要的政治、经济、社会和科技新闻。</p>
+      <p class="hint">Tap "Update Briefing" to fetch the latest local news from all 50 states.</p>
+    </div>
+    <div id="statesGrid" class="states-grid hidden"></div>
+  </main>
+
+  <div id="storyModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" type="button" aria-label="Close">&times;</button>
+      <div class="modal-meta">
+        <span id="modalState" class="modal-state"></span>
+        <span id="modalCategory" class="modal-category"></span>
+        <span id="modalDate" class="modal-date"></span>
+      </div>
+      <h2 id="modalTitle" class="modal-title"></h2>
+      <p id="modalTitleZh" class="modal-title-zh"></p>
+      <div id="modalBody" class="modal-body"></div>
+      <a id="modalLink" class="btn-original" href="#" target="_blank" rel="noopener">
+        阅读原文 Read Original →
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p id="mobileLink" class="mobile-link"></p>
+    <p class="footer-note">数据来源：各州非营利新闻机构 RSS · 标题自动翻译为中文</p>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

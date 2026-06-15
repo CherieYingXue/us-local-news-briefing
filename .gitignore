@@ -1,0 +1,8 @@
+cache/*
+!cache/briefing.json
+__pycache__/
+*.pyc
+.env
+.venv/
+node_modules/
+cloudflared.exe
