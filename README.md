@@ -36,3 +36,13 @@ python server.py
 ## 数据来源
 
 各州非营利新闻机构，包括 Alabama Reflector、Texas Tribune、CalMatters 等。
+
+## 永久部署到 Render
+
+1. 双击 **`deploy-render.bat`**
+2. 按提示登录 GitHub（浏览器授权）
+3. 脚本自动推送代码到 GitHub
+4. 在 Render 页面选择仓库 `us-local-news-briefing`，点击 **Apply**
+5. 部署完成后访问：**https://us-local-news-briefing.onrender.com**
+
+免费版 Render 在无访问时会休眠，首次打开需等待约 30 秒唤醒。
