@@ -1,5 +1,6 @@
 cache/*
 !cache/briefing.json
+!cache/translations.json
 __pycache__/
 *.pyc
 .env

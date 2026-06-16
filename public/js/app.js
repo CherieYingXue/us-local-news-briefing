@@ -109,7 +109,7 @@ function renderBriefing() {
               <a class="story-title" href="#" data-id="${story.id}">${escapeHtml(story.title)}</a>
               <span class="cat-badge cat-${story.category}">${story.categoryLabel?.zh || story.category}</span>
             </div>
-            ${story.titleZh ? `<p class="story-title-zh">${escapeHtml(story.titleZh)}</p>` : ''}
+            ${story.titleZh && story.titleZh !== story.title ? `<p class="story-title-zh">${escapeHtml(story.titleZh)}</p>` : ''}
             <div class="story-meta">
               <span>${story.source}</span>
               <span>${formatDate(story.pubDate)}</span>
@@ -166,7 +166,8 @@ async function openStory(id) {
     $('#modalCategory').textContent = `${story.categoryLabel?.zh || ''} · ${story.categoryLabel?.en || story.category}`;
     $('#modalDate').textContent = formatDate(story.pubDate);
     $('#modalTitle').textContent = story.title;
-    $('#modalTitleZh').textContent = story.titleZh || '';
+    $('#modalTitleZh').textContent =
+      story.titleZh && story.titleZh !== story.title ? story.titleZh : '';
     $('#modalBody').textContent = story.description || '暂无摘要 · No summary available';
     $('#modalLink').href = story.link;
 

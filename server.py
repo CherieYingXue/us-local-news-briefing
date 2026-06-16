@@ -16,8 +16,11 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 BASE_DIR = Path(__file__).parent
 CACHE_FILE = BASE_DIR / "cache" / "briefing.json"
+TRANSLATION_CACHE_FILE = BASE_DIR / "cache" / "translations.json"
 STATES_FILE = BASE_DIR / "data" / "states.json"
 PORT = int(__import__("os").environ.get("PORT", 3847))
+
+_translation_cache = None
 
 app = Flask(__name__, static_folder="public", static_url_path="")
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
@@ -103,26 +106,108 @@ def story_id(state_code, link, title):
     return base64.urlsafe_b64encode(raw).decode().rstrip("=")
 
 
+def load_translation_cache():
+    global _translation_cache
+    if _translation_cache is None:
+        if TRANSLATION_CACHE_FILE.exists():
+            try:
+                _translation_cache = json.loads(
+                    TRANSLATION_CACHE_FILE.read_text(encoding="utf-8")
+                )
+            except Exception:
+                _translation_cache = {}
+        else:
+            _translation_cache = {}
+    return _translation_cache
+
+
+def save_translation_cache():
+    cache = load_translation_cache()
+    TRANSLATION_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    TRANSLATION_CACHE_FILE.write_text(
+        json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
+def is_valid_chinese_translation(source, translated):
+    if not translated or not translated.strip():
+        return False
+    if source.strip().lower() == translated.strip().lower():
+        return False
+    return bool(re.search(r"[\u4e00-\u9fff]", translated))
+
+
+def http_get_json(url, timeout=10):
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            )
+        },
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode())
+
+
+def translate_google_gtx(text):
+    params = urllib.parse.urlencode(
+        {"client": "gtx", "sl": "en", "tl": "zh-CN", "dt": "t", "q": text}
+    )
+    data = http_get_json(f"https://translate.googleapis.com/translate_a/single?{params}")
+    if isinstance(data, list) and data and isinstance(data[0], list):
+        parts = [part[0] for part in data[0] if part and part[0]]
+        return "".join(parts).strip()
+    return ""
+
+
+def translate_google_dict(text):
+    params = urllib.parse.urlencode(
+        {"client": "dict-chrome-ex", "sl": "en", "tl": "zh-CN", "dt": "t", "q": text}
+    )
+    data = http_get_json(
+        f"https://clients5.google.com/translate_a/t?{params}"
+    )
+    if isinstance(data, list):
+        if data and isinstance(data[0], list):
+            parts = [part[0] for part in data[0] if part and part[0]]
+            return "".join(parts).strip()
+        if data and isinstance(data[0], str):
+            return data[0].strip()
+    return ""
+
+
+def translate_mymemory(text):
+    url = (
+        "https://api.mymemory.translated.net/get?"
+        + urllib.parse.urlencode({"q": text, "langpair": "en|zh-CN"})
+    )
+    data = http_get_json(url, timeout=8)
+    if data.get("responseStatus") == 200:
+        return data.get("responseData", {}).get("translatedText", "").strip()
+    return ""
+
+
 def translate_to_chinese(text):
     if not text or len(text) < 2:
         return ""
-    trimmed = text[:450]
-    url = (
-        "https://api.mymemory.translated.net/get?"
-        + urllib.parse.urlencode({"q": trimmed, "langpair": "en|zh-CN"})
-    )
-    for attempt in range(2):
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": "US-Local-News/1.0"})
-            with urllib.request.urlopen(req, timeout=8) as resp:
-                data = json.loads(resp.read().decode())
-            if data.get("responseStatus") == 200:
-                translated = data.get("responseData", {}).get("translatedText", "")
-                if translated and translated.upper() != trimmed.upper():
+    trimmed = text.strip()[:450]
+    cache = load_translation_cache()
+    if trimmed in cache:
+        return cache[trimmed]
+
+    for translator in (translate_google_gtx, translate_google_dict, translate_mymemory):
+        for attempt in range(2):
+            try:
+                translated = translator(trimmed)
+                if is_valid_chinese_translation(trimmed, translated):
+                    cache[trimmed] = translated
+                    save_translation_cache()
                     return translated
-        except Exception:
-            if attempt == 0:
-                time.sleep(0.5)
+            except Exception:
+                if attempt == 0:
+                    time.sleep(0.4)
     return ""
 
 
@@ -171,11 +256,12 @@ def add_translations(briefing):
     ]
 
     def translate_story(story):
-        story["titleZh"] = translate_to_chinese(story["title"]) or story["title"]
-        time.sleep(0.15)
+        zh = translate_to_chinese(story["title"])
+        story["titleZh"] = zh
+        time.sleep(0.08)
         return story
 
-    with ThreadPoolExecutor(max_workers=3) as executor:
+    with ThreadPoolExecutor(max_workers=4) as executor:
         list(executor.map(translate_story, stories))
 
     return briefing
