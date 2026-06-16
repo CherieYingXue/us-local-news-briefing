@@ -1,6 +1,7 @@
 import json
 import re
 import socket
+import threading
 import time
 import urllib.parse
 import urllib.request
@@ -23,6 +24,7 @@ app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 STATES = json.loads(STATES_FILE.read_text(encoding="utf-8"))
 is_updating = False
 update_started_at = None
+update_error = None
 
 CATEGORY_KEYWORDS = {
     "political": [
@@ -109,14 +111,18 @@ def translate_to_chinese(text):
         "https://api.mymemory.translated.net/get?"
         + urllib.parse.urlencode({"q": trimmed, "langpair": "en|zh-CN"})
     )
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "US-Local-News/1.0"})
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read().decode())
-        if data.get("responseStatus") == 200:
-            return data.get("responseData", {}).get("translatedText", "")
-    except Exception:
-        pass
+    for attempt in range(2):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "US-Local-News/1.0"})
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                data = json.loads(resp.read().decode())
+            if data.get("responseStatus") == 200:
+                translated = data.get("responseData", {}).get("translatedText", "")
+                if translated and translated.upper() != trimmed.upper():
+                    return translated
+        except Exception:
+            if attempt == 0:
+                time.sleep(0.5)
     return ""
 
 
@@ -159,30 +165,30 @@ def fetch_state_news(state):
 
 def add_translations(briefing):
     stories = [
-        (state_data, story)
+        story
         for state_data in briefing["states"]
         for story in state_data["stories"]
     ]
 
-    def translate_story(pair):
-        _, story = pair
+    def translate_story(story):
         story["titleZh"] = translate_to_chinese(story["title"]) or story["title"]
+        time.sleep(0.15)
         return story
 
-    with ThreadPoolExecutor(max_workers=8) as executor:
+    with ThreadPoolExecutor(max_workers=3) as executor:
         list(executor.map(translate_story, stories))
 
     return briefing
 
 
-def build_briefing():
+def fetch_all_states():
     results = []
     with ThreadPoolExecutor(max_workers=10) as executor:
         futures = {executor.submit(fetch_state_news, state): state for state in STATES}
         for future in as_completed(futures):
             results.append(future.result())
     results.sort(key=lambda r: r["state"]["code"])
-    states = [
+    return [
         {
             "code": r["state"]["code"],
             "name": r["state"]["name"],
@@ -193,13 +199,31 @@ def build_briefing():
         }
         for r in results
     ]
+
+
+def build_briefing():
+    states = fetch_all_states()
     briefing = {
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "totalStates": len(STATES),
         "statesWithNews": sum(1 for s in states if s["stories"]),
         "states": states,
     }
+    write_cache(briefing)
     return add_translations(briefing)
+
+
+def run_update_job():
+    global is_updating, update_error, update_started_at
+    try:
+        briefing = build_briefing()
+        write_cache(briefing)
+        update_error = None
+    except Exception as exc:
+        update_error = str(exc)
+    finally:
+        is_updating = False
+        update_started_at = None
 
 
 def read_cache():
@@ -261,39 +285,56 @@ def get_briefing():
 
 @app.route("/api/briefing/update", methods=["POST"])
 def update_briefing():
-    global is_updating, update_started_at
+    global is_updating, update_started_at, update_error
     if is_updating:
-        if update_started_at and (time.time() - update_started_at) > 300:
+        if update_started_at and (time.time() - update_started_at) > 600:
             is_updating = False
         else:
-            return jsonify({"error": "Update already in progress", "updating": True}), 409
+            return jsonify({"updating": True, "message": "Update already in progress"}), 202
     is_updating = True
     update_started_at = time.time()
-    try:
-        briefing = build_briefing()
-        write_cache(briefing)
-        briefing["fromCache"] = False
-        briefing["updating"] = False
-        return jsonify(briefing)
-    except Exception as exc:
-        return jsonify({"error": str(exc), "updating": False}), 500
-    finally:
-        is_updating = False
-        update_started_at = None
+    update_error = None
+    thread = threading.Thread(target=run_update_job, daemon=True)
+    thread.start()
+    return jsonify(
+        {
+            "updating": True,
+            "message": "Update started. This may take 1-2 minutes.",
+        }
+    ), 202
+
+
+@app.route("/api/briefing/update", methods=["GET"])
+def update_briefing_status():
+    elapsed = None
+    if update_started_at:
+        elapsed = int(time.time() - update_started_at)
+    return jsonify(
+        {
+            "updating": is_updating,
+            "updateError": update_error,
+            "elapsedSeconds": elapsed,
+        }
+    )
 
 
 @app.route("/api/status", methods=["GET"])
 def status():
     cached = read_cache()
-    ip = get_local_ip()
+    public_url = request.host_url.rstrip("/")
+    elapsed = None
+    if update_started_at and is_updating:
+        elapsed = int(time.time() - update_started_at)
     return jsonify(
         {
             "updating": is_updating,
+            "updateError": update_error,
+            "elapsedSeconds": elapsed,
             "lastUpdated": cached.get("updatedAt") if cached else None,
             "statesWithNews": cached.get("statesWithNews", 0) if cached else 0,
             "totalStates": len(STATES),
-            "mobileUrl": f"http://{ip}:{PORT}",
-            "localUrl": f"http://localhost:{PORT}",
+            "mobileUrl": public_url,
+            "localUrl": public_url,
         }
     )
 

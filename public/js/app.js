@@ -35,10 +35,38 @@ async function loadStatus() {
   try {
     const res = await fetch('/api/status');
     const data = await res.json();
-    if (data.mobileUrl) {
-      mobileLink.innerHTML = `📱 手机每日访问链接 · Daily phone link:<br><a href="${data.mobileUrl}">${data.mobileUrl}</a>`;
-    }
+    const link = (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1')
+      ? location.origin
+      : (data.mobileUrl || location.origin);
+    mobileLink.innerHTML = `📱 手机每日访问链接 · Daily phone link:<br><a href="${link}">${link}</a>`;
   } catch (_) {}
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function setProgressText(text) {
+  const el = document.querySelector('.progress-text');
+  if (el) el.textContent = text;
+}
+
+async function pollUntilUpdateDone() {
+  for (let i = 0; i < 90; i++) {
+    await sleep(2000);
+    const res = await fetch('/api/status');
+    const data = await res.json();
+    const elapsed = data.elapsedSeconds || (i + 1) * 2;
+    setProgressText(`正在采集50州新闻并翻译… ${elapsed}s / Fetching news…`);
+
+    if (!data.updating) {
+      if (data.updateError) {
+        throw new Error(data.updateError);
+      }
+      return;
+    }
+  }
+  throw new Error('更新超时，请重试 · Update timed out, please retry');
 }
 
 async function loadBriefing() {
@@ -157,25 +185,25 @@ function closeModal() {
 async function updateBriefing() {
   updateBtn.disabled = true;
   progressBar.classList.remove('hidden');
+  setProgressText('正在启动更新… Starting update…');
 
   try {
     const res = await fetch('/api/briefing/update', { method: 'POST' });
     const data = await res.json();
 
-    if (!res.ok) {
-      alert(data.error || 'Update failed');
+    if (!res.ok && res.status !== 202) {
+      alert(data.error || data.message || 'Update failed');
       return;
     }
 
-    briefingData = data;
-    renderBriefing();
-    lastUpdated.textContent = formatBriefingDate(data.updatedAt);
-    stateCount.textContent = `${data.statesWithNews}/${data.totalStates} 州有新闻`;
+    await pollUntilUpdateDone();
+    await loadBriefing();
   } catch (err) {
-    alert('网络错误，请重试 · Network error, please retry');
+    alert(err.message || '网络错误，请重试 · Network error, please retry');
   } finally {
     updateBtn.disabled = false;
     progressBar.classList.add('hidden');
+    setProgressText('正在从50个州采集新闻并翻译… Fetching & translating…');
   }
 }
 
