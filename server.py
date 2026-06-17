@@ -24,7 +24,7 @@ STATES_FILE = BASE_DIR / "data" / "states.json"
 PORT = int(__import__("os").environ.get("PORT", 3847))
 UPDATE_MAX_SECONDS = 240
 TRANSLATION_BUDGET_SECONDS = 90
-FETCH_TIMEOUT_SECONDS = 6
+FETCH_TIMEOUT_SECONDS = 5
 
 _translation_cache = None
 _translation_cache_dirty = False
@@ -291,13 +291,19 @@ def translate_to_chinese(text):
     return ""
 
 
+def fetch_feed_entries(feed_url, timeout=5):
+    req = urllib.request.Request(
+        feed_url,
+        headers={"User-Agent": "US-Local-News-Briefing/1.0"},
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        content = resp.read()
+    return feedparser.parse(content).entries or []
+
+
 def fetch_state_news(state):
     try:
-        feed = feedparser.parse(
-            state["feed"],
-            request_headers={"User-Agent": "US-Local-News-Briefing/1.0"},
-        )
-        entries = feed.entries or []
+        entries = fetch_feed_entries(state["feed"], timeout=FETCH_TIMEOUT_SECONDS)
         recent = [e for e in entries if is_within_24_hours(e)]
         pool = recent[:8] if recent else entries[:3]
 
@@ -363,15 +369,6 @@ def add_translations(briefing, deadline=None):
     return briefing
 
 
-def fetch_state_news_timed(state):
-    with ThreadPoolExecutor(max_workers=1) as executor:
-        future = executor.submit(fetch_state_news, state)
-        try:
-            return future.result(timeout=FETCH_TIMEOUT_SECONDS)
-        except Exception as exc:
-            return {"state": state, "stories": [], "error": str(exc)}
-
-
 def apply_cached_translations(briefing):
     for state_data in briefing["states"]:
         for story in state_data["stories"]:
@@ -383,8 +380,8 @@ def apply_cached_translations(briefing):
 
 def fetch_all_states():
     results = []
-    with ThreadPoolExecutor(max_workers=12) as executor:
-        futures = {executor.submit(fetch_state_news_timed, state): state for state in STATES}
+    with ThreadPoolExecutor(max_workers=15) as executor:
+        futures = {executor.submit(fetch_state_news, state): state for state in STATES}
         for future in as_completed(futures):
             results.append(future.result())
     results.sort(key=lambda r: r["state"]["code"])
