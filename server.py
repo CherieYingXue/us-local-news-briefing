@@ -378,12 +378,19 @@ def apply_cached_translations(briefing):
     return briefing
 
 
-def fetch_all_states():
+def fetch_all_states(progress_callback=None):
     results = []
-    with ThreadPoolExecutor(max_workers=15) as executor:
-        futures = {executor.submit(fetch_state_news, state): state for state in STATES}
-        for future in as_completed(futures):
-            results.append(future.result())
+    batch_size = 10
+    for i in range(0, len(STATES), batch_size):
+        batch = STATES[i : i + batch_size]
+        batch_results = []
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            futures = {executor.submit(fetch_state_news, state): state for state in batch}
+            for future in as_completed(futures):
+                batch_results.append(future.result())
+        results.extend(batch_results)
+        if progress_callback:
+            progress_callback(results)
     results.sort(key=lambda r: r["state"]["code"])
     return [
         {
@@ -399,7 +406,33 @@ def fetch_all_states():
 
 
 def build_briefing_news_only():
-    states = fetch_all_states()
+    partial = []
+
+    def save_progress(results):
+        states = sorted(
+            [
+                {
+                    "code": r["state"]["code"],
+                    "name": r["state"]["name"],
+                    "source": r["state"]["source"],
+                    "feed": r["state"]["feed"],
+                    "stories": r["stories"],
+                    "error": r["error"],
+                }
+                for r in results
+            ],
+            key=lambda s: s["code"],
+        )
+        briefing = {
+            "updatedAt": datetime.now(timezone.utc).isoformat(),
+            "totalStates": len(STATES),
+            "statesWithNews": sum(1 for s in states if s["stories"]),
+            "states": states,
+        }
+        apply_cached_translations(briefing)
+        write_cache(briefing)
+
+    states = fetch_all_states(progress_callback=save_progress)
     briefing = {
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "totalStates": len(STATES),
