@@ -183,6 +183,23 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
+async function translateMissingTitles() {
+  setProgressText('正在翻译标题… Translating titles…');
+  for (let round = 0; round < 20; round++) {
+    const res = await fetch('/api/briefing/translate', { method: 'POST' });
+    if (!res.ok) break;
+    const data = await res.json();
+    if (data.briefing) {
+      briefingData = data.briefing;
+      renderBriefing();
+      lastUpdated.textContent = formatBriefingDate(briefingData.updatedAt);
+    }
+    setProgressText(`翻译中… ${data.remaining ?? 0} 条剩余 / ${data.remaining ?? 0} remaining`);
+    if (!data.remaining || data.translated === 0) break;
+    await sleep(500);
+  }
+}
+
 async function updateBriefing() {
   updateBtn.disabled = true;
   progressBar.classList.remove('hidden');
@@ -199,13 +216,14 @@ async function updateBriefing() {
 
     await pollUntilUpdateDone();
     await loadBriefing();
+    await translateMissingTitles();
   } catch (err) {
     alert(err.message || '网络错误，请重试 · Network error, please retry');
     await loadBriefing();
   } finally {
     updateBtn.disabled = false;
     progressBar.classList.add('hidden');
-    setProgressText('正在从50个州采集新闻并翻译… Fetching & translating…');
+    setProgressText('正在从50个州采集新闻… Fetching news…');
   }
 }
 
@@ -228,4 +246,4 @@ document.addEventListener('keydown', (e) => {
 });
 
 loadStatus();
-loadBriefing();
+loadBriefing().then(() => translateMissingTitles().catch(() => {}));

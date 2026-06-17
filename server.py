@@ -16,7 +16,7 @@ from flask import Flask, jsonify, request, send_from_directory
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 BASE_DIR = Path(__file__).parent
-CACHE_DIR = Path("/tmp/us-news-cache") if os.environ.get("RENDER") else BASE_DIR / "cache"
+CACHE_DIR = Path("/tmp/us-news-cache") if os.name != "nt" else BASE_DIR / "cache"
 CACHE_FILE = CACHE_DIR / "briefing.json"
 TRANSLATION_CACHE_FILE = CACHE_DIR / "translations.json"
 UPDATE_LOCK_FILE = CACHE_DIR / "update.lock"
@@ -414,7 +414,6 @@ def build_briefing_news_only():
 
 def run_update_job():
     global is_updating, update_error, update_started_at
-    briefing = None
     try:
         briefing = build_briefing_news_only()
         write_cache(briefing)
@@ -426,17 +425,6 @@ def run_update_job():
             is_updating = False
             update_started_at = None
             clear_update_lock()
-
-    if not briefing:
-        return
-
-    try:
-        deadline = time.time() + TRANSLATION_BUDGET_SECONDS
-        add_translations(briefing, deadline=deadline)
-        write_cache(briefing)
-        save_translation_cache()
-    except Exception:
-        pass
 
 
 def read_cache():
@@ -567,7 +555,40 @@ def status():
     )
 
 
-@app.route("/api/story/<story_id>", methods=["GET"])
+@app.route("/api/briefing/translate", methods=["POST"])
+def translate_briefing_batch():
+    """Translate up to 30 untranslated titles per call (runs after news update)."""
+    cached = read_cache()
+    if not cached:
+        return jsonify({"error": "No briefing loaded"}), 404
+
+    limit = 30
+    translated_count = 0
+    for state_data in cached.get("states", []):
+        for story in state_data.get("stories", []):
+            if translated_count >= limit:
+                break
+            title = story.get("title", "")
+            if story.get("titleZh") and story["titleZh"] != title:
+                continue
+            zh = translate_to_chinese(title)
+            if zh:
+                story["titleZh"] = zh
+                translated_count += 1
+        if translated_count >= limit:
+            break
+
+    save_translation_cache()
+    if translated_count:
+        write_cache(cached)
+
+    remaining = sum(
+        1
+        for st in cached.get("states", [])
+        for s in st.get("stories", [])
+        if not s.get("titleZh") or s.get("titleZh") == s.get("title")
+    )
+    return jsonify({"translated": translated_count, "remaining": remaining, "briefing": cached})
 def get_story(story_id):
     cached = read_cache()
     if not cached:
