@@ -16,14 +16,15 @@ from flask import Flask, jsonify, request, send_from_directory
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 BASE_DIR = Path(__file__).parent
-CACHE_FILE = BASE_DIR / "cache" / "briefing.json"
-TRANSLATION_CACHE_FILE = BASE_DIR / "cache" / "translations.json"
-UPDATE_LOCK_FILE = BASE_DIR / "cache" / "update.lock"
+CACHE_DIR = Path("/tmp/us-news-cache") if os.environ.get("RENDER") else BASE_DIR / "cache"
+CACHE_FILE = CACHE_DIR / "briefing.json"
+TRANSLATION_CACHE_FILE = CACHE_DIR / "translations.json"
+UPDATE_LOCK_FILE = CACHE_DIR / "update.lock"
 STATES_FILE = BASE_DIR / "data" / "states.json"
 PORT = int(__import__("os").environ.get("PORT", 3847))
-UPDATE_MAX_SECONDS = 120
+UPDATE_MAX_SECONDS = 240
 TRANSLATION_BUDGET_SECONDS = 90
-FETCH_TIMEOUT_SECONDS = 12
+FETCH_TIMEOUT_SECONDS = 6
 
 _translation_cache = None
 _translation_cache_dirty = False
@@ -116,15 +117,14 @@ def story_id(state_code, link, title):
 def load_translation_cache():
     global _translation_cache
     if _translation_cache is None:
-        if TRANSLATION_CACHE_FILE.exists():
-            try:
-                _translation_cache = json.loads(
-                    TRANSLATION_CACHE_FILE.read_text(encoding="utf-8")
-                )
-            except Exception:
-                _translation_cache = {}
-        else:
-            _translation_cache = {}
+        _translation_cache = {}
+        for path in (TRANSLATION_CACHE_FILE, BASE_DIR / "cache" / "translations.json"):
+            if path.exists():
+                try:
+                    _translation_cache = json.loads(path.read_text(encoding="utf-8"))
+                    break
+                except Exception:
+                    pass
     return _translation_cache
 
 
@@ -187,13 +187,27 @@ def reset_update_state(reason=""):
 def refresh_update_state():
     """Clear stuck or stale update locks (e.g. after timeout or redeploy)."""
     elapsed = get_update_elapsed()
-    if elapsed is not None and elapsed > UPDATE_MAX_SECONDS:
-        reset_update_state("Update timed out and was reset")
-        return True
+    if elapsed is None or elapsed <= UPDATE_MAX_SECONDS:
+        lock = read_update_lock()
+        if lock and not is_updating:
+            clear_update_lock()
+        return False
+
     lock = read_update_lock()
-    if lock and not is_updating:
-        clear_update_lock()
-    return False
+    if lock and lock.get("startedAt"):
+        cached = read_cache()
+        updated_at = cached.get("updatedAt") if cached else None
+        if updated_at:
+            try:
+                cache_ts = datetime.fromisoformat(updated_at.replace("Z", "+00:00")).timestamp()
+                if cache_ts > lock["startedAt"]:
+                    reset_update_state()
+                    return True
+            except Exception:
+                pass
+
+    reset_update_state("Update timed out and was reset")
+    return True
 
 
 def is_valid_chinese_translation(source, translated):
@@ -369,7 +383,7 @@ def apply_cached_translations(briefing):
 
 def fetch_all_states():
     results = []
-    with ThreadPoolExecutor(max_workers=8) as executor:
+    with ThreadPoolExecutor(max_workers=12) as executor:
         futures = {executor.submit(fetch_state_news_timed, state): state for state in STATES}
         for future in as_completed(futures):
             results.append(future.result())
@@ -431,11 +445,18 @@ def read_cache():
             return json.loads(CACHE_FILE.read_text(encoding="utf-8"))
         except Exception:
             pass
+    # Bootstrap from bundled cache on first run (Render / fresh deploy)
+    bundled = BASE_DIR / "cache" / "briefing.json"
+    if bundled.exists():
+        try:
+            return json.loads(bundled.read_text(encoding="utf-8"))
+        except Exception:
+            pass
     return None
 
 
 def write_cache(briefing):
-    CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
     CACHE_FILE.write_text(json.dumps(briefing, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
