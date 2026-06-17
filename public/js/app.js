@@ -52,15 +52,15 @@ function setProgressText(text) {
 }
 
 async function pollUntilUpdateDone() {
-  for (let i = 0; i < 90; i++) {
+  for (let i = 0; i < 120; i++) {
     await sleep(2000);
     const res = await fetch('/api/status');
     const data = await res.json();
-    const elapsed = data.elapsedSeconds || (i + 1) * 2;
+    const elapsed = data.elapsedSeconds ?? (i + 1) * 2;
     setProgressText(`正在采集50州新闻并翻译… ${elapsed}s / Fetching news…`);
 
     if (!data.updating) {
-      if (data.updateError) {
+      if (data.updateError && !data.updateError.includes('timed out')) {
         throw new Error(data.updateError);
       }
       return;
@@ -192,7 +192,7 @@ async function updateBriefing() {
     const res = await fetch('/api/briefing/update', { method: 'POST' });
     const data = await res.json();
 
-    if (!res.ok && res.status !== 202) {
+    if (res.status !== 202 && !res.ok) {
       alert(data.error || data.message || 'Update failed');
       return;
     }
@@ -201,6 +201,7 @@ async function updateBriefing() {
     await loadBriefing();
   } catch (err) {
     alert(err.message || '网络错误，请重试 · Network error, please retry');
+    await loadBriefing();
   } finally {
     updateBtn.disabled = false;
     progressBar.classList.add('hidden');

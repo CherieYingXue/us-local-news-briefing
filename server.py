@@ -1,4 +1,5 @@
 import json
+import os
 import re
 import socket
 import threading
@@ -17,10 +18,15 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 BASE_DIR = Path(__file__).parent
 CACHE_FILE = BASE_DIR / "cache" / "briefing.json"
 TRANSLATION_CACHE_FILE = BASE_DIR / "cache" / "translations.json"
+UPDATE_LOCK_FILE = BASE_DIR / "cache" / "update.lock"
 STATES_FILE = BASE_DIR / "data" / "states.json"
 PORT = int(__import__("os").environ.get("PORT", 3847))
+UPDATE_MAX_SECONDS = 180
+TRANSLATION_BUDGET_SECONDS = 120
 
 _translation_cache = None
+_translation_cache_dirty = False
+_update_lock = threading.Lock()
 
 app = Flask(__name__, static_folder="public", static_url_path="")
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
@@ -122,11 +128,71 @@ def load_translation_cache():
 
 
 def save_translation_cache():
+    global _translation_cache_dirty
+    if not _translation_cache_dirty:
+        return
     cache = load_translation_cache()
     TRANSLATION_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
     TRANSLATION_CACHE_FILE.write_text(
         json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+    _translation_cache_dirty = False
+
+
+def read_update_lock():
+    if not UPDATE_LOCK_FILE.exists():
+        return None
+    try:
+        return json.loads(UPDATE_LOCK_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def write_update_lock():
+    UPDATE_LOCK_FILE.parent.mkdir(parents=True, exist_ok=True)
+    UPDATE_LOCK_FILE.write_text(
+        json.dumps({"startedAt": time.time(), "pid": os.getpid()}, indent=2),
+        encoding="utf-8",
+    )
+
+
+def clear_update_lock():
+    if UPDATE_LOCK_FILE.exists():
+        try:
+            UPDATE_LOCK_FILE.unlink()
+        except Exception:
+            pass
+
+
+def get_update_elapsed():
+    lock = read_update_lock()
+    if lock and lock.get("startedAt"):
+        return int(time.time() - lock["startedAt"])
+    if update_started_at:
+        return int(time.time() - update_started_at)
+    return None
+
+
+def reset_update_state(reason=""):
+    global is_updating, update_started_at, update_error
+    with _update_lock:
+        is_updating = False
+        update_started_at = None
+        if reason:
+            update_error = reason
+        clear_update_lock()
+
+
+def refresh_update_state():
+    """Clear stuck or stale update locks (e.g. after timeout or redeploy)."""
+    elapsed = get_update_elapsed()
+    if elapsed is not None and elapsed > UPDATE_MAX_SECONDS:
+        reset_update_state("Update timed out and was reset")
+        return True
+    lock = read_update_lock()
+    if lock and not is_updating:
+        clear_update_lock()
+    return False
 
 
 def is_valid_chinese_translation(source, translated):
@@ -190,6 +256,7 @@ def translate_mymemory(text):
 
 
 def translate_to_chinese(text):
+    global _translation_cache_dirty
     if not text or len(text) < 2:
         return ""
     trimmed = text.strip()[:450]
@@ -198,16 +265,14 @@ def translate_to_chinese(text):
         return cache[trimmed]
 
     for translator in (translate_google_gtx, translate_google_dict, translate_mymemory):
-        for attempt in range(2):
-            try:
-                translated = translator(trimmed)
-                if is_valid_chinese_translation(trimmed, translated):
-                    cache[trimmed] = translated
-                    save_translation_cache()
-                    return translated
-            except Exception:
-                if attempt == 0:
-                    time.sleep(0.4)
+        try:
+            translated = translator(trimmed)
+            if is_valid_chinese_translation(trimmed, translated):
+                cache[trimmed] = translated
+                _translation_cache_dirty = True
+                return translated
+        except Exception:
+            continue
     return ""
 
 
@@ -248,23 +313,73 @@ def fetch_state_news(state):
         return {"state": state, "stories": [], "error": str(exc)}
 
 
-def add_translations(briefing):
+def add_translations(briefing, deadline=None):
     stories = [
         story
         for state_data in briefing["states"]
         for story in state_data["stories"]
     ]
 
+    # Pass 1: apply cached translations instantly
+    for story in stories:
+        cached = load_translation_cache().get(story["title"].strip()[:450], "")
+        if cached:
+            story["titleZh"] = cached
+
+    # Pass 2: translate missing titles within time budget
+    missing = [s for s in stories if not s.get("titleZh")]
+    if not missing:
+        return briefing
+
+    budget_end = deadline or (time.time() + TRANSLATION_BUDGET_SECONDS)
+
     def translate_story(story):
-        zh = translate_to_chinese(story["title"])
-        story["titleZh"] = zh
-        time.sleep(0.08)
+        if time.time() >= budget_end:
+            return story
+        if not story.get("titleZh"):
+            story["titleZh"] = translate_to_chinese(story["title"])
         return story
 
-    with ThreadPoolExecutor(max_workers=4) as executor:
-        list(executor.map(translate_story, stories))
+    workers = min(6, max(2, len(missing)))
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        list(executor.map(translate_story, missing))
 
+    save_translation_cache()
     return briefing
+
+
+def build_briefing():
+    states = fetch_all_states()
+    briefing = {
+        "updatedAt": datetime.now(timezone.utc).isoformat(),
+        "totalStates": len(STATES),
+        "statesWithNews": sum(1 for s in states if s["stories"]),
+        "states": states,
+    }
+    # Save news immediately so users get content even if translation is slow
+    for story in (s for st in states for s in st["stories"]):
+        cached = load_translation_cache().get(story["title"].strip()[:450], "")
+        if cached:
+            story["titleZh"] = cached
+    write_cache(briefing)
+    deadline = time.time() + TRANSLATION_BUDGET_SECONDS
+    return add_translations(briefing, deadline=deadline)
+
+
+def run_update_job():
+    global is_updating, update_error, update_started_at
+    try:
+        briefing = build_briefing()
+        write_cache(briefing)
+        update_error = None
+    except Exception as exc:
+        update_error = str(exc)
+    finally:
+        save_translation_cache()
+        with _update_lock:
+            is_updating = False
+            update_started_at = None
+            clear_update_lock()
 
 
 def fetch_all_states():
@@ -285,31 +400,6 @@ def fetch_all_states():
         }
         for r in results
     ]
-
-
-def build_briefing():
-    states = fetch_all_states()
-    briefing = {
-        "updatedAt": datetime.now(timezone.utc).isoformat(),
-        "totalStates": len(STATES),
-        "statesWithNews": sum(1 for s in states if s["stories"]),
-        "states": states,
-    }
-    write_cache(briefing)
-    return add_translations(briefing)
-
-
-def run_update_job():
-    global is_updating, update_error, update_started_at
-    try:
-        briefing = build_briefing()
-        write_cache(briefing)
-        update_error = None
-    except Exception as exc:
-        update_error = str(exc)
-    finally:
-        is_updating = False
-        update_started_at = None
 
 
 def read_cache():
@@ -349,6 +439,7 @@ def get_local_ip():
 
 @app.route("/")
 def index():
+    refresh_update_state()
     return send_from_directory(BASE_DIR / "public", "index.html")
 
 
@@ -372,29 +463,38 @@ def get_briefing():
 @app.route("/api/briefing/update", methods=["POST"])
 def update_briefing():
     global is_updating, update_started_at, update_error
-    if is_updating:
-        if update_started_at and (time.time() - update_started_at) > 600:
-            is_updating = False
-        else:
-            return jsonify({"updating": True, "message": "Update already in progress"}), 202
-    is_updating = True
-    update_started_at = time.time()
-    update_error = None
+    refresh_update_state()
+
+    with _update_lock:
+        if is_updating:
+            elapsed = get_update_elapsed() or 0
+            return jsonify(
+                {
+                    "updating": True,
+                    "message": f"Update in progress ({elapsed}s). Please wait…",
+                    "elapsedSeconds": elapsed,
+                }
+            ), 202
+
+        is_updating = True
+        update_started_at = time.time()
+        update_error = None
+        write_update_lock()
+
     thread = threading.Thread(target=run_update_job, daemon=True)
     thread.start()
     return jsonify(
         {
             "updating": True,
-            "message": "Update started. This may take 1-2 minutes.",
+            "message": "Update started. News first, then translations (~2 min).",
         }
     ), 202
 
 
 @app.route("/api/briefing/update", methods=["GET"])
 def update_briefing_status():
-    elapsed = None
-    if update_started_at:
-        elapsed = int(time.time() - update_started_at)
+    refresh_update_state()
+    elapsed = get_update_elapsed()
     return jsonify(
         {
             "updating": is_updating,
@@ -406,16 +506,14 @@ def update_briefing_status():
 
 @app.route("/api/status", methods=["GET"])
 def status():
+    refresh_update_state()
     cached = read_cache()
     public_url = request.host_url.rstrip("/")
-    elapsed = None
-    if update_started_at and is_updating:
-        elapsed = int(time.time() - update_started_at)
     return jsonify(
         {
             "updating": is_updating,
             "updateError": update_error,
-            "elapsedSeconds": elapsed,
+            "elapsedSeconds": get_update_elapsed(),
             "lastUpdated": cached.get("updatedAt") if cached else None,
             "statesWithNews": cached.get("statesWithNews", 0) if cached else 0,
             "totalStates": len(STATES),
