@@ -57,7 +57,7 @@ async function pollUntilUpdateDone() {
     const res = await fetch('/api/status');
     const data = await res.json();
     const elapsed = data.elapsedSeconds ?? (i + 1) * 2;
-    setProgressText(`正在采集50州新闻并翻译… ${elapsed}s / Fetching news…`);
+    setProgressText(`正在采集50州新闻… ${elapsed}s / Fetching news…`);
 
     if (!data.updating) {
       if (data.updateError && !data.updateError.includes('timed out')) {

@@ -6,7 +6,7 @@ services:
     region: oregon
     branch: master
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn server:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 300 --graceful-timeout 300
+    startCommand: gunicorn server:app --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 120 --graceful-timeout 120
     healthCheckPath: /
     autoDeploy: true
     envVars:

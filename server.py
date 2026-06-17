@@ -21,8 +21,9 @@ TRANSLATION_CACHE_FILE = BASE_DIR / "cache" / "translations.json"
 UPDATE_LOCK_FILE = BASE_DIR / "cache" / "update.lock"
 STATES_FILE = BASE_DIR / "data" / "states.json"
 PORT = int(__import__("os").environ.get("PORT", 3847))
-UPDATE_MAX_SECONDS = 180
-TRANSLATION_BUDGET_SECONDS = 120
+UPDATE_MAX_SECONDS = 120
+TRANSLATION_BUDGET_SECONDS = 90
+FETCH_TIMEOUT_SECONDS = 12
 
 _translation_cache = None
 _translation_cache_dirty = False
@@ -348,44 +349,28 @@ def add_translations(briefing, deadline=None):
     return briefing
 
 
-def build_briefing():
-    states = fetch_all_states()
-    briefing = {
-        "updatedAt": datetime.now(timezone.utc).isoformat(),
-        "totalStates": len(STATES),
-        "statesWithNews": sum(1 for s in states if s["stories"]),
-        "states": states,
-    }
-    # Save news immediately so users get content even if translation is slow
-    for story in (s for st in states for s in st["stories"]):
-        cached = load_translation_cache().get(story["title"].strip()[:450], "")
-        if cached:
-            story["titleZh"] = cached
-    write_cache(briefing)
-    deadline = time.time() + TRANSLATION_BUDGET_SECONDS
-    return add_translations(briefing, deadline=deadline)
+def fetch_state_news_timed(state):
+    with ThreadPoolExecutor(max_workers=1) as executor:
+        future = executor.submit(fetch_state_news, state)
+        try:
+            return future.result(timeout=FETCH_TIMEOUT_SECONDS)
+        except Exception as exc:
+            return {"state": state, "stories": [], "error": str(exc)}
 
 
-def run_update_job():
-    global is_updating, update_error, update_started_at
-    try:
-        briefing = build_briefing()
-        write_cache(briefing)
-        update_error = None
-    except Exception as exc:
-        update_error = str(exc)
-    finally:
-        save_translation_cache()
-        with _update_lock:
-            is_updating = False
-            update_started_at = None
-            clear_update_lock()
+def apply_cached_translations(briefing):
+    for state_data in briefing["states"]:
+        for story in state_data["stories"]:
+            cached = load_translation_cache().get(story["title"].strip()[:450], "")
+            if cached:
+                story["titleZh"] = cached
+    return briefing
 
 
 def fetch_all_states():
     results = []
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        futures = {executor.submit(fetch_state_news, state): state for state in STATES}
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {executor.submit(fetch_state_news_timed, state): state for state in STATES}
         for future in as_completed(futures):
             results.append(future.result())
     results.sort(key=lambda r: r["state"]["code"])
@@ -400,6 +385,44 @@ def fetch_all_states():
         }
         for r in results
     ]
+
+
+def build_briefing_news_only():
+    states = fetch_all_states()
+    briefing = {
+        "updatedAt": datetime.now(timezone.utc).isoformat(),
+        "totalStates": len(STATES),
+        "statesWithNews": sum(1 for s in states if s["stories"]),
+        "states": states,
+    }
+    return apply_cached_translations(briefing)
+
+
+def run_update_job():
+    global is_updating, update_error, update_started_at
+    briefing = None
+    try:
+        briefing = build_briefing_news_only()
+        write_cache(briefing)
+        update_error = None
+    except Exception as exc:
+        update_error = str(exc)
+    finally:
+        with _update_lock:
+            is_updating = False
+            update_started_at = None
+            clear_update_lock()
+
+    if not briefing:
+        return
+
+    try:
+        deadline = time.time() + TRANSLATION_BUDGET_SECONDS
+        add_translations(briefing, deadline=deadline)
+        write_cache(briefing)
+        save_translation_cache()
+    except Exception:
+        pass
 
 
 def read_cache():
@@ -486,7 +509,7 @@ def update_briefing():
     return jsonify(
         {
             "updating": True,
-            "message": "Update started. News first, then translations (~2 min).",
+            "message": "Update started. Fetching news from 50 states (~1 min)…",
         }
     ), 202
 
