@@ -37,8 +37,6 @@ is_updating = False
 update_started_at = None
 update_error = None
 
-clear_stale_update_lock()
-
 CATEGORY_KEYWORDS = {
     "political": [
         "politic", "election", "governor", "legisl", "congress", "senate", "house",
@@ -637,6 +635,9 @@ def translate_briefing_batch():
         if not s.get("titleZh") or s.get("titleZh") == s.get("title")
     )
     return jsonify({"translated": translated_count, "remaining": remaining, "briefing": cached})
+
+
+@app.route("/api/story/<story_id>")
 def get_story(story_id):
     cached = read_cache()
     if not cached:
@@ -646,6 +647,9 @@ def get_story(story_id):
             if story["id"] == story_id:
                 return jsonify({**story, "state": state["name"], "stateCode": state["code"]})
     return jsonify({"error": "Story not found"}), 404
+
+
+clear_stale_update_lock()
 
 
 if __name__ == "__main__":
