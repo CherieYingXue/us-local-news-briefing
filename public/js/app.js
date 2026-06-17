@@ -51,13 +51,45 @@ function setProgressText(text) {
   if (el) el.textContent = text;
 }
 
+async function fetchStatus(retries = 3) {
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      const res = await fetch('/api/status');
+      if (res.ok) return await res.json();
+    } catch (_) {}
+    if (attempt < retries - 1) await sleep(1500);
+  }
+  return null;
+}
+
 async function pollUntilUpdateDone() {
+  let consecutiveFailures = 0;
+  let lastStates = briefingData?.statesWithNews || 0;
+
   for (let i = 0; i < 120; i++) {
     await sleep(2000);
-    const res = await fetch('/api/status');
-    const data = await res.json();
+    const data = await fetchStatus(5);
+    if (!data) {
+      consecutiveFailures++;
+      if (consecutiveFailures >= 20) {
+        throw new Error('服务器暂时无响应，请稍后重试 · Server unavailable, please retry');
+      }
+      setProgressText(`连接中断，重试中… (${consecutiveFailures}) / Retrying connection…`);
+      continue;
+    }
+
+    consecutiveFailures = 0;
     const elapsed = data.elapsedSeconds ?? (i + 1) * 2;
-    setProgressText(`正在采集50州新闻… ${elapsed}s / Fetching news…`);
+    const states = data.statesWithNews ?? 0;
+    const total = data.totalStates ?? 50;
+    setProgressText(
+      `正在采集 ${states}/${total} 州… ${elapsed}s / Fetching ${states}/${total} states…`
+    );
+
+    if (states > lastStates) {
+      lastStates = states;
+      await loadBriefing();
+    }
 
     if (!data.updating) {
       if (data.updateError && !data.updateError.includes('timed out')) {
@@ -67,6 +99,43 @@ async function pollUntilUpdateDone() {
     }
   }
   throw new Error('更新超时，请重试 · Update timed out, please retry');
+}
+
+async function startUpdateRequest() {
+  for (let attempt = 0; attempt < 5; attempt++) {
+    try {
+      const res = await fetch('/api/briefing/update', { method: 'POST' });
+      const data = await res.json().catch(() => ({}));
+      if (res.status === 202 || res.ok) return data;
+    } catch (_) {}
+    if (attempt < 4) {
+      setProgressText(`正在连接服务器… (${attempt + 1}/5) / Connecting…`);
+      await sleep(3000);
+    }
+  }
+  throw new Error('无法连接服务器，请稍后重试 · Could not reach server, please retry');
+}
+
+async function resumeUpdateIfNeeded() {
+  const data = await fetchStatus();
+  if (!data?.updating) return;
+
+  updateBtn.disabled = true;
+  progressBar.classList.remove('hidden');
+  setProgressText('检测到更新进行中… Update in progress…');
+
+  try {
+    await pollUntilUpdateDone();
+    await loadBriefing();
+    await translateMissingTitles();
+  } catch (err) {
+    alert(err.message || '网络错误，请重试 · Network error, please retry');
+    await loadBriefing();
+  } finally {
+    updateBtn.disabled = false;
+    progressBar.classList.add('hidden');
+    setProgressText('正在从50个州采集新闻… Fetching news…');
+  }
 }
 
 async function loadBriefing() {
@@ -206,14 +275,7 @@ async function updateBriefing() {
   setProgressText('正在启动更新… Starting update…');
 
   try {
-    const res = await fetch('/api/briefing/update', { method: 'POST' });
-    const data = await res.json();
-
-    if (res.status !== 202 && !res.ok) {
-      alert(data.error || data.message || 'Update failed');
-      return;
-    }
-
+    await startUpdateRequest();
     await pollUntilUpdateDone();
     await loadBriefing();
     await translateMissingTitles();
@@ -246,4 +308,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 loadStatus();
-loadBriefing().then(() => translateMissingTitles().catch(() => {}));
+loadBriefing()
+  .then(() => resumeUpdateIfNeeded())
+  .then(() => translateMissingTitles().catch(() => {}));

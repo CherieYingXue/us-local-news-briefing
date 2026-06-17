@@ -37,6 +37,8 @@ is_updating = False
 update_started_at = None
 update_error = None
 
+clear_stale_update_lock()
+
 CATEGORY_KEYWORDS = {
     "political": [
         "politic", "election", "governor", "legisl", "congress", "senate", "house",
@@ -144,9 +146,27 @@ def read_update_lock():
     if not UPDATE_LOCK_FILE.exists():
         return None
     try:
-        return json.loads(UPDATE_LOCK_FILE.read_text(encoding="utf-8"))
+        lock = json.loads(UPDATE_LOCK_FILE.read_text(encoding="utf-8"))
+        if lock.get("pid") != os.getpid():
+            return None
+        return lock
     except Exception:
         return None
+
+
+def clear_stale_update_lock():
+    """Remove lock files left by a previous worker/process."""
+    if not UPDATE_LOCK_FILE.exists():
+        return
+    try:
+        lock = json.loads(UPDATE_LOCK_FILE.read_text(encoding="utf-8"))
+        if lock.get("pid") != os.getpid():
+            UPDATE_LOCK_FILE.unlink(missing_ok=True)
+    except Exception:
+        try:
+            UPDATE_LOCK_FILE.unlink(missing_ok=True)
+        except Exception:
+            pass
 
 
 def write_update_lock():
@@ -186,11 +206,9 @@ def reset_update_state(reason=""):
 
 def refresh_update_state():
     """Clear stuck or stale update locks (e.g. after timeout or redeploy)."""
+    clear_stale_update_lock()
     elapsed = get_update_elapsed()
     if elapsed is None or elapsed <= UPDATE_MAX_SECONDS:
-        lock = read_update_lock()
-        if lock and not is_updating:
-            clear_update_lock()
         return False
 
     lock = read_update_lock()
