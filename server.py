@@ -25,6 +25,12 @@ PORT = int(__import__("os").environ.get("PORT", 3847))
 UPDATE_MAX_SECONDS = 240
 TRANSLATION_BUDGET_SECONDS = 90
 FETCH_TIMEOUT_SECONDS = 5
+AUTO_UPDATE_MAX_AGE_SECONDS = int(os.environ.get("AUTO_UPDATE_MAX_AGE_HOURS", "4")) * 3600
+AUTO_UPDATE_ON_START = os.environ.get("AUTO_UPDATE_ON_START", "true").lower() not in (
+    "0",
+    "false",
+    "no",
+)
 
 _translation_cache = None
 _translation_cache_dirty = False
@@ -473,6 +479,57 @@ def run_update_job():
             clear_update_lock()
 
 
+def get_cache_timestamp():
+    if not CACHE_FILE.exists():
+        return None
+    try:
+        cached = json.loads(CACHE_FILE.read_text(encoding="utf-8"))
+        updated_at = cached.get("updatedAt")
+        if updated_at:
+            return datetime.fromisoformat(updated_at.replace("Z", "+00:00")).timestamp()
+    except Exception:
+        pass
+    return None
+
+
+def should_auto_update_on_startup():
+    if not AUTO_UPDATE_ON_START:
+        return False
+    if not os.environ.get("RENDER"):
+        return False
+    refresh_update_state()
+    if is_updating:
+        return False
+    cache_ts = get_cache_timestamp()
+    if cache_ts is None:
+        return True
+    return (time.time() - cache_ts) > AUTO_UPDATE_MAX_AGE_SECONDS
+
+
+def trigger_background_update():
+    global is_updating, update_started_at, update_error
+    refresh_update_state()
+    with _update_lock:
+        if is_updating:
+            return False
+        is_updating = True
+        update_started_at = time.time()
+        update_error = None
+        write_update_lock()
+    threading.Thread(target=run_update_job, daemon=True).start()
+    return True
+
+
+def schedule_startup_auto_update():
+    def _delayed_start():
+        time.sleep(3)
+        if should_auto_update_on_startup():
+            print("[startup] Auto-updating daily briefing…", flush=True)
+            trigger_background_update()
+
+    threading.Thread(target=_delayed_start, daemon=True).start()
+
+
 def read_cache():
     if CACHE_FILE.exists():
         try:
@@ -540,31 +597,21 @@ def get_briefing():
 
 @app.route("/api/briefing/update", methods=["POST"])
 def update_briefing():
-    global is_updating, update_started_at, update_error
-    refresh_update_state()
+    if trigger_background_update():
+        elapsed = get_update_elapsed() or 0
+        return jsonify(
+            {
+                "updating": True,
+                "message": "Update started. Fetching news from 50 states (~1 min)…",
+            }
+        ), 202
 
-    with _update_lock:
-        if is_updating:
-            elapsed = get_update_elapsed() or 0
-            return jsonify(
-                {
-                    "updating": True,
-                    "message": f"Update in progress ({elapsed}s). Please wait…",
-                    "elapsedSeconds": elapsed,
-                }
-            ), 202
-
-        is_updating = True
-        update_started_at = time.time()
-        update_error = None
-        write_update_lock()
-
-    thread = threading.Thread(target=run_update_job, daemon=True)
-    thread.start()
+    elapsed = get_update_elapsed() or 0
     return jsonify(
         {
             "updating": True,
-            "message": "Update started. Fetching news from 50 states (~1 min)…",
+            "message": f"Update in progress ({elapsed}s). Please wait…",
+            "elapsedSeconds": elapsed,
         }
     ), 202
 
@@ -650,6 +697,7 @@ def get_story(story_id):
 
 
 clear_stale_update_lock()
+schedule_startup_auto_update()
 
 
 if __name__ == "__main__":
