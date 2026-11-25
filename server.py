@@ -7,7 +7,7 @@ import time
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from html import unescape
 from pathlib import Path
 
@@ -31,6 +31,13 @@ AUTO_UPDATE_ON_START = os.environ.get("AUTO_UPDATE_ON_START", "true").lower() no
     "false",
     "no",
 )
+DAILY_UPDATE_ENABLED = os.environ.get("DAILY_UPDATE_ENABLED", "true").lower() not in (
+    "0",
+    "false",
+    "no",
+)
+DAILY_UPDATE_HOUR_UTC = int(os.environ.get("DAILY_UPDATE_HOUR_UTC", "22"))
+DAILY_UPDATE_MINUTE_UTC = int(os.environ.get("DAILY_UPDATE_MINUTE_UTC", "0"))
 
 _translation_cache = None
 _translation_cache_dirty = False
@@ -464,11 +471,14 @@ def build_briefing_news_only():
     return apply_cached_translations(briefing)
 
 
-def run_update_job():
+def run_update_job(translate=False):
     global is_updating, update_error, update_started_at
     try:
         briefing = build_briefing_news_only()
         write_cache(briefing)
+        if translate:
+            add_translations(briefing)
+            write_cache(briefing)
         update_error = None
     except Exception as exc:
         update_error = str(exc)
@@ -492,13 +502,37 @@ def get_cache_timestamp():
     return None
 
 
+def last_scheduled_update_time(now=None):
+    now = now or datetime.now(timezone.utc)
+    scheduled = now.replace(
+        hour=DAILY_UPDATE_HOUR_UTC, minute=DAILY_UPDATE_MINUTE_UTC, second=0, microsecond=0
+    )
+    if scheduled > now:
+        scheduled -= timedelta(days=1)
+    return scheduled
+
+
+def next_scheduled_update_time(now=None):
+    return last_scheduled_update_time(now) + timedelta(days=1)
+
+
+def missed_scheduled_update():
+    """True if the server was down/asleep at the last daily update time."""
+    if not DAILY_UPDATE_ENABLED:
+        return False
+    cache_ts = get_cache_timestamp()
+    return cache_ts is None or cache_ts < last_scheduled_update_time().timestamp()
+
+
 def should_auto_update_on_startup():
+    refresh_update_state()
+    if is_updating:
+        return False
+    if missed_scheduled_update():
+        return True
     if not AUTO_UPDATE_ON_START:
         return False
     if not os.environ.get("RENDER"):
-        return False
-    refresh_update_state()
-    if is_updating:
         return False
     cache_ts = get_cache_timestamp()
     if cache_ts is None:
@@ -506,7 +540,7 @@ def should_auto_update_on_startup():
     return (time.time() - cache_ts) > AUTO_UPDATE_MAX_AGE_SECONDS
 
 
-def trigger_background_update():
+def trigger_background_update(translate=False):
     global is_updating, update_started_at, update_error
     refresh_update_state()
     with _update_lock:
@@ -516,7 +550,7 @@ def trigger_background_update():
         update_started_at = time.time()
         update_error = None
         write_update_lock()
-    threading.Thread(target=run_update_job, daemon=True).start()
+    threading.Thread(target=run_update_job, args=(translate,), daemon=True).start()
     return True
 
 
@@ -525,9 +559,27 @@ def schedule_startup_auto_update():
         time.sleep(3)
         if should_auto_update_on_startup():
             print("[startup] Auto-updating daily briefing…", flush=True)
-            trigger_background_update()
+            trigger_background_update(translate=True)
 
     threading.Thread(target=_delayed_start, daemon=True).start()
+
+
+def schedule_daily_update():
+    if not DAILY_UPDATE_ENABLED:
+        return
+
+    def _loop():
+        while True:
+            next_run = next_scheduled_update_time()
+            # Sleep in short chunks so clock drift or host suspend can't skip a run.
+            while datetime.now(timezone.utc) < next_run:
+                remaining = (next_run - datetime.now(timezone.utc)).total_seconds()
+                time.sleep(max(1, min(remaining, 300)))
+            print(f"[schedule] Daily update at {next_run.isoformat()}", flush=True)
+            if not trigger_background_update(translate=True):
+                print("[schedule] Update already in progress, skipping", flush=True)
+
+    threading.Thread(target=_loop, daemon=True).start()
 
 
 def read_cache():
@@ -597,7 +649,8 @@ def get_briefing():
 
 @app.route("/api/briefing/update", methods=["POST"])
 def update_briefing():
-    if trigger_background_update():
+    translate = request.args.get("translate", "").lower() in ("1", "true", "yes")
+    if trigger_background_update(translate=translate):
         elapsed = get_update_elapsed() or 0
         return jsonify(
             {
@@ -642,6 +695,9 @@ def status():
             "lastUpdated": cached.get("updatedAt") if cached else None,
             "statesWithNews": cached.get("statesWithNews", 0) if cached else 0,
             "totalStates": len(STATES),
+            "nextScheduledUpdate": (
+                next_scheduled_update_time().isoformat() if DAILY_UPDATE_ENABLED else None
+            ),
             "mobileUrl": public_url,
             "localUrl": public_url,
         }
@@ -698,6 +754,7 @@ def get_story(story_id):
 
 clear_stale_update_lock()
 schedule_startup_auto_update()
+schedule_daily_update()
 
 
 if __name__ == "__main__":

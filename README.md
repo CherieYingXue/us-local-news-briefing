@@ -32,6 +32,12 @@ python server.py
 - 英文标题下方显示中文翻译
 - 点击标题查看摘要，可跳转阅读原文
 - 「更新每日简报」按钮采集过去24小时新闻
+- 每天 GMT 22:00 自动更新（含中文翻译）
+
+## 每日自动更新（GMT 22:00）
+
+- **服务器内置定时任务**：`server.py` 每天 22:00 UTC 自动采集并翻译新闻；若服务器在该时间处于休眠，下次启动时会自动补更新。可通过环境变量 `DAILY_UPDATE_HOUR_UTC` / `DAILY_UPDATE_MINUTE_UTC` 调整时间，`DAILY_UPDATE_ENABLED=false` 关闭。
+- **GitHub Actions**：`.github/workflows/daily-update.yml` 每天 22:00 UTC 唤醒 Render 免费实例并触发更新（也可在 Actions 页面手动运行）。如网址不同，在仓库 Settings → Variables 中设置 `SITE_URL`。
 
 ## 数据来源
 
