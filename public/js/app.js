@@ -39,6 +39,10 @@ async function loadStatus() {
       ? location.origin
       : (data.mobileUrl || location.origin);
     mobileLink.innerHTML = `📱 手机每日访问链接 · Daily phone link:<br><a href="${link}">${link}</a>`;
+    if (data.nextScheduledUpdate) {
+      $('#nextUpdate').textContent =
+        `每日 GMT 22:00 自动更新 · Next auto-update: ${formatDate(data.nextScheduledUpdate)}`;
+    }
   } catch (_) {}
 }
 

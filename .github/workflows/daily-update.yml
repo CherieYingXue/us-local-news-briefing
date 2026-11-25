@@ -1,0 +1,52 @@
+name: Daily briefing update
+
+on:
+  schedule:
+    # 22:00 GMT/UTC every day
+    - cron: "0 22 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SITE_URL: ${{ vars.SITE_URL || 'https://us-local-news-briefing.onrender.com' }}
+    steps:
+      - name: Wake up site
+        run: |
+          # Free Render instances sleep when idle; the first request can take ~30-60s.
+          for i in $(seq 1 12); do
+            if curl -fsS -o /dev/null --max-time 60 "$SITE_URL/api/status"; then
+              echo "Site is up"
+              exit 0
+            fi
+            echo "Waiting for site to wake (attempt $i)…"
+            sleep 10
+          done
+          echo "Site did not respond" >&2
+          exit 1
+
+      - name: Trigger update
+        run: |
+          curl -fsS --max-time 60 -X POST "$SITE_URL/api/briefing/update?translate=1"
+          echo
+
+      - name: Wait for update to finish
+        run: |
+          for i in $(seq 1 60); do
+            sleep 10
+            status=$(curl -fsS --max-time 30 "$SITE_URL/api/briefing/update" || echo '{}')
+            echo "$status"
+            if [ "$(echo "$status" | jq -r '.updating')" = "false" ]; then
+              if [ "$(echo "$status" | jq -r '.updateError')" = "null" ]; then
+                curl -fsS --max-time 30 "$SITE_URL/api/status"
+                echo
+                exit 0
+              fi
+              echo "Update finished with an error" >&2
+              exit 1
+            fi
+          done
+          echo "Timed out waiting for update" >&2
+          exit 1
