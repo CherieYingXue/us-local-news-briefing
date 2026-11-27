@@ -22,8 +22,8 @@ TRANSLATION_CACHE_FILE = CACHE_DIR / "translations.json"
 UPDATE_LOCK_FILE = CACHE_DIR / "update.lock"
 STATES_FILE = BASE_DIR / "data" / "states.json"
 PORT = int(__import__("os").environ.get("PORT", 3847))
-# Render's free tier needs ~150s for RSS alone plus up to ~90s for translation.
-UPDATE_MAX_SECONDS = 480
+# A cold Render free instance has taken ~7 min for RSS plus translation.
+UPDATE_MAX_SECONDS = 600
 TRANSLATION_BUDGET_SECONDS = 90
 FETCH_TIMEOUT_SECONDS = 5
 AUTO_UPDATE_MAX_AGE_SECONDS = int(os.environ.get("AUTO_UPDATE_MAX_AGE_HOURS", "4")) * 3600
