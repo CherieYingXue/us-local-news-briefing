@@ -11,6 +11,9 @@ on:
     - cron: "0 1 * * *"
   workflow_dispatch:
 
+permissions:
+  actions: write
+
 concurrency:
   group: daily-update
   cancel-in-progress: false
@@ -56,7 +59,7 @@ jobs:
           [ "$last_slot" -gt "$now" ] && last_slot=$((last_slot - 86400))
           last_updated=$(echo "$status" | jq -r '.lastUpdated // empty')
           updated_ts=$( [ -n "$last_updated" ] && date -u -d "$last_updated" +%s || echo 0)
-          if [ "$updated_ts" -ge "$last_slot" ] && [ "$(echo "$status" | jq -r '.statesWithNews')" -ge 45 ]; then
+          if [ "$updated_ts" -ge "$last_slot" ] && [ "$(echo "$status" | jq -r '.statesWithNews')" -ge 40 ]; then
             echo "Briefing already updated at $last_updated; skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
@@ -66,25 +69,41 @@ jobs:
       - name: Trigger update
         if: steps.check.outputs.skip != 'true'
         run: |
+          echo "STARTED_AT=$(date -u +%s)" >> "$GITHUB_ENV"
           curl -fsS --max-time 60 -X POST "$SITE_URL/api/briefing/update?translate=1"
           echo
 
       - name: Wait for update to finish
         if: steps.check.outputs.skip != 'true'
         run: |
+          # Judge success by the briefing data itself; in-memory update state is lost
+          # if the instance restarts mid-run.
           for i in $(seq 1 60); do
             sleep 10
-            status=$(curl -fsS --max-time 30 "$SITE_URL/api/briefing/update" || echo '{}')
+            status=$(curl -fsS --max-time 30 "$SITE_URL/api/status" || echo '{}')
             echo "$status"
-            if [ "$(echo "$status" | jq -r '.updating')" = "false" ]; then
-              if [ "$(echo "$status" | jq -r '.updateError')" = "null" ]; then
-                curl -fsS --max-time 30 "$SITE_URL/api/status"
-                echo
-                exit 0
-              fi
+            [ "$(echo "$status" | jq -r '.updating')" = "false" ] || continue
+            last_updated=$(echo "$status" | jq -r '.lastUpdated // empty')
+            [ -n "$last_updated" ] || continue
+            if [ "$(date -u -d "$last_updated" +%s)" -ge "$STARTED_AT" ] \
+              && [ "$(echo "$status" | jq -r '.statesWithNews')" -ge 40 ]; then
+              echo "Briefing updated at $last_updated"
+              exit 0
+            fi
+            if [ "$(echo "$status" | jq -r '.updateError')" != "null" ]; then
               echo "Update finished with an error" >&2
               exit 1
             fi
+            # Not updating and no fresh data: the job was lost (e.g. restart), so retry.
+            curl -fsS --max-time 60 -X POST "$SITE_URL/api/briefing/update?translate=1" || true
+            echo
           done
           echo "Timed out waiting for update" >&2
           exit 1
+
+      - name: Keep schedule enabled
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # GitHub disables scheduled workflows after 60 days without repo activity.
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/daily-update.yml/enable" || true

@@ -701,6 +701,7 @@ def status():
             ),
             "mobileUrl": public_url,
             "localUrl": public_url,
+            "commit": (os.environ.get("RENDER_GIT_COMMIT") or "")[:7] or None,
         }
     )
 
