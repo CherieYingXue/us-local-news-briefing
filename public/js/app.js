@@ -39,10 +39,6 @@ async function loadStatus() {
       ? location.origin
       : (data.mobileUrl || location.origin);
     mobileLink.innerHTML = `📱 手机每日访问链接 · Daily phone link:<br><a href="${link}">${link}</a>`;
-    if (data.nextScheduledUpdate) {
-      $('#nextUpdate').textContent =
-        `每日 GMT 22:00 自动更新 · Next auto-update: ${formatDate(data.nextScheduledUpdate)}`;
-    }
   } catch (_) {}
 }
 
@@ -66,11 +62,13 @@ async function fetchStatus(retries = 3) {
   return null;
 }
 
+const UPDATE_WAIT_MS = 10 * 60 * 1000;
+
 async function pollUntilUpdateDone() {
   let consecutiveFailures = 0;
-  let lastStates = briefingData?.statesWithNews || 0;
+  const deadline = Date.now() + UPDATE_WAIT_MS;
 
-  for (let i = 0; i < 120; i++) {
+  while (Date.now() < deadline) {
     await sleep(2000);
     const data = await fetchStatus(5);
     if (!data) {
@@ -83,24 +81,15 @@ async function pollUntilUpdateDone() {
     }
 
     consecutiveFailures = 0;
-    const elapsed = data.elapsedSeconds ?? (i + 1) * 2;
-    const states = data.statesWithNews ?? 0;
-    const total = data.totalStates ?? 50;
-    setProgressText(
-      `正在采集 ${states}/${total} 州… ${elapsed}s / Fetching ${states}/${total} states…`
-    );
-
-    if (states > lastStates) {
-      lastStates = states;
-      await loadBriefing();
-    }
-
     if (!data.updating) {
-      if (data.updateError && !data.updateError.includes('timed out')) {
-        throw new Error(data.updateError);
-      }
+      if (data.updateError) throw new Error(data.updateError);
       return;
     }
+    const done = data.progress ?? 0;
+    const total = data.totalStates ?? 50;
+    setProgressText(
+      `正在采集 ${done}/${total} 州… ${data.elapsedSeconds ?? 0}s / Fetching ${done}/${total} states…`
+    );
   }
   throw new Error('更新超时，请重试 · Update timed out, please retry');
 }
@@ -142,20 +131,55 @@ async function resumeUpdateIfNeeded() {
   }
 }
 
+// The free server loses its data whenever it sleeps, so keep the newest
+// briefing in the browser and prefer it over an older copy from the server.
+const SAVED_BRIEFING_KEY = 'savedBriefing';
+
+function loadSavedBriefing() {
+  try {
+    return JSON.parse(localStorage.getItem(SAVED_BRIEFING_KEY));
+  } catch (_) {
+    return null;
+  }
+}
+
+function saveBriefing(data) {
+  try {
+    localStorage.setItem(SAVED_BRIEFING_KEY, JSON.stringify(data));
+  } catch (_) {}
+}
+
+function isNewer(a, b) {
+  if (!a?.updatedAt || !a.states?.length) return false;
+  if (!b?.updatedAt) return true;
+  return new Date(a.updatedAt) >= new Date(b.updatedAt);
+}
+
+function showBriefing(data) {
+  briefingData = data;
+  if (briefingData.states && briefingData.states.length > 0) {
+    renderBriefing();
+  }
+  lastUpdated.textContent = formatBriefingDate(briefingData.updatedAt);
+  if (briefingData.statesWithNews) {
+    stateCount.textContent = `${briefingData.statesWithNews}/${briefingData.totalStates || 50} 州有新闻`;
+  }
+}
+
 async function loadBriefing() {
+  const saved = loadSavedBriefing();
   try {
     const res = await fetch('/api/briefing');
-    briefingData = await res.json();
-    if (briefingData.states && briefingData.states.length > 0) {
-      renderBriefing();
-    }
-    lastUpdated.textContent = formatBriefingDate(briefingData.updatedAt);
-    if (briefingData.statesWithNews) {
-      stateCount.textContent = `${briefingData.statesWithNews}/${briefingData.totalStates || 50} 州有新闻`;
+    const data = await res.json();
+    if (isNewer(data, saved)) {
+      saveBriefing(data);
+      showBriefing(data);
+      return;
     }
   } catch (err) {
     console.error(err);
   }
+  if (saved) showBriefing(saved);
 }
 
 function renderBriefing() {
@@ -229,11 +253,18 @@ function attachStoryListeners() {
   });
 }
 
-async function openStory(id) {
+function findStory(id) {
+  for (const state of briefingData?.states || []) {
+    const story = state.stories.find(s => s.id === id);
+    if (story) return { ...story, state: state.name, stateCode: state.code };
+  }
+  return null;
+}
+
+function openStory(id) {
   try {
-    const res = await fetch(`/api/story/${id}`);
-    if (!res.ok) return;
-    const story = await res.json();
+    const story = findStory(id);
+    if (!story) return;
 
     $('#modalState').textContent = `${story.state} (${story.stateCode})`;
     $('#modalCategory').textContent = `${story.categoryLabel?.zh || ''} · ${story.categoryLabel?.en || story.category}`;
@@ -262,11 +293,9 @@ async function translateMissingTitles() {
     const res = await fetch('/api/briefing/translate', { method: 'POST' });
     if (!res.ok) break;
     const data = await res.json();
-    if (data.briefing) {
-      briefingData = data.briefing;
-      renderBriefing();
-      lastUpdated.textContent = formatBriefingDate(briefingData.updatedAt);
-    }
+    if (!data.briefing || data.briefing.updatedAt !== briefingData?.updatedAt) break;
+    saveBriefing(data.briefing);
+    showBriefing(data.briefing);
     setProgressText(`翻译中… ${data.remaining ?? 0} 条剩余 / ${data.remaining ?? 0} remaining`);
     if (!data.remaining || data.translated === 0) break;
     await sleep(500);

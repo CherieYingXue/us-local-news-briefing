@@ -6,50 +6,41 @@ import threading
 import time
 import urllib.parse
 import urllib.request
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timedelta, timezone
+import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from html import unescape
 from pathlib import Path
 
-import feedparser
 from flask import Flask, jsonify, request, send_from_directory
 from werkzeug.middleware.proxy_fix import ProxyFix
+
+try:
+    import fcntl
+except ImportError:  # Windows
+    fcntl = None
 
 BASE_DIR = Path(__file__).parent
 CACHE_DIR = Path("/tmp/us-news-cache") if os.name != "nt" else BASE_DIR / "cache"
 CACHE_FILE = CACHE_DIR / "briefing.json"
 TRANSLATION_CACHE_FILE = CACHE_DIR / "translations.json"
 UPDATE_LOCK_FILE = CACHE_DIR / "update.lock"
+UPDATE_STATUS_FILE = CACHE_DIR / "update-status.json"
 STATES_FILE = BASE_DIR / "data" / "states.json"
-PORT = int(__import__("os").environ.get("PORT", 3847))
-# A cold Render free instance has taken ~7 min for RSS plus translation.
-UPDATE_MAX_SECONDS = 600
+PORT = int(os.environ.get("PORT", 3847))
 TRANSLATION_BUDGET_SECONDS = 90
-FETCH_TIMEOUT_SECONDS = 5
-AUTO_UPDATE_MAX_AGE_SECONDS = int(os.environ.get("AUTO_UPDATE_MAX_AGE_HOURS", "4")) * 3600
-AUTO_UPDATE_ON_START = os.environ.get("AUTO_UPDATE_ON_START", "true").lower() not in (
-    "0",
-    "false",
-    "no",
-)
-DAILY_UPDATE_ENABLED = os.environ.get("DAILY_UPDATE_ENABLED", "true").lower() not in (
-    "0",
-    "false",
-    "no",
-)
-DAILY_UPDATE_HOUR_UTC = int(os.environ.get("DAILY_UPDATE_HOUR_UTC", "22"))
-DAILY_UPDATE_MINUTE_UTC = int(os.environ.get("DAILY_UPDATE_MINUTE_UTC", "0"))
+FETCH_TIMEOUT_SECONDS = 10
+FETCH_WORKERS = 10
+MAX_ITEMS_PER_FEED = 8
+STORIES_PER_STATE = 3
 
 _translation_cache = None
 _translation_cache_dirty = False
-_update_lock = threading.Lock()
 
 app = Flask(__name__, static_folder="public", static_url_path="")
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 STATES = json.loads(STATES_FILE.read_text(encoding="utf-8"))
-is_updating = False
-update_started_at = None
-update_error = None
 
 CATEGORY_KEYWORDS = {
     "political": [
@@ -104,19 +95,24 @@ def categorize(text):
     return best if scores[best] > 0 else "social"
 
 
-def parse_date(entry):
-    for key in ("published_parsed", "updated_parsed"):
-        parsed = entry.get(key)
-        if parsed:
-            try:
-                return datetime(*parsed[:6], tzinfo=timezone.utc)
-            except (TypeError, ValueError):
-                pass
-    return None
+def parse_date(value):
+    if not value:
+        return None
+    value = value.strip()
+    try:
+        dt = parsedate_to_datetime(value)
+    except (TypeError, ValueError):
+        try:
+            dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
 
 
-def is_within_24_hours(entry):
-    dt = parse_date(entry)
+def is_within_24_hours(item):
+    dt = item["pubDate"]
     if not dt:
         return True
     return (datetime.now(timezone.utc) - dt).total_seconds() <= 86400
@@ -152,92 +148,6 @@ def save_translation_cache():
         json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     _translation_cache_dirty = False
-
-
-def read_update_lock():
-    if not UPDATE_LOCK_FILE.exists():
-        return None
-    try:
-        lock = json.loads(UPDATE_LOCK_FILE.read_text(encoding="utf-8"))
-        if lock.get("pid") != os.getpid():
-            return None
-        return lock
-    except Exception:
-        return None
-
-
-def clear_stale_update_lock():
-    """Remove lock files left by a previous worker/process."""
-    if not UPDATE_LOCK_FILE.exists():
-        return
-    try:
-        lock = json.loads(UPDATE_LOCK_FILE.read_text(encoding="utf-8"))
-        if lock.get("pid") != os.getpid():
-            UPDATE_LOCK_FILE.unlink(missing_ok=True)
-    except Exception:
-        try:
-            UPDATE_LOCK_FILE.unlink(missing_ok=True)
-        except Exception:
-            pass
-
-
-def write_update_lock():
-    UPDATE_LOCK_FILE.parent.mkdir(parents=True, exist_ok=True)
-    UPDATE_LOCK_FILE.write_text(
-        json.dumps({"startedAt": time.time(), "pid": os.getpid()}, indent=2),
-        encoding="utf-8",
-    )
-
-
-def clear_update_lock():
-    if UPDATE_LOCK_FILE.exists():
-        try:
-            UPDATE_LOCK_FILE.unlink()
-        except Exception:
-            pass
-
-
-def get_update_elapsed():
-    lock = read_update_lock()
-    if lock and lock.get("startedAt"):
-        return int(time.time() - lock["startedAt"])
-    if update_started_at:
-        return int(time.time() - update_started_at)
-    return None
-
-
-def reset_update_state(reason=""):
-    global is_updating, update_started_at, update_error
-    with _update_lock:
-        is_updating = False
-        update_started_at = None
-        if reason:
-            update_error = reason
-        clear_update_lock()
-
-
-def refresh_update_state():
-    """Clear stuck or stale update locks (e.g. after timeout or redeploy)."""
-    clear_stale_update_lock()
-    elapsed = get_update_elapsed()
-    if elapsed is None or elapsed <= UPDATE_MAX_SECONDS:
-        return False
-
-    lock = read_update_lock()
-    if lock and lock.get("startedAt"):
-        cached = read_cache()
-        updated_at = cached.get("updatedAt") if cached else None
-        if updated_at:
-            try:
-                cache_ts = datetime.fromisoformat(updated_at.replace("Z", "+00:00")).timestamp()
-                if cache_ts > lock["startedAt"]:
-                    reset_update_state()
-                    return True
-            except Exception:
-                pass
-
-    reset_update_state("Update timed out and was reset")
-    return True
 
 
 def is_valid_chinese_translation(source, translated):
@@ -321,39 +231,76 @@ def translate_to_chinese(text):
     return ""
 
 
-def fetch_feed_entries(feed_url, timeout=5):
+def _local_name(tag):
+    return tag.rsplit("}", 1)[-1]
+
+
+def _child_text(elem, *names):
+    for child in elem:
+        if _local_name(child.tag) in names and (child.text or "").strip():
+            return child.text.strip()
+    return ""
+
+
+def _atom_link(elem):
+    for child in elem:
+        if _local_name(child.tag) == "link" and child.get("rel", "alternate") == "alternate":
+            return child.get("href", "")
+    return ""
+
+
+def fetch_feed_items(feed_url, limit=MAX_ITEMS_PER_FEED, timeout=FETCH_TIMEOUT_SECONDS):
+    """Stream-parse an RSS/Atom feed, stopping after `limit` items.
+
+    Feeds embed full article bodies (~1 MB each); reading only the first few
+    items keeps updates fast on small CPUs.
+    """
     req = urllib.request.Request(
         feed_url,
         headers={"User-Agent": "US-Local-News-Briefing/1.0"},
     )
+    items = []
     with urllib.request.urlopen(req, timeout=timeout) as resp:
-        content = resp.read()
-    return feedparser.parse(content).entries or []
+        for _, elem in ET.iterparse(resp, events=("end",)):
+            if _local_name(elem.tag) not in ("item", "entry"):
+                continue
+            items.append(
+                {
+                    "title": unescape(_child_text(elem, "title")) or "Untitled",
+                    "link": _child_text(elem, "link") or _atom_link(elem),
+                    "description": _child_text(elem, "description", "summary"),
+                    "pubDate": parse_date(
+                        _child_text(elem, "pubDate", "published", "updated", "date")
+                    ),
+                }
+            )
+            elem.clear()
+            if len(items) >= limit:
+                break
+    return items
 
 
 def fetch_state_news(state):
     try:
-        entries = fetch_feed_entries(state["feed"], timeout=FETCH_TIMEOUT_SECONDS)
-        recent = [e for e in entries if is_within_24_hours(e)]
-        pool = recent[:8] if recent else entries[:3]
+        items = fetch_feed_items(state["feed"])
+        recent = [i for i in items if is_within_24_hours(i)]
+        pool = recent if recent else items
 
         stories = []
-        for entry in pool[:3]:
-            title = entry.get("title", "Untitled")
-            description = strip_html(
-                entry.get("summary") or entry.get("description") or ""
-            )[:500]
+        for item in pool[:STORIES_PER_STATE]:
+            title = item["title"]
+            description = strip_html(item["description"])[:500]
             category = categorize(f"{title} {description}")
-            pub = parse_date(entry)
+            pub = item["pubDate"] or datetime.now(timezone.utc)
             stories.append(
                 {
-                    "id": story_id(state["code"], entry.get("link", ""), title),
+                    "id": story_id(state["code"], item["link"], title),
                     "title": title,
                     "titleZh": "",
                     "description": description,
                     "descriptionZh": "",
-                    "link": entry.get("link", ""),
-                    "pubDate": pub.isoformat() if pub else datetime.now(timezone.utc).isoformat(),
+                    "link": item["link"],
+                    "pubDate": pub.isoformat(),
                     "category": category,
                     "categoryLabel": CATEGORY_LABELS[category],
                     "source": state["source"],
@@ -408,21 +355,14 @@ def apply_cached_translations(briefing):
     return briefing
 
 
-def fetch_all_states(progress_callback=None):
+def build_briefing(on_progress=None):
     results = []
-    batch_size = 10
-    for i in range(0, len(STATES), batch_size):
-        batch = STATES[i : i + batch_size]
-        batch_results = []
-        with ThreadPoolExecutor(max_workers=5) as executor:
-            futures = {executor.submit(fetch_state_news, state): state for state in batch}
-            for future in as_completed(futures):
-                batch_results.append(future.result())
-        results.extend(batch_results)
-        if progress_callback:
-            progress_callback(results)
-    results.sort(key=lambda r: r["state"]["code"])
-    return [
+    with ThreadPoolExecutor(max_workers=FETCH_WORKERS) as executor:
+        for result in executor.map(fetch_state_news, STATES):
+            results.append(result)
+            if on_progress:
+                on_progress(len(results))
+    states = [
         {
             "code": r["state"]["code"],
             "name": r["state"]["name"],
@@ -431,38 +371,8 @@ def fetch_all_states(progress_callback=None):
             "stories": r["stories"],
             "error": r["error"],
         }
-        for r in results
+        for r in sorted(results, key=lambda r: r["state"]["code"])
     ]
-
-
-def build_briefing_news_only():
-    partial = []
-
-    def save_progress(results):
-        states = sorted(
-            [
-                {
-                    "code": r["state"]["code"],
-                    "name": r["state"]["name"],
-                    "source": r["state"]["source"],
-                    "feed": r["state"]["feed"],
-                    "stories": r["stories"],
-                    "error": r["error"],
-                }
-                for r in results
-            ],
-            key=lambda s: s["code"],
-        )
-        briefing = {
-            "updatedAt": datetime.now(timezone.utc).isoformat(),
-            "totalStates": len(STATES),
-            "statesWithNews": sum(1 for s in states if s["stories"]),
-            "states": states,
-        }
-        apply_cached_translations(briefing)
-        write_cache(briefing)
-
-    states = fetch_all_states(progress_callback=save_progress)
     briefing = {
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "totalStates": len(STATES),
@@ -472,115 +382,99 @@ def build_briefing_news_only():
     return apply_cached_translations(briefing)
 
 
-def run_update_job(translate=False):
-    global is_updating, update_error, update_started_at
+# Update state lives on disk, guarded by an flock, so every gunicorn worker
+# sees the same status and only one update runs at a time.
+_local_update_lock = threading.Lock()
+
+
+def _write_json_atomic(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(f".{os.getpid()}.{threading.get_ident()}.tmp")
+    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    os.replace(tmp, path)
+
+
+def read_update_status():
     try:
-        briefing = build_briefing_news_only()
+        return json.loads(UPDATE_STATUS_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _try_lock():
+    """Return an open, exclusively locked file handle, or None if an update is running."""
+    if not _local_update_lock.acquire(blocking=False):
+        return None
+    if fcntl is None:
+        return _local_update_lock
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    handle = open(UPDATE_LOCK_FILE, "a+")
+    try:
+        fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        return handle
+    except OSError:
+        handle.close()
+        _local_update_lock.release()
+        return None
+
+
+def _release_lock(handle):
+    if handle is not _local_update_lock:
+        fcntl.flock(handle, fcntl.LOCK_UN)
+        handle.close()
+    _local_update_lock.release()
+
+
+def update_in_progress():
+    handle = _try_lock()
+    if handle is None:
+        return True
+    _release_lock(handle)
+    return False
+
+
+def run_update_job(lock_handle, translate):
+    status = {"startedAt": time.time(), "progress": 0, "error": None}
+    _write_json_atomic(UPDATE_STATUS_FILE, status)
+
+    def on_progress(done):
+        status["progress"] = done
+        _write_json_atomic(UPDATE_STATUS_FILE, status)
+
+    try:
+        briefing = build_briefing(on_progress)
+        if briefing["statesWithNews"] == 0:
+            raise RuntimeError("No news could be fetched from any state")
         write_cache(briefing)
         if translate:
             add_translations(briefing)
             write_cache(briefing)
-        update_error = None
     except Exception as exc:
-        update_error = str(exc)
+        status["error"] = str(exc)
     finally:
-        with _update_lock:
-            is_updating = False
-            update_started_at = None
-            clear_update_lock()
+        status["finishedAt"] = time.time()
+        _write_json_atomic(UPDATE_STATUS_FILE, status)
+        _release_lock(lock_handle)
 
 
-def get_cache_timestamp():
-    if not CACHE_FILE.exists():
-        return None
-    try:
-        cached = json.loads(CACHE_FILE.read_text(encoding="utf-8"))
-        updated_at = cached.get("updatedAt")
-        if updated_at:
-            return datetime.fromisoformat(updated_at.replace("Z", "+00:00")).timestamp()
-    except Exception:
-        pass
-    return None
-
-
-def last_scheduled_update_time(now=None):
-    now = now or datetime.now(timezone.utc)
-    scheduled = now.replace(
-        hour=DAILY_UPDATE_HOUR_UTC, minute=DAILY_UPDATE_MINUTE_UTC, second=0, microsecond=0
-    )
-    if scheduled > now:
-        scheduled -= timedelta(days=1)
-    return scheduled
-
-
-def next_scheduled_update_time(now=None):
-    return last_scheduled_update_time(now) + timedelta(days=1)
-
-
-def missed_scheduled_update():
-    """True if the server was down/asleep at the last daily update time."""
-    if not DAILY_UPDATE_ENABLED:
+def start_update(translate=False):
+    handle = _try_lock()
+    if handle is None:
         return False
-    cache_ts = get_cache_timestamp()
-    return cache_ts is None or cache_ts < last_scheduled_update_time().timestamp()
-
-
-def should_auto_update_on_startup():
-    refresh_update_state()
-    if is_updating:
-        return False
-    if missed_scheduled_update():
-        return True
-    if not AUTO_UPDATE_ON_START:
-        return False
-    if not os.environ.get("RENDER"):
-        return False
-    cache_ts = get_cache_timestamp()
-    if cache_ts is None:
-        return True
-    return (time.time() - cache_ts) > AUTO_UPDATE_MAX_AGE_SECONDS
-
-
-def trigger_background_update(translate=False):
-    global is_updating, update_started_at, update_error
-    refresh_update_state()
-    with _update_lock:
-        if is_updating:
-            return False
-        is_updating = True
-        update_started_at = time.time()
-        update_error = None
-        write_update_lock()
-    threading.Thread(target=run_update_job, args=(translate,), daemon=True).start()
+    threading.Thread(target=run_update_job, args=(handle, translate), daemon=True).start()
     return True
 
 
-def schedule_startup_auto_update():
-    def _delayed_start():
-        time.sleep(3)
-        if should_auto_update_on_startup():
-            print("[startup] Auto-updating daily briefing…", flush=True)
-            trigger_background_update(translate=True)
-
-    threading.Thread(target=_delayed_start, daemon=True).start()
-
-
-def schedule_daily_update():
-    if not DAILY_UPDATE_ENABLED:
-        return
-
-    def _loop():
-        while True:
-            next_run = next_scheduled_update_time()
-            # Sleep in short chunks so clock drift or host suspend can't skip a run.
-            while datetime.now(timezone.utc) < next_run:
-                remaining = (next_run - datetime.now(timezone.utc)).total_seconds()
-                time.sleep(max(1, min(remaining, 300)))
-            print(f"[schedule] Daily update at {next_run.isoformat()}", flush=True)
-            if not trigger_background_update(translate=True):
-                print("[schedule] Update already in progress, skipping", flush=True)
-
-    threading.Thread(target=_loop, daemon=True).start()
+def update_state():
+    updating = update_in_progress()
+    status = read_update_status()
+    started = status.get("startedAt")
+    return {
+        "updating": updating,
+        "progress": status.get("progress", 0) if updating else None,
+        "elapsedSeconds": int(time.time() - started) if updating and started else None,
+        "updateError": None if updating else status.get("error"),
+    }
 
 
 def read_cache():
@@ -600,8 +494,7 @@ def read_cache():
 
 
 def write_cache(briefing):
-    CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    CACHE_FILE.write_text(json.dumps(briefing, ensure_ascii=False, indent=2), encoding="utf-8")
+    _write_json_atomic(CACHE_FILE, briefing)
 
 
 def get_local_ip():
@@ -627,8 +520,43 @@ def get_local_ip():
 
 @app.route("/")
 def index():
-    refresh_update_state()
     return send_from_directory(BASE_DIR / "public", "index.html")
+
+
+@app.route("/api/briefing/update", methods=["POST"])
+def update_briefing():
+    translate = request.args.get("translate", "").lower() in ("1", "true", "yes")
+    started = start_update(translate=translate)
+    return jsonify(
+        {
+            **update_state(),
+            "updating": True,
+            "started": started,
+            "message": "Update started" if started else "Update already in progress",
+        }
+    ), 202
+
+
+@app.route("/api/briefing/update", methods=["GET"])
+def update_briefing_status():
+    return jsonify(update_state())
+
+
+@app.route("/api/status", methods=["GET"])
+def status():
+    cached = read_cache()
+    public_url = request.host_url.rstrip("/")
+    return jsonify(
+        {
+            **update_state(),
+            "lastUpdated": cached.get("updatedAt") if cached else None,
+            "statesWithNews": cached.get("statesWithNews", 0) if cached else 0,
+            "totalStates": len(STATES),
+            "mobileUrl": public_url,
+            "localUrl": public_url,
+            "commit": (os.environ.get("RENDER_GIT_COMMIT") or "")[:7] or None,
+        }
+    )
 
 
 @app.route("/api/briefing", methods=["GET"])
@@ -636,72 +564,14 @@ def get_briefing():
     cached = read_cache()
     if cached:
         cached["fromCache"] = True
-        cached["updating"] = is_updating
+        cached["updating"] = update_in_progress()
         return jsonify(cached)
     return jsonify(
         {
             "updatedAt": None,
             "states": [],
             "message": 'No briefing yet. Click "Update Daily Briefing" to fetch news.',
-            "updating": is_updating,
-        }
-    )
-
-
-@app.route("/api/briefing/update", methods=["POST"])
-def update_briefing():
-    translate = request.args.get("translate", "").lower() in ("1", "true", "yes")
-    if trigger_background_update(translate=translate):
-        elapsed = get_update_elapsed() or 0
-        return jsonify(
-            {
-                "updating": True,
-                "message": "Update started. Fetching news from 50 states (~1 min)…",
-            }
-        ), 202
-
-    elapsed = get_update_elapsed() or 0
-    return jsonify(
-        {
-            "updating": True,
-            "message": f"Update in progress ({elapsed}s). Please wait…",
-            "elapsedSeconds": elapsed,
-        }
-    ), 202
-
-
-@app.route("/api/briefing/update", methods=["GET"])
-def update_briefing_status():
-    refresh_update_state()
-    elapsed = get_update_elapsed()
-    return jsonify(
-        {
-            "updating": is_updating,
-            "updateError": update_error,
-            "elapsedSeconds": elapsed,
-        }
-    )
-
-
-@app.route("/api/status", methods=["GET"])
-def status():
-    refresh_update_state()
-    cached = read_cache()
-    public_url = request.host_url.rstrip("/")
-    return jsonify(
-        {
-            "updating": is_updating,
-            "updateError": update_error,
-            "elapsedSeconds": get_update_elapsed(),
-            "lastUpdated": cached.get("updatedAt") if cached else None,
-            "statesWithNews": cached.get("statesWithNews", 0) if cached else 0,
-            "totalStates": len(STATES),
-            "nextScheduledUpdate": (
-                next_scheduled_update_time().isoformat() if DAILY_UPDATE_ENABLED else None
-            ),
-            "mobileUrl": public_url,
-            "localUrl": public_url,
-            "commit": (os.environ.get("RENDER_GIT_COMMIT") or "")[:7] or None,
+            "updating": update_in_progress(),
         }
     )
 
@@ -752,11 +622,6 @@ def get_story(story_id):
             if story["id"] == story_id:
                 return jsonify({**story, "state": state["name"], "stateCode": state["code"]})
     return jsonify({"error": "Story not found"}), 404
-
-
-clear_stale_update_lock()
-schedule_startup_auto_update()
-schedule_daily_update()
 
 
 if __name__ == "__main__":
