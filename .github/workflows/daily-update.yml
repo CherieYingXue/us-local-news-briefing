@@ -2,9 +2,18 @@ name: Daily briefing update
 
 on:
   schedule:
-    # 22:00 GMT/UTC every day
+    # 22:00 GMT/UTC every day. GitHub delays or drops scheduled runs under load,
+    # so later entries act as fallbacks and skip if the 22:00 update already landed.
     - cron: "0 22 * * *"
+    - cron: "20 22 * * *"
+    - cron: "45 22 * * *"
+    - cron: "15 23 * * *"
+    - cron: "0 1 * * *"
   workflow_dispatch:
+
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -27,12 +36,41 @@ jobs:
           echo "Site did not respond" >&2
           exit 1
 
+      - name: Check whether today's update already ran
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Waking the site can start its own catch-up update; give it time to finish.
+          for i in $(seq 1 48); do
+            status=$(curl -fsS --max-time 30 "$SITE_URL/api/status" || echo '{}')
+            [ "$(echo "$status" | jq -r '.updating')" = "true" ] || break
+            echo "Update already in progress, waiting…"
+            sleep 10
+          done
+          echo "$status"
+          now=$(date -u +%s)
+          last_slot=$(date -u -d "$(date -u +%F) 22:00" +%s)
+          [ "$last_slot" -gt "$now" ] && last_slot=$((last_slot - 86400))
+          last_updated=$(echo "$status" | jq -r '.lastUpdated // empty')
+          updated_ts=$( [ -n "$last_updated" ] && date -u -d "$last_updated" +%s || echo 0)
+          if [ "$updated_ts" -ge "$last_slot" ] && [ "$(echo "$status" | jq -r '.statesWithNews')" -ge 45 ]; then
+            echo "Briefing already updated at $last_updated; skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Trigger update
+        if: steps.check.outputs.skip != 'true'
         run: |
           curl -fsS --max-time 60 -X POST "$SITE_URL/api/briefing/update?translate=1"
           echo
 
       - name: Wait for update to finish
+        if: steps.check.outputs.skip != 'true'
         run: |
           for i in $(seq 1 60); do
             sleep 10
